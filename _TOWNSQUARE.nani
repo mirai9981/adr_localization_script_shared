@@ -39,19 +39,6 @@ Queen: My heart aches to tell you all that My Husband...Your King...
 Queen: King Bradley III, has passed away last night..
 Queen: His tragic passing will weigh heavily on all of us, but most of all the royal family…
 Crowd: Eh? So sudden...
-; Queen: In contrast to this, 
-; Queen: His Kin and My stepdaughter, Alicia III, Princess of Hydenseberg...
-; Queen: Has gone missing...
-; Queen: In this trying times i'd like to ask for your help on finding her.
-; Queen: Citizen will be able to find her..
-; Queen: Shall be handsomely rewarded by the Royal Family.
-; @char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HMM
-; Mira: ....
-; @char Gunther.BASE>HAIR,BASE/BODY>CLOAKED,BASE/FACE>OH,BASE/FX>SWEAT_SING
-; Gunther: Are you alright?
-; @char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH
-; Mira: This is a lot to process.
-; Gunther: ...
 @char Gunther.BASE>HAIR,BASE/BODY>CLOAKED,BASE/FACE>HMM,BASE/FX-
 @char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM
 @stopbgm emotion_theme

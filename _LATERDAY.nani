@@ -1,0 +1,46 @@
+@back BLANK
+@bgm crowd_adjusted
+Later that day...
+
+@stopbgm crowd_adjusted
+@bgm old_farmer_theme
+@printer Dialogue
+@back TAVERN_DAY_ON
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?,BASE/FX>PISSED pos:{g_POS} scale:{g_SCALE}
+Gunther: “Prosperity" my ass!
+; @showUI DayIndicator
+@char Mira.CLOAK-,{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE pos:50,0
+Mira: ...
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?,BASE/FX>PISSED 
+Gunther: We can’t afford to pay twice the annual tax!!
+Gunther: We’ll lose profit!! The inn! Everything!!
+@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>OH,BASE/FX>SWEATY_FACE
+Mira: C-calm down,My love..
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRR,BASE/FX>PISSED 
+Gunther: ....
+@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE
+Mira: Take a breath...
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>TSK,BASE/FX>PISSED 
+Gunther: ...
+@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE
+Mira: A little more...
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>PISSED 
+Gunther: ...
+@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+Mira: That's better!
+Gunther: ...
+@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+Mira: So, When should we auction the Inn?
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?,BASE/FX>PISSED 
+Gunther: Mira!!
+@char Mira.{def_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>AH
+Mira: Hahah! I'm just kidding! Calm down!
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>PISSED 
+Gunther: ...
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+Gunther: *SIGH...
+@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH
+Mira: C-come on now...
+Mira: Don't lose hope, I'm sure we can find a way somehow..
+Gunther: I sure do hope so...
+@goto _LOOPER
