@@ -1,0 +1,112 @@
+@back BLANK
+Upon arriving at the townsquare...
+
+@bgm crowd_adjusted
+@printer ScenePrinter
+@back TOWNSQUARE_EVE_CROWDED
+@char Mira.CLOAK>,{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH look:left pos:90,-65
+@char Gunther.BASE>HAIR,BASE/BODY>CLOAKED,BASE/FACE>OAH,BASE/FX- pos:11,-26 scale:{g_SCALE}
+Gunther: By the gods, It’s packed!
+Gunther: And the royal Guards are here too..
+@char Mira.CLOAK>,{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM
+Mira: Hmm, Someone of importance must be around...
+
+@showUI LetterBox_v2
+@stopbgm crowd_adjusted
+???: Attention! ATTENTION! 
+
+@bgm trader_theme
+@char Knights pos:50
+;@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>OH pos:50
+Knights: People of Hydenseberg, I require your full attention!
+Crowd: ....
+;@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>HMM
+Knights: Hmm..
+;@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>EH
+Knights: Now, Please kneel before the Queen!!
+@stopbgm trader_theme
+Crowd: Ehh? She's here?
+Knights: Your Majesty..
+@hide Knights
+
+@bgm emotion_theme
+@char Queen.BASE>BODY,BASE/EYES>LOOSED,BASE/MOUTH>AH pos:50
+Queen: Citizens of Hydenseberg, Lend me your ears~
+@char Queen.BASE>BODY,BASE/EYES>CLOSED_L,BASE/MOUTH>OH pos:50
+
+Queen: A fog of sadness has descended on our land this day. 
+Queen: My heart aches to tell you all that My Husband...Your King...
+Queen: King Bradley III, has passed away last night..
+Queen: His tragic passing will weigh heavily on all of us, but most of all the royal family…
+Crowd: Eh? So sudden...
+; Queen: In contrast to this, 
+; Queen: His Kin and My stepdaughter, Alicia III, Princess of Hydenseberg...
+; Queen: Has gone missing...
+; Queen: In this trying times i'd like to ask for your help on finding her.
+; Queen: Citizen will be able to find her..
+; Queen: Shall be handsomely rewarded by the Royal Family.
+; @char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HMM
+; Mira: ....
+; @char Gunther.BASE>HAIR,BASE/BODY>CLOAKED,BASE/FACE>OH,BASE/FX>SWEAT_SING
+; Gunther: Are you alright?
+; @char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH
+; Mira: This is a lot to process.
+; Gunther: ...
+@char Gunther.BASE>HAIR,BASE/BODY>CLOAKED,BASE/FACE>HMM,BASE/FX-
+@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM
+@stopbgm emotion_theme
+Queen: With that out of the way...
+Queen: From this day forward..
+@bgm royal_theme volume:0.7
+@char Queen.BASE>BODY,BASE/EYES>DEFAULT,BASE/MOUTH>AH pos:50
+Queen: I shall now assume the Throne of Hydensberg. 
+@char Queen.BASE>BODY,BASE/EYES>CLOSED,BASE/MOUTH>OH
+Queen: It is my hope that I can help fulfill my husband’s dream of leading Hydensberg into a new age of prosperity and peace.
+@char Queen.BASE>BODY,BASE/EYES>DEFAULT,BASE/MOUTH>AH
+Queen: And to achieve this we must invest in our society..HEAVILY!
+Queen: Which is why I would like to declare a new mandate which i'd like to call..
+Queen: The "Prosperity" Order...
+Queen: The rules are simple..
+Queen: Any establishment or businesses...
+Queen: No matter how big or small...
+Queen: If you are to be <color=#FFBB53>caught</color> and proven for conducting [br]<color=#FFBB53>illegal activities within your establishment</color>
+Queen: Anyone who <color=#FFBB53>disobeys</color> this decree shall be sanctioned and will be <color=#FFBB53>punished</color> accordingly..
+Queen: Obey them and you shall live a <color=#FFBB53>blissful life</color>..
+@char Gunther.BASE>HAIR,BASE/BODY>CLOAKED,BASE/FACE>IDLE,BASE/FX-
+Gunther: ( Sounds easy enough.. )
+Queen: Lastly..
+Queen: Another decree of a tax increase will be issued throughout the kingdom.
+Queen: Due to a sudden increase of visitors to our kingdom.
+@char Gunther.BASE>HAIR,BASE/BODY>CLOAKED,BASE/FACE>IDLE,BASE/FX>SWEAT_SING
+Gunther: ( We definitely don't feel that "Increase-of-visitors" back on our place )
+Queen: All <color=#FFBB53>"Lodging"</color> establishment...
+Queen: Shall pay <color=#FFBB53>twice the amount of their tax</color> to ensure a fair share for the kingdom..
+@char Gunther.BASE>HAIR,BASE/BODY>CLOAKED,BASE/FACE>HAHH,BASE/FX>SHOCK
+Gunther: [spawn ShakeCharacter params:"Gunther"]Excuse me?!
+@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE
+Mira: D-don't be so loud!!
+Crowd: Seems reasonable...
+Crowd: Good thing our business is doing well so far...
+Queen: I hope for all you to lend me your strength in this trying times[br]as we all move forward to this New Age!
+Queen: Gods be with all of you. And gods bless Hydensberg!
+@char Queen.BASE>BODY,BASE/EYES>DEFAULT,BASE/MOUTH>IDLE
+Knights: Hail the Queen!!
+Crowd: *Cheering* *Cheering*
+Queen: Hmph~
+@hide Queen
+@char Knights pos:50
+;@char Knight pos:50
+Knights: You may now all return to your homes..
+Knights: Again, All of the mandates are to be effective today!
+@hide Knights
+@stopbgm royal_theme volume:0.7
+
+@bgm crowd_adjusted volume:0.4
+@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HMM,BASE/FX>SWEATY_FACE
+Mira: ...
+@char Gunther.BASE>HAIR,BASE/BODY>CLOAKED,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+Gunther: ...
+@stopbgm royal_theme
+
+@goto _LATERDAY
+@stop

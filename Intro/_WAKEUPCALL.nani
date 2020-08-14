@@ -1,0 +1,127 @@
+@printer Dialogue
+@back BEDROOM_DAY
+@bgm morning_ambient volume:0.5
+???: Hnngh...It's morning already?
+@showUI DayIndicator
+@stopbgm morning_ambient
+@bgm old_farmer_theme
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+Gunther: ( Ugh...my head is pounding. )
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SIGH_AIR
+Gunther: I shouldn’t have gone through that whole bottle of <color=#FFBB53>Draken Ale</color> last night.
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+Gunther: ( *SIGH... )
+@stopbgm old_farmer_theme
+
+@sfx footstep_custom
+; @sfx MedievalDoor_Open volume:0.5
+???: Gunther? You already awake?
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SHOCK
+Gunther: Huh?
+@bgm port volume:0.7
+@stopsfx footstep_custom
+
+; @bgm merry_theme
+@sfx MedievalDoor_Open volume:0.9
+@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH pos:50
+Mira: Oh good! You’re finally awake.
+@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>OH,BASE/FX>SWEATY_FACE
+Mira: I was starting to get worried...
+@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH
+Mira: Anyway, have some coffee first..should help with that hangover of yours..
+@char Mira.{def_config},BASE/FACE/EYES>CROSSED,BASE/FACE/MOUTH>HUH
+Mira: See, I told you not to drink too much of that stuff...
+@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH
+Mira: I had to carry you all the way here last night!
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+Gunther: Is that so? I suppose I'm not that heavy for you to carry?
+Mira: You are HEAVY!!
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX>SPARKLE
+Gunther: Heheh~ Sorry..Sorry...I won't drink it again..
+Gunther: Anyway, Good morning my love...
+@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+Mira: ...
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH,BASE/FX-
+Gunther: What?
+@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+Mira: N-nothing..
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX>SPARKLE
+Gunther: Still dazed by my looks aren't ya?
+@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FALL
+Mira: Wha- No! Shut up!
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX>AH
+Gunther: Hahah, Just kidding~
+Gunther: Anyway, good morning my love...
+@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>SMILE,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+Mira: Hmmph~
+@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH
+Mira: A-anyway, get up already...
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX-
+@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH
+Mira: We’ve got a lot of work to do...
+@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FACE
+Mira: Or at least I hope we do...
+@stopbgm port
+
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX-
+Gunther: ( She's right... )
+@bgm trader_theme
+Gunther: ( It's one of the main reasons I drank myself last night...)
+Gunther: ( We've been earning a lot less these days.. )
+Gunther: ( Lesser people visits us ever since the North district opened..)
+@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM
+Gunther: ( It's getting hard to keep up the Inn in business.. )
+Gunther: ( She’s getting more worried each day. )
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+Gunther: ( I’m failing her. )
+Gunther: ( It’s nothing short of divine intervention that I ended up with a woman like her as my wife… )
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_MULT
+Gunther: ( I haven’t given her a child yet and I haven’t given her the stable life I promised. )
+Gunther: ( She must realize that she could have men fa-… )
+@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH
+@stopbgm trader_theme
+
+@bgm morning_ambient volume:0.5
+Mira: H-hey honey....
+Mira: Are you alright?
+Mira: You're making that face again...
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SWEAT_SING
+Gunther: Eh?...
+@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE
+Mira: Should i bring you more coffee?
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+Gunther: N-no! I'm fine..haha..I-I just got lost in thought.
+@stopbgm morning_ambient
+
+
+@bgm beach_theme
+@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>HUH
+Mira: I told you not to worry too much...
+@char Mira.{def_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>OH
+Mira: Remember! 
+@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>HUH
+Mira: Your not alone in taking care of this Inn.
+@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH
+Mira: Know that i'm always here..
+@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>GRIN
+Mira: And we take care of it together...
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX-
+Gunther: ( I really am a lucky man.. )
+Gunther: ( It's that smile that kept me going on... )
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX-
+Gunther: ( She's right.. )
+Gunther: ( I shouldn't worry about anything... )
+Gunther: ( As long as we have each other.. )
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+Gunther: Very well...
+Gunther: I'll be counting on you today again, Mam!
+@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>SMILE
+Mira: Hmm!
+@char Mira.{def_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>AH
+Mira: Now quit whining and get your ass ready! Our day is still long!
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH,BASE/FX-
+Gunther: Yes ma'am~!
+
+@goto _TOWNCRIER
+@stop

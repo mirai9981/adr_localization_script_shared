@@ -1,0 +1,16 @@
+@back INTRO_CG
+@bgm hounds_intro
+@printer IntroPrinter
+
+To the south of the Hydensberg,[br]There lies an <color=#FFBB53>Inn</color>..[br][br]A beacon to weary travelers[br]There it stood...
+
+<color=#FFBB53>The Adelaide Inn..</color>
+
+Within the roof of this Humble Inn...[br]Lives a loving couple...[br][br]<color=#FFBB53>Gunther and Mira</color>[br][br]Both deeply in love with each other..
+
+But soon...[br][br]A storm would <color=#FFBB53>Test their fates</color>...
+
+Will they're <color=#FFBB53>love</color> stand the test of time...[br][br]or does one will succumb to [br]<color=#FFBB53>corruption and pleasure</color>...?
+
+@goto _WAKEUPCALL
+@stop

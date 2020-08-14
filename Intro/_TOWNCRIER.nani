@@ -1,0 +1,72 @@
+@back BLANK
+Later that afternoon...
+
+@bgm crowd_adjusted volume:0.3
+@back TAVERN_DAY_ON
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+Gunther: Thank you! Come back soon
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM
+Gunther: ( That's like the 3rd customer we only had today... )
+
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SIGH_AIR
+Gunther: *SIGH...I need some air...
+
+@stopbgm crowd_adjusted
+@sfx MedievalDoor_Open
+@bgm morning_ambient
+@back FRONT_DAY
+Gunther: I wish our earnings are as bright as the day...
+@stopbgm morning_ambient
+???: H-Hear-ye! Hear-ye!
+Gunther: Huh? Is that the Town crier?
+@bgm old_farmer_theme
+@char TownCrier.BASE>BODY,BASE/FC>EH,BASE/FX>FLUST pos:50
+TownCrier: E-erhm...
+@char TownCrier.BASE>BODY,BASE/FC>AH,BASE/FX>SWEAT_SING
+TownCrier: B-by royal defcee-
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SWEAT_SING
+Gunther: ( Ah..He bite his tongue... )
+@char TownCrier.BASE>BODY,BASE/FC>GULP,BASE/FX+
+TownCrier: ...
+@char TownCrier.BASE>BODY,BASE/FC>EH
+TownCrier: E-excuse me for that...
+@char TownCrier.BASE>BODY,BASE/FC>AH,BASE/FX+
+TownCrier: A-anyway, By Royal decree...
+TownCrier: Citizens of the kingdom are required to gather by the town square for an Important announcement! 
+TownCrier: F-Failure to attend without good cause may result in fines or prosecution!
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX-
+Gunther: ( A royally mandated announcement? )
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+Gunther: ( Well..that's rare... )
+@char TownCrier.BASE>BODY,BASE/FC>AH,BASE/FX+
+TownCrier: T-that is all...Now if you all would excuse me...
+@hide TownCrier
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SWEAT_SING
+Gunther: ( Ugh..He's stiff.. )
+Gunther: ( His shouts needs more work and confidence.. )
+
+@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HUH pos:50
+Mira: What was that about?
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX-
+Gunther: I dunno, But It seemed… urgent?
+Mira: No, i mean "that" Town-crier, He's stuttering and all..
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH
+Gunther: Oh..He's probably new...Haven't seen him before...
+@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>EH
+Mira: Hmm, Guess it'll take a while for him to gain some confidence with his work...
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+Gunther: Yea..that's what i thought too..
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH
+Gunther: Anyway, I wonder what it could be… 
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH
+Gunther: You don’t think it's anything bad don't ya?
+@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH
+Mira: Gosh, I hope not..
+Mira: We're barely keeping the inn up and that's the last thing we'd want to happen..
+@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>HUH
+Mira: Anyway, I guess we’ll just have to find out tomorrow.
+@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+Gunther: Great...more bad news.
+
+@goto _DAWN
+@stop

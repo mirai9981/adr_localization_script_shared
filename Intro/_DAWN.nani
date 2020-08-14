@@ -1,0 +1,22 @@
+@back BLANK
+Next morning..
+
+@bgm evening_ambient volume:0.3
+@back BEDROOM_EVE
+@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+Gunther: ( Ugh...I'm still sleepy... )
+Gunther: Do we really have to attend that gathering?
+@stopbgm evening_ambient
+@bgm old_farmer_theme
+@char Mira.CLOAK>,{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HUH look:left pos:50
+Mira: Of course, we should! It could be something important!
+@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>EH,BASE/FX>SLEEPY
+Gunther: Or something stupid.
+@char Mira.CLOAK>,{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>AH
+Mira: Quit groaning and just wash your face!
+@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SIGH_AIR
+Gunther: Alright..Alright..*Sigh
+@stopbgm old_farmer_theme
+
+@goto _TOWNSQUARE
+@stop
