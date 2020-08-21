@@ -1,0 +1,660 @@
+#FLAG_1
+	@printer Dialogue
+	@back BLANK
+	...
+
+	@back FRONT_EVE
+	@bgm evening_ambient volume:0.5
+	@printer IntroPrinter
+	Later that week...[br][br]The <color=#FFBB53>Bard</color> we hired came to the Tavern...[br][br][sfx crowd_cheer_1]He performed gracefully that night[br]That several of the audience applaud him their coins..[stopsfx crowd_cheer_1]
+
+	@printer Dialogue
+	@back TAVERN_EVE_ON
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( This is good.. )
+	@showUI DayIndicator
+	Gunther: ( Our ale sold very well tonight...)
+	You earned <color=#FFBB53>500G</color> for the night[sfx coin_4]
+	@set currentgold=currentgold+500
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH
+	Gunther: ( Oh! here he comes.. )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+	Gunther: Excuse me sir...
+	@stopbgm evening_ambient
+	@bgm beach_theme
+	@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>DEFAULT,BASE/FX- pos:50
+	Bard: Hmm?
+	@showUI DayIndicator
+	Gunther: I just want to say thank you for entertaining our patrons this evening with your music. 
+	Gunther: It was incredible.
+	@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>AH
+	Bard: You WeLcOMe! I liKe PlAY mUsIc!
+	@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>DEFAULT
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SWEAT_SING
+	Gunther: A-are you, quite alright?
+	@char Bard.BASE>BODY,BASE/FC/EYES>CONFUSED,BASE/FC/MOUTH>AH_DROOL
+	Bard: Im A bArD!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>DEFAULT
+	Gunther: I know that...
+	@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>AH
+	Bard: I has a mAgiC FlUtE! It sOUnd lIkE a wHoLE bANd!
+	Gunther: I... yes. It’s very impressive.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>DEFAULT
+	Gunther: I-i’ve never seen anything like it!
+	@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>HEH
+	Bard: I mAdE a Lot oF GoLd toDaY!
+	Gunther: I saw! You should, errr, be very proud!
+	@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>AH
+	Bard: I wAnnA cEberLate!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX-
+	@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>DEFAULT
+	Gunther: Oh, well I suppose we could celebrate by having a drink!
+	@char Bard.BASE>BODY,BASE/FC/EYES>CONFUSED,BASE/FC/MOUTH>HUH
+	Bard: That's...okay...but..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>DEFAULT
+	Gunther: Very well! This one's on the house!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: ( Hmm..what should i get him.. )
+
+	@choice "Serve him <color=#FFBB53>something strong</color>" goto:.DRUNK
+	@choice "Serve him <color=#FFBB53>something sweet</color>" goto:.LITE
+	@stop
+
+	#DRUNK
+		@set allow_sex_bard=1
+		@set mira_service_count++
+
+		@stopbgm beach_theme
+		@sfx coin_3
+		@hide Bard
+		@hide Gunther
+		@stopbgm bard_theme
+		@stopbgm crowd_adjusted
+		@back BLANK
+		...[sfx drinking]
+		@wait 2
+		@stopsfx drinking
+
+		@back TAVERN_EVE_ON
+		@bgm old_farmer_theme
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>DEFAULT,BASE/FX>DRUNK,BASE/FX+
+		Bard: ...
+		@char Bard.BASE>BODY,BASE/FC/EYES>CLOSED,BASE/FC/MOUTH>HEH_DROOL,BASE/FX>DRUNK,BASE/FX+
+		Bard: *Hiccup...Oh thAt...is oNe StrOng...JuIcE...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+		Gunther: H-hey..are you okay?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+		Bard: Woah...hEH..*Hiccup
+		Bard: HoW CoMe therE's TwO of YoU now?
+		Gunther: ( How come he got so drunk with just a few shots.. )
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>OH,BASE/FX>DRUNK,BASE/FX+
+		Bard: OOhH~..Is ThaT a FaIry!?
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>WHISTLE,BASE/FX>DRUNK,BASE/FX+
+		Bard: HeHEh..Hellow twere..Liwle LadY!
+		Gunther: ( This is no good.. )
+		@char Bard.BASE>BODY,BASE/FC/EYES>CLOSED,BASE/FC/MOUTH>OH,BASE/FX>DRUNK,BASE/FX+
+		Bard: I...thWink I'm gEtTinG...sLeEpy....
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX>SWEAT_MULT
+		Gunther: Eh!? J-Just hold on a second!
+		@hide Bard
+		Gunther: H-honey...
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE look:left pos:50
+		Mira: Hmm?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX>SWEAT_MULT
+		Gunther: C-can you help this one get to his room..
+		@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HUH
+		Mira: Oka-..Wait,what happened to him?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: I-I dunno! He just took a shot of the <color=#FFBB53>Dragon's Ale</color>..
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>EH
+		Mira: Guh~
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE
+		Mira: Gunther...
+		Gunther: W-what?
+		Mira: You idiot...<color=#FFBB53>Elves are allergic to this stuff</color>...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX>SWEAT_MULT
+		Gunther: Oh....
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: M-my bad...
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>EH
+		Mira: Ah well...
+		@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>EH,BASE/FX>SIGH_AIR
+		Mira: Come now sir, let's get you upstairs...
+		@char Mira pos:30
+		@char Bard.BASE>BODY,BASE/FC/EYES>CLOSED,BASE/FC/MOUTH>AH_DROOL,BASE/FX>DRUNK,BASE/FX+ pos:70
+		Bard: HEHehE..*Hiccup...So..BrIgHt in HerE..
+		Bard: iS thAt tHe SuN?...*Hiccup..
+		Mira: Ugh...
+		@hide Mira
+		@hide Bard
+		@hide Gunther
+		@stopbgm old_farmer_theme
+
+		@bgm crowd_adjusted
+		@back BLANK
+		...
+		@wait 2
+
+		@stopbgm crowd_adjusted
+		@bgm old_farmer_theme
+		@back TAVERN_EVE_ON
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+		Gunther: H-how is he?
+		@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH look:left pos:50
+		Mira: He went blank as soon as he hit the bed...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+		Gunther: I feel bad...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH
+		Gunther: I just want to give him something for his performance a while ago..
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>AH
+		Mira: Don't worry about it..It'll wear off tomorrow....Probably...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_MULT
+		Gunther: Ugh..I hope he doesn't remember much next morning....
+
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_MULT
+		Gunther: I definitely don't want to pay another set of bills...
+		@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>GRIN
+		Mira: Hahaha~ Don't sweat it too much! He'll be fine!
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH look:left
+		Mira: Oh, by the way!
+		Mira: I found this on the Hallway...
+		You received <color=#FFBB53>Pouch x1</color>[sfx coin_4]
+		The Pouch contains <color=#FFBB53>150G</color>[sfx coin_4]
+		@set currentgold=currentgold+150
+		Mira: Someone probably dropped it..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+		Gunther: Ah, Thanks my love...
+		Gunther: I'll keep it here in case someone looks for it..
+		???: Can I get a refill here~!
+		@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+		Mira: Coming!
+		Gunther: Well, back to work!
+		@hide Mira
+		@hide Gunther
+		@stopbgm old_farmer_theme
+
+		@goto CH_GUNTHER.FLAG_2
+		
+		#bard_next_day
+		@back BLANK
+		....
+		Next day...
+		@wait 2
+
+		@back FRONT_DAY
+		@sfx morning_ambient
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM pos:{g_POS} scale:{g_SCALE}
+		Gunther: ( I wonder how's that bard doing.. )
+		Gunther: Ugh..I should have known bet-
+		???: GoOd MorNinG!
+		@spawn ShakeCharacter params:Gunther,3
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX>SHAKE
+		Gunther: Hyagh!	
+		Gunther: O-oh you're already awake!
+
+		@back TAVERN_DAY_ON
+		@bgm old_farmer_theme
+		@char Bard.BASE>BODY,BASE/FC/EYES>CLOSED,BASE/FC/MOUTH>AH,BASE/FX>DRUNK,BASE/FX- pos:50
+		Bard: Ahaa~
+		Bard: WhAt..A..NiGhT!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX-
+		Gunther: ....
+		@char Bard.BASE>BODY,BASE/FC/EYES>CLOSED,BASE/FC/MOUTH>OH
+		Bard: LasT NiGht...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_MULT
+		Gunther: W-what about last night?!
+		@char Bard.BASE>BODY,BASE/FC/EYES>CONFUSED,BASE/FC/MOUTH>HUH
+		Bard: dO yOu KnOw WhO's that fairy Last Night?
+		Gunther: Fairy?
+		Bard: YoU kNoW ThE oNe I'm TaLkInG wItH hERe last nIgHt?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_MULT
+		Gunther: Huh? Do you remember what happened last night?
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>HUH
+		Bard: ReMeMber WhaT?
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>OH
+		Bard: I jUst RemEmbeR tALking to ThAt cUtE FaIrY thEn...
+		Gunther: Then?
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>HEH
+		Bard: TheN..
+		Bard: ...
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>HEH_DROOL
+		Bard: ..
+		Gunther: H-hey...
+		@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HUH
+		Bard: HuH? w-WhA?
+		@char Bard.BASE>BODY,BASE/FC/EYES>CONFUSED,BASE/FC/MOUTH>AH
+		Bard: WHaT aRe YoU aSkInG mE aGaIN?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: Ugh..Never mind..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX-
+		Gunther: ( Good thing, He doesn't remember much last night.. )
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: A-anyway, Please help yourself with some breakfast!
+		@char Bard.BASE>BODY,BASE/FC/EYES>CLOSED,BASE/FC/MOUTH>AH
+		Bard: I'm AfRaiD, i hAvE tO pASs My fRiEnD!
+		@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>AH
+		Bard: SoMeOne AwaIts me At ToWn SqUaRE!
+		Bard: By ThE waY! hEre..
+		You received <color=#FFBB53>150G</color>[sfx coin_4]
+		@set currentgold=currentgold+150
+		@char Bard.BASE>BODY,BASE/FC/EYES>CLOSED,BASE/FC/MOUTH>AH
+		Bard: YoU'rE Bed Is ToP nOtCh!
+		Bard: BaRd slEpt ReaLLY well!
+		Gunther: Is that so! That's great to hear then!
+		@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HEH
+		Bard: VeRy Well! UntIL nExt TimE!!
+		@hide Bard
+		Gunther: Take care!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE
+		Gunther: ( Hmm..He's quite a generous man.. )
+		Gunther: ( I should save him another drink next time.. )
+		@hide Gunther
+		@goto _LOOPER.end_day
+	@stop
+
+	#LITE
+		@sfx coin_2	
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Here you go~!
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>OH
+		Bard: NOOO! NoT thAt!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?
+		Gunther: Huh? You don't like this?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: It's on the house though...
+		@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HEH
+		Bard: ..ReAlly?
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>HUH
+		Bard: I-i mean, I dUnNo!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+		Gunther: ...
+		@char Bard.BASE>BODY,BASE/FC/EYES>CLOSED,BASE/FC/MOUTH>WHISTLE
+		Bard: ...
+
+		@choice "Serve him <color=#FFBB53>another drink</color>.." goto:.DRUNK
+		@if hide_extra_service==false
+			@choice "Offer the <color=#FFBB53>"Extra"</color> Service" goto:.SERVE
+		@endif
+		@stop
+
+	#SERVE
+		@sfx coin_2	
+		@stopbgm bard_theme
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SIGH_AIR
+		Gunther: *SIGH.....
+		Gunther: ( I can’t believe I’m saying this, but... )
+		@stopbgm beach_theme
+		@bgm old_farmer_theme
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: Did you notice the red	headed woman serving in the tavern?
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>AH
+		Bard: She WaS pUrRtY!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+		Gunther: She definitely is! isn't she? 
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: Well....
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>WHISTLE,BASE/FX-
+		Gunther: What if YOU celebrate with her?
+		@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>OH
+		Bard: Okay....
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SWEAT_SING
+		Gunther: Do you... understand what I’m saying? 
+		@char Bard.BASE>BODY,BASE/FC/EYES>CLOSED,BASE/FC/MOUTH>WHISTLE
+		Bard: ...
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>HEH_DROOL
+		Bard: [spawn ShakeCharacter params:Bard,3]ShE'd tOuCH maH DiNg-a-LiNG???
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX>SWEAT_SING
+		Gunther: Not so loud! 
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+		Gunther: ( This idiot.. )
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN
+		Gunther: E-erhm..I-it would, of course, would cost plenty of gold.
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>AH_DROOL
+		Bard: No WoRRiEs!!!! I giVe yOu gOld!
+		@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>AH
+		Bard: HerE!
+		You received <color=#FFBB53>1500G</color>[sfx coin_4]
+		@set currentgold=currentgold+1500
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX>SWEAT_SING
+		Gunther: ( Holy shit..Right of the bat.... )
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>AH_DROOL
+		Bard: I'll wAit FoR eR iN ma RooM!!
+		@hide Bard
+
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?,BASE/FX-
+		Gunther: Hey! Wait! 
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH
+		Gunther: ( He...just ran off... )
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX>SWEAT_MULT
+		Gunther: I can’t believe I’m going to ask Mira to do this...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_MULT
+		Gunther: But, it’s sort of a good deed, right? 
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_MULT
+		Gunther: ( I mean he does look like someone who can’t get laid on his own... )
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX-
+		Gunther: I better tell her about it later...
+		@hide Gunther
+		@stopbgm old_farmer_theme
+		@stopbgm crowd_adjusted
+		@hideUI DayIndicator
+		@goto .LEWD
+	@stop
+
+#LEWD
+	@back BLANK
+	...
+	@wait 3
+
+	@sfx evening_ambient volume:0.3
+	Later that night...
+
+	@sfx MedievalDoor_Open
+
+	@back BEDROOM_EVE
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+	Gunther: G-good work today..
+	@stopsfx evening_ambient
+	@bgm old_farmer_theme
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH pos:50
+	Mira: Oh! your already here..
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+	Mira: So how did we do today?
+	@stopbgm old_farmer_theme
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX>SWEAT_MULT
+	Gunther: P-pretty well...
+	@bgm creep_theme volume:0.5
+	@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HUH
+	Mira: Eh? Really? How so?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: E-ehrm...Remember the Bard a while ago?
+	Mira: Yea, what about him? He did stayed for the night? right?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH
+	Gunther: Well...yeah...and..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_MULT
+	Gunther: He gaved us a plenty of gold for...uhm.....
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_MULT
+	Gunther: Y-you know..."That" service..
+	@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HMM
+	Mira: Hmm?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_MULT
+	Gunther: ....
+	Mira: ....
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: Did you...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_MULT
+	Gunther: I did.
+	@char Mira.{def_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH
+	Mira: Gunther!!!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?,BASE/FX>SWEAT_MULT
+	Gunther: I-i mean...He’s staying for the night!
+	Gunther: A-and well...He is quite loaded..
+	Mira: I feel like you’re taking advantage of him! This doesn’t seem right
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX>SWEAT_MULT
+	Gunther: I-i’m not!....I think....
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX>SWEAT_MULT
+	Gunther: Also, It was his idea in the first place...
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: Riiiiight....
+	Mira: Are you sure It’s not about "that" thing in your trousers...
+	Mira: Which might be bulgin-....w-wait, it's already bulging...
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>EH,BASE/FX_BODY>BLUSH,BASE/FX+SWEATY_FACE,BASE/FX+SIGH_AIR
+	Mira: *SIGH... 
+	Mira: I'm pretty sure he wasn’t the only one staring at me with a tent in his pants all night...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_MULT
+	Gunther: ...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: So, you’ll do it then. Won’t you?
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>OH,BASE/FX_BODY>BLUSH
+	Mira: I don’t know how I let you talk me into this.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX-
+	Gunther: It’ll be fine...He's probably a virgin for all we know it..
+	@char Mira.{def_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH
+	Mira: Gunther!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: I'm just kidding!
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>H-HMM,BASE/FX_BODY>BLUSH
+	Mira: ...
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+	Mira: Well...
+	Mira: I-i’ll be back in a bit..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: I'll wait for you then...
+	@hide Mira
+	@sfx MedievalDoor_Open
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+	Gunther: ...
+	@hide Gunther
+	@stopbgm creep_theme
+
+	@back BLANK
+	@sfx clock_tick
+	....
+	...
+	..
+	@wait 3
+	@stopsfx clock_tick
+
+	@bgm evening_ambient volume:0.2
+	@back BEDROOM_MD
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( She's taking a while again.. )
+	@showUI DayIndicator
+
+	; @choice "Use the Necklace" if:hasStone==1 
+	@choice "<color=#FFBB53>Sneak</color> to the Guestroom" goto:.SNEAK
+	; @choice "Lay in bed and wait" goto:.WAIT
+	@stop
+
+	#WAIT
+		Gunther: ( I-i should'nt disturb them... )
+		; CHOICE 2: Stay and Wait
+		; SFX: Same music as above.
+		Gunther: What the... it’s like there’s a whole band playing back there. 
+		Gunther: Is he using that magic Flute to do that?
+	@stop
+
+	#SNEAK
+		@set g_bard_cowgirl=1
+
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SWEAT_SING 
+		Gunther: ...
+		@hide Gunther
+
+		@back BLANK
+		@sfx footstep_custom volume:0.3
+		....
+		@wait 2
+		@stopsfx footstep_custom
+		@stopbgm evening_ambient
+
+		#mm_bardscene
+		@bgm creep_theme volume:0.5
+		@back HALLWAY_MD
+
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+		Gunther: ....
+
+		Gunther: ( There's no harm in just peeking I guess... )
+		Gunther: ....
+		Gunther: I wonder what they're up to...
+		Mira: Phew~ You're quite a rider heheh~
+		Mira: Lay down now, Let me do the riding this time...
+		Bard: HeHEh! i LAy DoWn FoR yOu!
+		Gunther: ...[sfx heartbeat]
+		Gunther: ( Ah...it's not locked.. )
+		Gunther: ( I hope they won't hear the door creak.. )
+		Mira: Ahh~
+
+		@hide Gunther
+ 		@printer ScenePrinter
+ 		@showUI LetterBox
+ 		@showUI S_DoorShutterRight
+		@back BARD_COWGIRL_1 id:static_set
+		Mira: There we go...hmmm~❤
+		Mira: It's now inside~
+		Bard: HeHEhe! It fEeLs SliPpy!
+
+		@back BARD_COWGIRL_2 id:static_set
+		Mira: Eheheh~❤
+		Mira: That wetness means that I want you inside me…
+		Gunther: (I assumed she was just putting on a show to make this idiot feel good… but if she’s wet like that… that means she’s really into it!)
+
+		@back BARD_COWGIRL_3 id:static_set
+		Mira: Shall we continue?
+		Bard: HeHEhe~! GogOgO!
+		Mira: So eager aren't we!?
+		Mira: Here I go then...
+		Mira: I'll make sure to ride you good...Heheh...
+		Bard: Hehegheh~
+
+		@back BARD_COWGIRL_4 id:static_set
+		Bard: yOu SO boUnCY!
+		Mira: Ah~❤! Do you like me bouncing?
+		Bard: MOrE BouNCy! mORe!! BoObY bOuNCy!
+		Mira: Hehe, mmm I’m bouncing like this because it feels… AHHH… sooo good!
+		Mira: You feel so good!
+		Gunther: (I would have thought him talking like that would turn her off… but she seems so into it... does she like him talking like that?)
+
+		@back BARD_COWGIRL_5 id:static_set
+		Mira: Mmmm want me to go faster?
+		Bard: yAh! YAh! YaAAaaAAah!
+		Mira: Just keep letting that cock of yours push as deep as it wants…
+		Gunther: (Or maybe his dick is just that good that it doesn’t matter?)
+		Bard: my WiNG waNg WaNts MoRE!
+		Mira: Fuhhhuuuuuuck… I want more too! GIVE ME MORE DAMMIT!
+		Bard: oohKIE!
+		Mira: AHHHH!!!!
+
+		@back BARD_COWGIRL_6 id:static_set
+		Mira: Oh- OH MY GOD! How are you- how is it happening already!??!
+		Gunther: (She’s already cumming?!?)
+		Mira: AHHH! HAHA! WOOOOOOOW!!! AHHHHHHHHHHHHHHH!!!
+		Bard: PRetTy lAdy Is MAkiNg FUnnY nOiSes!
+		Mira: That’s c-c-cause I’m- AHHHHH! FUCK A SECOND WAVE ALREADY?!?!
+		Gunther: (What the hell, she’s absolutely losing it! Is this moron really that good!?!)
+		Bard: yOUr HoLE iS gEtTIng aLL TigHt On mY wiLLy!
+
+		@back BARD_COWGIRL_7 id:static_set
+		Mira: You feel soooo good… How did you get so fucking good at this?!?
+		Bard: I DoNt KNoW! BUt pREttY lAdY liKES mE!?
+		Mira: Oh, I - AHHHH- like you soooooo much. Yes!
+		Bard: mY THingY iS gOnNa POp!!!
+		Mira: Yes, just let it out- 
+
+		@back BARD_COWGIRL_8 id:static_set
+		Mira: W-WOAH! OH WOW!!!!
+		Gunther: (What the… look at him go…)
+		Mira: Fuuuck! Sw-sw-sweeetie! Ooooh, how are you g-g-g-going so f-ff-f-faaast?!?
+		Bard: iT’S LikE mY WEewEE cAn’t STop!!!
+		Mira: Ahhhh ahhhh ahhhh th-this is unb-b-b-believable!!!
+		Gunther: (Again?!?)
+		Mira: HAHAHA! WOW! I CAN’T BELIEVE I’M CUMMING AGAIN WOWOWOWOOOOOHHHHHH!!!
+		Bard: MY wiLLy’S gONna sPLoOshIE!
+
+		@back BARD_COWGIRL_9 id:static_set
+		Mira: Yes!! Yes!! let it! LET IT!!!!
+		Gunther: (She’s losing her mind!!!!)
+		Bard: AHhHhhHHHHH! MY weENiE jUiCE! HOOOGAAAAAAAAAHHAAAAAAGGAAAABBBBOOOOO!
+		Gunther: (What the fuck kind of stupid sounds is he making?!?)
+		Mira: Holy shit there’s so much! I can feel it all spilling into me!!!
+
+		@back BLANK_W id:SubBackground
+		@hide SubBackground
+		@back BARD_COWGIRL_9 id:static_set
+		@back BLANK_W id:SubBackground
+		@hide SubBackground
+		@back BARD_COWGIRL_9 id:static_set
+		@back BLANK_W id:SubBackground
+		@hide SubBackground
+		@back BARD_COWGIRL_9 id:static_set
+		
+		@back BARD_COWGIRL_10 id:static_set
+		Mira: A-Aghhh~❤
+		Bard: sCoobA bOoPy! ThAt feEls gOOd…
+		Gunther: (Did that idiot just say “scooba boppy?” Is Mira really into a guy like this?!!)
+
+		@back BARD_COWGIRL_11 id:static_set
+		Mira: Hehehe… wow… that was really good...
+		Bard: CaN we gO agAiN?
+		Mira: Wow… you’ve got a lot of stamina… but not right now. 
+
+		@back BARD_COWGIRL_12 id:static_set
+		Mira: Although, don’t tell my husband this, but that was so fun you can swing by anytime you like. Hehe.
+		Gunther: (!!!! Is she just being nice to him or…?)
+
+		@back BLANK id:SubBackground
+		@hide static_set
+		Mira: I can still feel something leaking between my thighs...You got a lot of juice alright!
+		Bard: Heheh~
+		Mira: Thank you Mister, I'll be going now...
+		Bard: yOu WElcOMe!
+		Mira: Good Night~❤
+		Gunther: (Shit, she’s gonna be coming this way soon, I better get outta here. )
+ 		
+ 		@stopbgm creep_theme
+ 		@hideUI LetterBox
+ 		@hideUI S_DoorShutterRight
+ 		@back BLANK
+ 		@hide static_set
+
+		@if galleryMode==1
+			@set galleryMode=0
+			@goto _MEMORY
+		@else
+			@goto .LATER
+		@endif
+	@stop
+
+	#LATER
+		#bard_next_day
+		@back BLANK
+		@printer IntroPrinter
+		Next morning...
+		@wait 2
+
+		@printer Dialogue
+		@back TAVERN_DAY_ON id:SubBackground
+		@sfx morning_ambient
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE pos:{g_POS} scale:{g_SCALE}
+		Gunther: Hmmm~♫
+		???: GoOd MorNinG!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH pos:{g_POS} scale:{g_SCALE}
+		Gunther: Huh?
+
+		@back TAVERN_DAY_ON
+		@bgm old_farmer_theme
+		@char Bard.BASE>BODY,BASE/FC/EYES>CLOSED,BASE/FC/MOUTH>AH,BASE/FX>DRUNK,BASE/FX- pos:50
+		Bard: WhAt..A..NiGhT!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Oh you're already awake!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN
+		Gunther: ( Looks like someone is in a good mood... )
+		Gunther: I suppose you enjoyed your stay?
+		@char Bard.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>AH
+		Bard: YeS vEry! ThAnK yOu FrIEnD! BaRd ReTurN HeRE aGaIn!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN
+		Gunther: Sounds good to me..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+		Gunther: Anyway, What can I get you for breakfast?
+		@char Bard.BASE>BODY,BASE/FC/EYES>CLOSED,BASE/FC/MOUTH>AH
+		Bard: I'm AfRaiD, BaRD hAvE tO pASs My fRiEnD!
+		@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>AH
+		Bard: SoMeOne AwaIts me At ToWn SqUaRE!
+		Bard: By ThE waY! hEre..
+		You received <color=#FFBB53>1500G</color>[sfx coin_4]
+		@set currentgold=currentgold+1500
+		@char Bard.BASE>BODY,BASE/FC/EYES>CLOSED,BASE/FC/MOUTH>AH
+		Bard: YoU'rE WiFe Is veRy BeAuTy!
+		Bard: BaRd slEpt ReaLLY well!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: Heheh..Is that so! That's great to hear then!
+		@char Bard.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HEH
+		Bard: VeRy Well! UntIL nExt TimE!!
+		
+		@goto _LOOPER.end_day
+	@stop
+@stop

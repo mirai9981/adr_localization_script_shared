@@ -1,0 +1,12 @@
+@bgm hounds_intro
+@showUI Credits_1
+@wait 3
+@hideUI Credits_1
+@showUI Credits_2
+@wait 3
+@hideUI Credits_2
+@showUI Credits_3
+@wait 3
+@hideUI Credits_3
+@title
+@stop

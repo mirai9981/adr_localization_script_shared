@@ -1,0 +1,243 @@
+#FLAG_1
+	@back BLANK
+	@printer IntroPrinter
+	A week later...
+
+	@bgm morning_ambient volume:0.7
+
+	@printer Dialogue
+	@back FRONT_DAY
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>TSK,BASE/FX>SWEATY_FACE pos:{g_POS} scale:{g_SCALE}
+	Gunther: HnnghUgh!
+	@showUI DayIndicator
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEATY_FACE pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( Goddamn weeds growing in my yard again.. )
+
+	???: Excuse me-
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEATY_FACE pos:{g_POS} scale:{g_SCALE}
+	Gunther: Hmm? ( A customer? )
+
+	@stopbgm morning_ambient
+	@bgm port
+	; Siranae, the elf, appears. 
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>DEFAULT,BASE/FC/MOUTH>AH pos:50
+	Elf: Are you <color=#FFBB53>Gunther</color> by any chance? The owner of this Inn?
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: ( How did this gorgeous elf know my name? )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+	Gunther: Uh, yeah..That’s me...But I own the Inn with my wife...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEATY_FACE
+	Gunther: May I ask, How did you know my name?
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMILING,BASE/FC/MOUTH>AH
+	Elf: My name is <color=#FFBB53>Siranae</color>. I’ve come from the Far North...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: I can see that...
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>DEFAULT,BASE/FC/MOUTH>AH
+	Elf: First, I must explain...
+	Elf: I am here for a very... specific reason.
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMUG,BASE/FC/MOUTH>SMILE
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: Okaay...
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>DEFAULT,BASE/FC/MOUTH>OH
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Elf: Not long ago, my brother came to your inn.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+	Gunther: Oh! And he recommended us?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>CONFUSED,BASE/FC/MOUTH>OH
+	Elf: Not exactly... 
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>DEFAULT,BASE/FC/MOUTH>AH
+	Elf: My brother is....
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMILING,BASE/FC/MOUTH>AH
+	Elf: How should I put it...
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMILING,BASE/FC/MOUTH>AH
+	Elf: Well, He is the special kind...
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>CONFUSED,BASE/FC/MOUTH>OH
+	Elf: However... 
+	Elf: He is not very welcome in our community, you see.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: Sorry for asking, but who's your brother again?
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>DEFAULT,BASE/FC/MOUTH>AH
+	Elf: He's a <color=#FFBB53>Bard</color>~! A flute user to be exact...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: ( ...A bard...flute user... )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX-
+	Gunther: ...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?
+	Gunther: Wait...YOU'RE his sister!?
+	Elf: Yes..I am
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: ( How the- )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: ( The difference is like Moon and Sun! )
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>DEFAULT,BASE/FC/MOUTH>AH
+	Elf: He told me everything you did for him! You're such a kind person!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: Uh...E-everything?
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMILING,BASE/FC/MOUTH>SMILE
+	Elf: Yes. He told me that you instructed your wife to make love to him. 
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMILING,BASE/FC/MOUTH>AH
+	Elf: An incredibly noble and generous offer to a man like my brother!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+	Gunther: ( That bastard..I told him not to tell it to anyone... )
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>DEFAULT,BASE/FC/MOUTH>AH
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Elf: You have done my brother, my kin, and thus me a great favor by doing this.
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMUG,BASE/FC/MOUTH>AH
+	Elf: It is required by my people that such a generous act be met in kind. 
+	Elf: I...
+	Elf: I wish to repay you.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: Repay? But he doesn't owe us anything...
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMUG,BASE/FC/MOUTH>SMILE
+	Elf: H-hmm, In our Kind, what you did was worth more than any currency..
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMUG,BASE/FC/MOUTH>AH
+	Elf: I... wish to repay you personally. 
+	Elf: I offer myself.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_MULT
+	Gunther: Eh?
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMUG,BASE/FC/MOUTH>SMILE
+	Elf: ...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX>SWEAT_MULT
+	Gunther: D-do you mean like...
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMUG,BASE/FC/MOUTH>AH
+	Elf: Yes we can copulate~!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?
+	Gunther: [spawn ShakeCharacter params:"Gunther"]Ehhh~!!
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMUG,BASE/FC/MOUTH>AH
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM
+	Elf: My desire is to give myself to the man who was so generous to give his wife.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: B-but I’m a married man!
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>CONFUSED,BASE/FC/MOUTH>OH
+	Elf: And yet you allowed your wife to break that bond so that my brother could know love!
+	Elf: Surely, you deserve a reward for this.
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX-
+	Gunther: ( Well to consider things... )
+	Gunther: ( Mira is always getting to hook up with somebody else..)
+	Gunther: ( ...I mean, that is my fault. )
+	Gunther: ( But...don’t I deserve a chance at some fun? )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_MULT
+	Gunther: ( By the gods, this is killing me. )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_MULT
+	Gunther: I-i’m really flattered...but uh...
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMILING,BASE/FC/MOUTH>AH
+	Elf: I do not care that you are not attractive, if that helps!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: ( Hey, I don't look so bad if I say so myself.. )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH
+	Gunther: L-Look, just, give me a moment, Okay? 
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: Why don't we head In first? 
+	Gunther: I just need to talk about this with my wife..
+	Elf: Okay~!
+	@hide Elf
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+
+	@back TAVERN_DAY_ON
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH pos:50
+	Mira: Gunther! What took you so long!!
+	Mira: Did you pull weeds too from the nearby farm!?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: W-well, you see....something came up-
+	@char Mira pos:40
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMILING,BASE/FC/MOUTH>AH pos:70
+	Elf: Helloo~
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH
+	Mira: A customer?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: Not exactly....
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMILING,BASE/FC/MOUTH>SMILE
+	Elf: ...
+	@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HUH
+	Mira: Who is she again?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: Uh...do you remember the bard you slept wi-
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: W-why are you suddenly bringing this up now?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: You see, This is his sister.
+	@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>EH
+	Mira: Eh?? Really? There's no resemblance at all!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+	Gunther: ( That's what I though too..But I don't think you're suppose to say that aloud, Honey... )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: A-anyway, She said she wants to thank us,
+	Gunther: W-well me...to be exact...for how we uh... treated her brother so nicely.
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH
+	Mira: You mean how I treated him?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: Heh, well...
+	Gunther: She kinda sees it as my doing..
+	Gunther: I guess maybe to elves a wife always does what a man tells her or something?
+	@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>MUH
+	Mira: Okay, that's great and all..but how exactly?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: So, uh, well…
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_MULT
+	Gunther: Uh...
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH
+	Mira: Just spit it out already!
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMUG,BASE/FC/MOUTH>AH
+	@char Mira.{def_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>HMM
+	Elf: I’m very excited to make love to your husband!
+	@char Mira.{def_config},BASE/FACE/EYES>BROKEN,BASE/FACE/MOUTH>MUH
+	Mira: Huh?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX+SWEAT_MULT,BASE/FX+SHOCK
+	Gunther: …
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMILING,BASE/FC/MOUTH>SMILE
+	Elf: ....
+	@char Mira.{def_config},BASE/FACE/EYES>BROKEN,BASE/FACE/MOUTH>AH,BASE/FX_BODY>KOWA
+	Mira: Gunther...What's going on?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX>SWEAT_MULT
+	Gunther: I-I..Uh..I...S-she...Uh...
+	@char Mira.{def_config},BASE/FACE/EYES>BROKEN,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>KOWA
+	Mira: Is that how she'll "repay" you Gunther?
+	Gunther: I-it's their code! I didn't ask for it in the first place!!
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>DEFAULT,BASE/FC/MOUTH>AH
+	Elf: My honor demands that I repay the man who did a great deed for my brother. 
+	Elf: And I must say, Seeing how truly beautiful you are as his wife...
+	Elf: I realize that Gunther was even MORE generous than I knew! 
+	@char Elf.BASE/BODY>DEFAULT,BASE>HEAD,BASE/FC/EYE>SMILING,BASE/FC/MOUTH>AH
+	Elf: I will have to make sure to repay him even harder-
+	@char Mira.{def_config},BASE/FACE/EYES>BROKEN,BASE/FACE/MOUTH>AH,BASE/FX_BODY>KOWA
+	Mira: Don’t you go near my husband-
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?
+	Gunther: M-Mira!!! Can we just talk for a second?
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>POUT,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: Hmmph!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: C-come on now..Just on the next room..
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: Stay there, Elf...I got my eyes on you...
+	Elf: Okay~!
+	@hide Elf
+
+	@back HALL_BACK_DAY
+	@sfx cloth_shuffle
+	@char Mira pos:50
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: Are you really that upset by all this?
+	@char Mira.{def_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM
+	Mira: Of course I am! This is....so confusing! 
+	Mira: Are you actually entertaining this idea?
+
+	@showUI LetterBox_v2
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: Uhhh...
+	@wait 1
+
+	@hide Mira
+	@hide Gunther
+	@back BLANK
+	@stopbgm port
+	@printer IntroPrinter
+	To be continued..
+
+	@goto CREDITS
+
+@stop

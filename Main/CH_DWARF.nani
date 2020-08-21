@@ -1,0 +1,500 @@
+@set t="Thwarp"
+@set b="Blarp"
+@set s="Skwiddle"
+
+#FLAG_1
+	@back BLANK
+	Another evening...
+	@bgm evening_ambient volume:0.5
+	@back TAVERN_EVE_ON
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( There must be some sort of gathering of wizards in the city soon )
+	@showUI DayIndicator
+	Gunther: ( I’ve never had so many magic users in the tavern in a month... )
+	@sfx MedievalDoor_Open
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: Huh? 
+	Gunther: ( Did the door just open? )
+	@stopbgm evening_ambient
+	@bgm mechanical volume:0.4
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HAH,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2 pos:50,-70
+	Dwarf: Ahem.
+	Gunther: Eh?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: W-who's there!?
+	Dwarf: Excuse us! We’ve been waiting!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: Uh....
+	Dwarf: Down here, you mundane, unmagic, nincompoop! 
+	Dwarf: Ugh, one second...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SWEAT_SING
+	Dwarf: Gnomes assemble!
+	Dwarf: Hnnnggh~!
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HAH,BASE/FC2>HAH_1,BASE/FC3>IDLE_2 pos:50,-50
+	Dwarf: Higher you twats!
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HMM,BASE/FC2>HAH_1,BASE/FC3>AH_2 pos:50,-20
+	Dwarf: Hyaah!
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HAH,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+	Dwarf: Is that all you've got!?
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HMM,BASE/FC2>HAH_1,BASE/FC3>IDLE_2 pos:50,0
+	Dwarf: Hmmpph!!
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>DEFAULT,BASE/FC1/MOUTH>AH,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+	Dwarf: Better!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: ( What the hell... )
+	Gunther: I-I’m terribly sorry!!
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HMM,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+	Dwarf: Harumph! Hmph! Rude!
+	Gunther: P-Please, how can I help you?
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>DEFAULT,BASE/FC1/MOUTH>OH,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+	Dwarf: We need a room!
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>DEFAULT,BASE/FC1/MOUTH>HMM,BASE/FC2>HAH_1,BASE/FC3>IDLE_2
+	Dwarf: With one bed!
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>DEFAULT,BASE/FC1/MOUTH>HMM,BASE/FC2>IDLE_1,BASE/FC3>AH_1
+	Dwarf: but three...p-pillows!
+	Gunther: I- certainly. I’ll have that put together right away.
+
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>DEFAULT,BASE/FC1/MOUTH>HAH,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+	Dwarf: And we’re not be disturbed!
+	Gunther: Of course... You won’t be doing anything destructive, will you?
+
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HAH,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+	Dwarf: What an imbecelic inquiry!
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HMM,BASE/FC2>HAH_1,BASE/FC3>IDLE_2
+	Dwarf: A throughly stupid question.
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HMM,BASE/FC2>IDLE_1,BASE/FC3>AH_1
+	Dwarf: W-we’re not....Amateurs, you buffoon.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: I-I meant no insult! My apologies!
+	Dwarf: Hmpph! We'll be on our roo-
+	@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>OH pos:70
+	@char Dwarf pos:35
+	Mira: Gunther,Did you repl-
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+	Mira: Oh~! Good Evening sirs!
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HMM,BASE/FC2>IDLE_1,BASE/FC3>IDLE_1
+	Dwarf: ...
+	Mira: Well it seems you're busy at the moment..
+	Mira: I'll get back to you later then...
+	@hide Mira
+
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>SMIRK,BASE+EXTRA,BASE/FC2>SMIRK_1,BASE/FC3>IDLE_2 pos:50
+	Dwarf: ...
+	Gunther: Is...there something else?
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>AH,BASE-EXTRA,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+	Dwarf: Yes. Indeed.
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HMM,BASE/FC2>HAH_1,BASE/FC3>IDLE_2
+	Dwarf: A trivial thing.
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>AH,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+	Dwarf: That red-haired beauty is your wife, no?
+	Gunther: uhmm...y-yes.Why you ask?
+	@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HMM,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+	Dwarf: ...
+
+	@choice "Offer a drink..." goto:.drunk
+	@if hide_extra_service==false
+		@choice "Offer the <color=#FFBB53>Extra service</color>..." goto:.lewd
+	@endif
+	@stop
+
+	#drunk
+		Gunther: ( I feel like this bunch is bad news.. )
+		Gunther: W-would you like to have a drink first sirs?
+		@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HMM,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+		Dwarf: Hmm...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: D-don't worry! It's on the house!
+		@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>AH,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+		Dwarf: Is that so...
+		@char Dwarf.BASE>BODY,BASE/FC1/EYES>DEFAULT,BASE/FC1/MOUTH>HAH,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+		Dwarf: Whaddaya say boys?
+		Dwarf: Free?
+		Gunther: Y-yea, absolutely free..
+		Dwarf: No matter how many?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+		Gunther: H-hmm..
+		Gunther: ( Quiet a haggler aren't you.. )
+		@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>AH,BASE/FC2>SMIRK_1,BASE/FC3>IDLE_2
+		Dwarf: Alright! Serve as a Barrel then!
+		Gunther: ( A Barrel!? )
+
+		@stopbgm mechanical
+		@hide Dwarf
+		@hide Gunther
+		@back BLANK
+		@sfx drinking
+		@printer IntroPrinter
+		A while later...
+
+		@printer Dialogue
+		@bgm naughty
+		@back TAVERN_EVE_ON
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH pos:{g_POS} scale:{g_SCALE}
+		Gunther: By the gods....
+		@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HAH,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2 pos:50,-70
+		Dwarf: [spawn ShakeCharacter params:"Dwarf"]BURP~~
+		Dwarf: Hahahahah!
+		Dwarf: Another one! Another one!
+		Dwarf: [spawn ShakeCharacter params:"Dwarf"]BURRRRRPPP~
+		Dwarf: Bwahahaha!
+
+		???: Hun, are'nt we closing ye-
+		@char Dwarf pos:35
+		@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>KOWA look:left pos:70
+		Mira: By the gods...
+		Mira: What are this!?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH 
+		Gunther: Customers...
+		Mira: No,I mean what happened here...
+		Gunther: Well....Long story...
+		Dwarf: zzzzzZzzZ
+		Gunther: Oh look, They're already asleep...
+		Dwarf: *Snore* *Snore*
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HMM,BASE/FX>SWEATY_FACE look:left pos:70
+		Mira: ...
+		Gunther: Don't worry, I already locked the front door..
+		Gunther: You go ahead and rest first..
+		Gunther: I'll handle them from here...
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE
+		Mira: Okay then...Whatever you say...
+		@stopbgm naughty
+
+		@hide Mira
+		@hide Dwarf
+		@hide Gunther
+		@back BLANK
+		@printer IntroPrinter
+		A few more barrels later...
+
+		@printer Dialogue
+		@back HALLWAY_EVE
+		@sfx MedievalDoor_Open
+		@bgm old_farmer_theme volume:0.7
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+		Gunther: Ugh...Finally..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_MULT pos:{g_POS} scale:{g_SCALE}
+		Gunther: ( They sure are heavy for their size, Alright... )
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX-
+		Gunther: Hmm?
+		Gunther: ( What is this? )
+		You picked up a <color=#FFBB53>Emerald x1</color>[sfx coin_4]
+		Gunther: ...
+		Gunther: ( Looks like it's worth something... )
+		Gunther: ( I should try to sell this to that Stranger... )
+		Gunther: ( He might take interest to this... )
+		Gunther: Oh well...
+		Gunther: ( Better get some rest now.. )
+
+		@goto _LOOPER.end_day
+	@stop
+
+	#lewd
+		Gunther: Are you inter-
+		Dwarf: A merchant friend made us aware
+		@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HMM,BASE/FC2>HAH_1,BASE/FC3>IDLE_2
+		Dwarf: While we were purchasing some of his wares
+		@char Dwarf.BASE>BODY,BASE/FC1/EYES>DEFAULT,BASE/FC1/MOUTH>HMM,BASE/FC2>IDLE_1,BASE/FC3>AH_1
+		Dwarf: That your tavern offered a certain special service...
+		Gunther: Oh, u-uh, uhmm... for you three?
+		@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HAH,BASE/FC2>HAH_1,BASE/FC3>IDLE_2
+		Dwarf: Is that a problem?!?
+		Gunther: N-no! Of course not...
+		Gunther: But, you’ll each have to pay, it won’t be the same cost as one room...
+		@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>AH,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+		Dwarf: Fair enough.
+		@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HMM,BASE/FC2>HAH_1,BASE/FC3>IDLE_2
+		Dwarf: We’ll be in our room.
+		@char Dwarf.BASE>BODY,BASE/FC1/EYES>SQUINT,BASE/FC1/MOUTH>HAH,BASE+EXTRA,BASE/FC2>IDLE_1,BASE/FC3>IDLE_2
+		Dwarf: Send her back as soon as possible! Don’t dilly-dally!
+		@hide Dwarf
+		@sfx footstep_custom
+		@stopbgm mechanical
+		@bgm evening_ambient volume:0.6
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: O-of course sir..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_MULT
+		Gunther: ( By the gods..I’m not sure how Mira will feel about this one. )
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_MULT
+		Gunther: ( But I have to admit I’m very curious... )
+		@goto .tellMira
+	@stop
+
+	#tellMira
+		@sfx cloth_shuffle
+		@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>OH pos:50
+		Mira: Gunther?
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH 
+		Mira: Ah~ It seems your done..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+		Gunther: ...
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE
+		Mira: W-what are you smirking at...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: L-let's talk for a second...
+		
+		@stopbgm evening_ambient
+		@sfx cloth_shuffle
+		@back HALL_BACK_EVE
+		@bgm confession volume:0.7
+
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE
+		Mira: Ugh...you’re giving me that look again.
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+		Gunther: ...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Uhm...
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE
+		Mira: ...
+		Gunther: Uh...
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE
+		Mira: I hope it has nothing to do with those gnomes..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+		Gunther: ...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: W-well...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: Did you just offer them...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: I-i did...
+		@char Mira.{def_config},BASE/FACE/EYES>CROSSED,BASE/FACE/MOUTH>AH,BASE/FX_BODY>KOWA,BASE/FX>PISSED
+		Mira: Gunther!![spawn ShakeCharacter params:"Gunther"]
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_MULT
+		Gunther: T-they said they will pay a lo-
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>KOWA,BASE/FX>PISSED
+		Mira: And I’ll be up all night with three in a row!?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: Uh.....T-they want to go at the same time.
+		@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: Eh?...What did you say?
+		Gunther: T-they want to do...s-same tim-
+		@char Mira.{def_config},BASE/FACE/EYES>CROSSED,BASE/FACE/MOUTH>HAH?,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: Gunther!! You-[spawn ShakeCharacter params:"Gunther"]
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: I-it's okay if you don't want to!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: I just...
+		Gunther: I was just...curious..about it...
+		@char Mira.{def_config},BASE/FACE/EYES>CROSSED,BASE/FACE/MOUTH>HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: ...
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: ......
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: You got a tent...
+		Gunther: Huh?
+		Mira: You got a tent on your trousers again...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+		Gunther: ...
+		@char Mira.{def_config},BASE/FACE/EYES>CROSSED,BASE/FACE/MOUTH>H-HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: ....
+		@wait 2
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH,BASE/FX>SIGH_AIR
+		Mira: *SIGH...
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH
+		Mira: What room are this three arselickers are in?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: T-the far one on the left...
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX_BODY>BLUSH,BASE/FX>SIGH_AIR
+		Mira: *SIGH...
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH
+		Mira: Fine...
+		Mira: Don't wait for me..
+		Mira: I guess this'll take a while...
+		@stopbgm confession
+		@hide Mira
+		@hide Gunther
+
+			
+		@back BLANK
+		@sfx clock_tick
+		....
+		...
+		..
+		@wait 3
+		@stopsfx clock_tick
+
+		@bgm evening_ambient volume:0.2
+		@back BEDROOM_MD
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+		Gunther: ( They sure are taking their time, alright..)
+		@showUI DayIndicator
+
+		; @choice "<color=#B88AFF>Use the Necklace</color>" if:hasStone==1 
+		@choice "<color=#FFBB53>Sneak</color> to the Guestroom" goto:.SNEAK
+		; @choice "Lay in bed and wait" goto:.WAIT
+		@stop
+
+		#SNEAK
+			@set g_dwarf_bang=1
+			
+			@stopbgm evening_ambient volume:0.2
+			@bgm creep_theme volume:0.7
+			@back HALLWAY_MD
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: ( Just need to quietly approach the door... )
+			Gunther: ( I think this room has a loosed lock... )
+			@hide Gunther
+			@showUI LetterBox
+			@printer ScenePrinter
+
+			@back BLANK
+			???: Heheh! Milk! Milk!
+			Mira: What the- Hey!
+
+			@printer IntroPrinter
+			As I slowly jitter the knob..[br]A scene stumbled upon me...[br][br]Dwarves feasting[br]on my Wife's luscious body...
+
+			@printer ScenePrinter
+			@back DWARF_BANG_1 id:static_set
+			Mira: H-hey! Don't suck so much! There's no milk in there yet!
+			Dwarf: Pfffw~! Pfffw~!
+
+			@back BLANK_W
+			@hide static_set
+			@back DWARF_BANG_2 id:static_set
+			@sfx slop_single
+			@sfx hng_single
+			Mira: Oh~❤!!!
+			Dwarf: Third Round!
+			@bgm slap_slow
+
+			@back DWARF_BANG_3 id:static_set
+			Mira: Agh~❤! Agh~❤!
+			Mira: You little sh- Agh~❤!
+			Dwarf: Heheh~ Excellent Pussy!
+
+			@back DWARF_BANG_4 id:static_set
+			Mira: Don't...just..sudddenly...Ram....me...Ah~❤!
+			Dwarf: Hohoho! Quit whining!! We'll fuck you all we want!
+
+			@back DWARF_BANG_5 id:static_set
+			@stopbgm slap_slow
+			@bgm slap_cum
+			Mira: Hnnggh~❤! 
+			Mira: And you down there! don't...suckle..too mu- Ahhh~❤!
+			Gunther: ( Those little bastards are really giving it to her.. )
+			Dwarf: Ooooh! I'm getting close! Here it comes!
+
+			@back BLANK_W
+			@hide static_set
+			@back DWARF_BANG_5 id:static_set
+			@back BLANK_W
+			@hide static_set
+			@back DWARF_BANG_5 id:static_set
+			@back BLANK_W
+			@hide static_set
+			@back DWARF_BANG_5 id:static_set
+
+			@stopbgm slap_cum
+			@back DWARF_BANG_6 id:static_set
+			Dwarf: Aghhh~!
+			Mira: Hnnggh~❤! 
+
+			@back DWARF_BANG_7 id:static_set
+			Mira: Hngg..You came so much...
+
+			@back BLANK
+			@hide static_set
+			@hideUI LetterBox
+			@printer ScenePrinter
+			@back HALLWAY_MD
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Dwarf: One more! One more!!
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SHOCK pos:{g_POS} scale:{g_SCALE}
+			Gunther: ( Eh?? They're not done yet!? )
+			Mira: Uh-uh! No! No more! I'm going back to my room!
+			Dwarf: Awww~
+			Gunther: ( Crap..Better head back... )
+			
+			@hide Gunther
+			@stopbgm creep_theme
+			@back BLANK
+			@sfx footstep_custom
+
+		@if galleryMode==1
+			@set galleryMode=0
+			@goto _MEMORY
+		@else
+			@goto .WAIT
+		@endif
+
+		#WAIT
+			@set lingerie_config="BASE/ARMS>,BASE>BODY,BASE/HAIR>DEFAULT_MESSY,BASE/FACE>NOSE,BASE/CLOTHES/LINGERIE>DEFAULT_MESSY,BASE/EARINGS>CLASSIC,BASE/FX_BODY+BLUSH,BASE/FX_BODY+SWEAT,BASE/FX_BODY+SWEAT_DRIP,BASE/FX/STEAM_DBL+"
+
+			@sfx door_open
+			@sfx door_close
+			@back BEDROOM_MD
+			@printer Dialogue
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: I hope this wasn’t too strange for her...
+			@bgm naughty volume:0.4
+			@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH look:left pos:50
+			Mira: *PANT *PANT...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: H-hey...
+			Gunther: Did they... make you work too hard?
+			@char Mira.{lingerie_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>HUH look:left pos:50
+			Mira: I didn’t think such little men would be so....vigorous.
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: ...
+			Mira: It was very odd, though.
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: Was it good?
+			@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HMM
+			Mira: ...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>AH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: It was, wasn’t it?
+			@char Mira.{lingerie_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>OH,BASE/FX>SWEATY_FALL
+			Mira: T-this is so embarrasing..
+			Mira: After I undress in front of them...
+			@char Mira.{lingerie_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>MUH look:left pos:50
+			Mira: T-They both suddenly rushed onto me. 
+			Mira: One of them rode me from behind..The other one slid between my breasts..
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH
+			Gunther: and the other one...?
+			@char Mira.{lingerie_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>MUH
+			Mira: Huh?
+			Gunther: There's three of them right?
+			@char Mira.{lingerie_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH look:left pos:50
+			Mira: Oh..The other one was already asleep...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: ( What the- )
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: ( That guy must be really tired... )
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: Is that the one who looked the youngest?
+			Mira: I think so...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: ...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>AH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: B-But it did felt good? Right?
+			@char Mira.{lingerie_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>EH look:left pos:50
+			Mira: W-well...
+			Mira: They used spells to make themselves much bigger down there....
+			@char Mira.{lingerie_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>HMM look:left pos:50
+			Mira: ....
+			@char Mira.{lingerie_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>AH look:left pos:50
+			Mira: It might have almost seemed funny if it hadn’t felt so good.
+			Gunther: You really liked that?
+			@char Mira.{lingerie_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>HUH look:left pos:50
+			Mira: I... I didn’t mean to... I think it was mostly the magic...
+			Gunther: I see...
+			Gunther: How was it compared to me?
+			@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH look:left pos:50
+			Mira: You always ask...I don’t know..
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>GRIN,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: Come on now..you can tell me.
+			Mira: If you have to know... I mean there were three of them.
+			Mira: And they were wizards, even if they were gnomes...
+			Mira: it’s not fair to compare you.
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>AH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: So it was better.
+			@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH look:left pos:50
+			Mira: If you didn’t clearly like this so much, I’d feel very bad about it.
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>GRIN,BASE/FX>SPARKLE pos:{g_POS} scale:{g_SCALE}
+			Gunther: Don’t.
+
+			@goto _LOOPER.end_day
+	@stop
+	
+@stop

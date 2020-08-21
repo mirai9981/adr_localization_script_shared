@@ -1,0 +1,303 @@
+
+#CONVERT_1
+
+	@back BLANK
+	@printer IntroPrinter
+	Several days later...
+
+	@printer Dialogue
+	@back KITCHEN_DAY
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH pos:{g_POS} scale:{g_SCALE}
+	Gunther: Oof...That should do it..
+	@showUI DayIndicator
+	@bgm port volume:0.7
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH look:left pos:50
+	Mira: Honey, I'm back..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE
+	Gunther: Hmm~ 
+	@char Mira.{def_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>OH
+	Mira: Listen to this, Love
+	Mira: I heard some gossip from the market...
+	Mira: One of the lodging inns there boomed in a single night!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?
+	Gunther: Huh? That sounds impossible if you ask me...
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH
+	Mira: But it's true! 
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH
+	Mira: I went there before going home and people are flocking the place!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH
+	Gunther: Interesting...
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>HUH
+	Mira: From what i've seen, It seems they frequently hold events to attract people.
+	Gunther: Such as?
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>OH
+	Mira: You know...<color=#FFBB53>Small Concerts</color>, Contest and stuff..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: Hmmm..
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+	Mira: Why don't we try holding one before weekends?
+	Mira: Who knows!
+	Mira: It might really work...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: Well...we could try..
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+	Mira: What do you have in mind?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: Hmmm...
+
+	#this
+	@set stripper=0
+	@choice "We should try doing a <color=#FFBB53>Mini Concert</color>..." goto:.concert
+	@if hide_extra_service==true 
+		@if mira_service_count==0
+			@choice "How about we try <color=#FFBB53>Hiring a Stripper</color>..." goto:.stripper_fl
+		@endif
+	@endif
+
+	@if hide_extra_service==false 
+		@choice "??? <color=#FB4141>( Locked )</color>" goto:.this
+	@endif
+	@stop
+
+	#concert
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Well, how about we try hiring a bard for starters?
+
+		@if stripper==0
+			@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+			Mira: That's sounds good~!
+		@else
+			@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>EH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+			Mira: That sounds better...
+		@endif
+
+		Mira: I'll post a notice on the Townsquare tomorrow...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX-
+		Gunther: Hmm!
+		@goto CH_BARD.FLAG_1
+	@stop
+
+	#stripper_fl
+		@set stripper=1
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Why don't we try to hire a stripper?
+		@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>HAH?,BASE/FX_BODY>BLUSH
+		Mira: Huh!??
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH
+		Gunther: I just thought that...
+		Gunther: Given that most of the folks that visit our place are Men, we could probably get the most out of it!
+		Mira: I-isn't that <color=#FFBB53>illegal</color>?
+
+		@choice "Oh...I forgot..." goto:.nextOption
+		@choice "Well...as long as we hold them at <color=#FFBB53>midnight</color>" goto:.allowStrip
+		@stop
+
+		#allowStrip
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: I guess, It'll be alright as long as we hold them at midnight...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_MULT
+		Gunther: Right?
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: Gunther....
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX>SWEAT_MULT
+		Gunther: I mean come on...I barely remember when we last had a full house...
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>H-HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: ...
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: W-well...you're not wrong...but..
+		Mira: A-assuming we went with your idea....
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>OH
+		Mira: Where are we going to hire a stripper then?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM
+		Gunther: ...
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HMM
+		Mira: Hmm?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE
+		Gunther: .....
+		@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>HUH
+		Mira: What?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+		Gunther: ....
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: Gunther....
+		Gunther: ...
+		@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: No...No....uh-uh!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Come on! It's just a one time thing!
+		Gunther: I remember you doing one for my birthday a few years ago!
+		Gunther: Ahh~ I would love to see that again!
+		@char Mira.{def_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: But that was private! 
+		Mira: And personal! 
+		Mira: And you're my husband! 
+		@char Mira.{def_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: I’m not... I’m not a stripper!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: I-I wasn’t saying you are...
+		Gunther: ...
+		@char Mira.{def_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>H-HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: ...
+		@char Mira.{def_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>HUH
+		Mira: You do know those drunkards will pester me everyday once they saw me dance around half naked!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+		Gunther: ( That would definitely be troublesome.. )
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: Y-you're right...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+		Gunther: ...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+		Gunther: How about we conceal your face?
+		Mira: Huh? How are you going to do that?
+		Mira: You know a mask alone won't cut it..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+		Gunther: Hmmm..
+
+		@if hasWig==1
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+			Gunther: ( I think the <color=#FFBB53>Golden Wig</color> I bought from that stranger could be useful..) 
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+			Gunther: We could use a Wig!
+			@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH
+			Mira: And we're are we going to get a w-
+			@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>OH
+			Mira: Wait, where did you get that?
+			Gunther: Bought it from a visitor...
+			@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM
+			Mira: ...
+			Gunther: I think this should be enough..You could wear it along with the Mask...
+			@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX_BODY>BLUSH
+			Mira: ....
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+			Gunther: I'm getting way ahead of you again..aren't I?
+			Gunther: S-sorry...
+			Gunther: We could just go ahead with a Conce-
+			@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>OH,BASE/FX_BODY>BLUSH
+			Mira: No touching..
+			Gunther: Huh?
+			@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>OH,BASE/FX_BODY>BLUSH
+			Mira: I will perform...but no touching...
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+			Gunther: Really!?
+			@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>EH,BASE/FX_BODY>BLUSH
+			Mira: *SIGH...I will..I will....
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+			Gunther: Very well! I'll try to secretly spread the word...
+			@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX_BODY>BLUSH
+			Mira: ...
+			@goto EVENT_DANCE.FLAG_1
+		@else
+			Gunther: ( If only i have <color=#FFBB53>something to change her hair</color>... )
+
+			#nextOption
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+			Gunther: You're right...
+			Gunther: ( I guess we have no choice but to hold a small performance for now...)
+			@goto .concert
+		@endif
+
+	@stop
+
+@stop
+
+
+
+#CONVERT_2
+	@back BLANK
+	@printer IntroPrinter
+	Several days later...
+
+	@bgm morning_ambient volume:0.6
+	@printer Dialogue
+	@back STAIRS_BACK_DAY
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+	Gunther: Hun? Are you done using the washr-
+	@showUI DayIndicator
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH pos:50
+	Mira: Y-Yes...
+	@char Mira.{def_config},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE
+	Mira: ....
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: ( Seems like something is bothering her... )
+	@stopbgm morning_ambient
+	@bgm haunted volume:0.6
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: Is something wrong?
+
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FALL
+	Mira: I...uhm..It’s probably just my imagination...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: What's the problem?
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>KAH,BASE/FX>SWEATY_FACE
+	Mira: Well...
+	Mira: While I was bathing...
+	Mira: I feel like someone was watching me from the window...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: A peeping tom?
+	@char Mira.{def_config},BASE/FACE/EYES>MEH,BASE/FACE/MOUTH>OH,BASE/FX>SWEATY_FACE
+	Mira: I-I dunno..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: ...
+	Gunther: ( Definitely sure it ain't me... )
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE
+	Mira: I-It’s probably nothing.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH 
+	Gunther: Don't worry...I'll go ahead and take a look...Dry your hair first..
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>OH,BASE/FX>SWEATY_FACE
+	Mira: O-okay...
+	@sfx cloth_shuffle
+	@hide Mira
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: ( We're should I check first... )
+
+	@choice "Check the <color=#FFBB53>Backyard</color>" goto:.backyard
+	@choice "Check the <color=#FFBB53>Washroom</color>" goto:.washroom
+	@stop 
+
+	#backyard
+		Gunther: I should take a look outside first...
+		@hide Gunther	
+		@back BLANK
+		...
+		@sfx MedievalDoor_Open
+		@back FRONT_DAY
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+		Gunther: Hmm...
+		Gunther: Small footprints...
+		Gunther: ( Doesn't seem human... )
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+		Gunther: ....
+		Gunther: ( Highly doubt this is from a wild boar... )
+		Gunther: ( From the looks of it..it seems to belong from a humanoid... )
+		Mira: Hun, Where are you?
+		Mira: Can you help me with these barrels?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: C-coming~!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+		Gunther: ( I should check on these footprints again later... )
+		@set nextday_visitor="Goblin"
+		@goto _LOOPER.end_day
+	@stop
+
+	#washroom
+		Gunther: ( I better check the window from the <color=#FFBB53>Washroom</color> first.. )
+		@hide Gunther	
+		@back BLANK
+		...
+		@sfx cloth_shuffle
+		@back WASHROOM_DAY
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+		Gunther: Hmm..
+		Gunther: ( It doesn't seem opened by force... )
+		Gunther: ( There's something stuck beside it.. )
+		Gunther: ( What's this? )
+		You picked up a <color=#FFBB53>Golden Pin x1</color>[sfx item]
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+		Gunther: ( A pin? )
+		Gunther: ( Where have I seen this before... )
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+		Gunther: ( Anyway, I should check on these windows again later... )
+		@set nextday_visitor="Brat"
+		@goto _LOOPER.end_day
+	@stop
+@stop

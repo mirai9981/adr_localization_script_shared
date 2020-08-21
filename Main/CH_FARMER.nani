@@ -1,0 +1,1340 @@
+
+#RESET
+	@set debugMode=1
+	@hide Mira
+	@hide Gunther
+	@hide Farmer
+	@back BLANK
+	@choice "Flag 1" goto:.FLAG_1
+	@choice "Flag 2" goto:.FLAG_2
+	; @choice "Flag 3" goto:.FLAG_3
+	; @choice "Flag 4" goto:.FLAG_4
+	; @choice "Flag 5" goto:.FLAG_5
+	@choice "Flag 6" goto:.FLAG_6
+	@choice "Reset" goto:.RESET
+@stop
+
+#FLAG_1
+	@set weather="sunny"
+	@bgm morning_ambient volume:0.8
+	@back BLANK
+	Next day...
+
+	@back TAVERN_DAY_ON
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( Business as usual... )
+	Gunther: I should replace this mugs soon...
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	Gunther: ( Ah, someone came in...)
+	@stopbgm morning_ambient
+	@showUI DayIndicator
+	@bgm old_farmer_theme
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>LOOSE,BASE/FACE/MOUTH>IH,BASE/FX- pos:50
+	Farmer: tsk..
+	Gunther: ( It's the <color=#FFBB53>Oldman</color> from the <color=#FFBB53>nearby farm</color>...)
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: Long day?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>UH
+	Farmer: I’m a farmer. Everyday of my life is long.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+	Gunther: I know the feeling..
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: You don’t know squat!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+	Gunther: ...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>OH
+	Farmer: Send that barmaid over with an ale.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: Uh, sure-
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: A good one! Not that horse piss I saw you serving another customer earlier.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+	Gunther: ( But that was the good stuff... )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: R-Right away.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+	Gunther: ( Well someone's a bit too riled up today... )
+	@hide Farmer
+
+	@back HALL_BACK_DAY
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+	Gunther: Darling?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM pos:50
+	Mira: Hmm?
+	Gunther: Can you get that old farmer an ale- one of the Sunbrews.
+	Gunther: He doesn’t want our usual.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH 
+	Mira: Alright then..
+	Gunther: Heads up, he’s a little cranky...
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>EH,BASE/FX>SIGH_AIR
+	Mira: Oh, great.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Gunther: Sorry.
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+	Mira: It’s fine, seems like lots of customers are cranky these days.
+	Gunther: Well, that’s just until they see your smile.
+	@char Mira.{def_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>SMILE,BASE/FX_BODY>BLUSH
+	Mira: Aww, You~!
+
+	@choice "It always cheers me up!" goto:.pure
+	@if mira_service_count>=1
+		@choice "..And your tits" goto:.corrupt
+	@endif
+	@stop
+
+	#corrupt
+		Gunther: And your tits.
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH
+		Mira: Way to ruin the moment.
+		@sfx bad_choice
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+		Gunther: ...
+		@char Mira.{def_config},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>OH,BASE/FX>SWEATY_FACE
+		Mira: You’re incorrigible. I better go bring this ale...
+	@goto .main
+
+	#pure
+		Gunther: It always cheers me up!
+		@char Mira.{def_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH
+		Mira: How did I get such a sweet husband? 
+		@sfx good_choice
+		@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>GRIN
+		Mira: Ah, well, let’s get that grumpy farmer his ale.
+	@goto .main
+
+	; ( Farmer appears )
+
+	#main
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX-
+		@hide Mira
+		@back BLANK
+		...
+
+		@back TAVERN_ANGLE2_DAY_ON
+		Gunther: ( I wonder how that old guy would react.. )
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH pos:70
+		Mira: Hello, sir!
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH pos:30
+		Farmer: That my ale?
+		@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+		Mira: Indeed. A sunbrew! It’s got sweet notes of cin-
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+		Farmer: I don’t give a shit about any of that just hand it over...
+		Farmer: Fancy pants cityfolk with their fancy pants drinks...
+		@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>SMILE,BASE/FX>SWEATY_FACE
+		Mira: (*whisper)..But we’re hardly cityfolk...
+		@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FALL
+		Mira: Seems like something’s got you down. Want me to fetch you anything else?
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>OH
+		Farmer: Well, aren’t you friendly...
+		@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+		Mira: I try!
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+		Farmer: ...you married to that dolt?
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+		Mira: Hehe, yeah that’s my hubby!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+		Gunther: ( He does know I can hear him, right? )
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+		Farmer: Well, guess he really lucked out. 
+		Farmer: Don’t see how a man like that ends up with a woman like you.
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>SMILE,BASE/FX>SWEATY_FACE
+		Mira: ...
+		@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FALL
+		Mira: A-anyway, are you married too?
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+		Farmer: Yeah, to a screeching she-devil! All she does all day is nag nag nag. 
+		Farmer: She never stops complaining and screams at me nonstop...
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IDLE
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HMM
+		Mira: ( I have a feeling this guy deserves it sometimes... )
+		@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>OH
+		Mira: Sounds awful...
+		@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH
+		Mira: The last thing you want after a hard day's work is to be yelled at.
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+		Farmer: EXACTLY! See? You get it. Why doesn’t SHE?!?
+		@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>SMILE,BASE/FX>SWEATY_FACE
+		Mira: ( He’s being very loud now...I guess they're really a good fit.. )
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+		Mira: Well, down that ale and try to think about happier things for a bit.
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>LOOSE,BASE/FACE/MOUTH>OH
+		Farmer: Thanks for letting me vent I suppose.
+		@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+		Mira: No problem.
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+		Farmer: I think I know what I’m going to think about to take my mind off my stress... hehe...
+		@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HMM
+		Mira: Hmm?
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>LOOSE,BASE/FACE/MOUTH>IH
+		Farmer: N-Nothing..
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+		Farmer: Hehehe...
+		@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH
+		Mira: Ok then, just let me know if you need anything else.
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+		Farmer: Oh, I will.
+		@stopbgm old_farmer_theme
+
+		@if debugMode==1
+			@goto .RESET
+		@else
+			@goto _LOOPER.end_day
+		@endif
+@stop
+
+#FLAG_2
+	@sfx crowd_adjusted
+	@back BLANK
+	...
+
+	@back TAVERN_DAY_ON
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+	Gunther: Welco-
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: ( Oh..It's just him...again...)
+	@bgm old_farmer_theme
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH,BASE/FX- pos:50
+	Farmer: Trollpiss drinking demonspawn!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+	Gunther:  ( ...and he seems even more grumpy than last time. )
+
+	@showUI DayIndicator
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: Uh, sir?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Little devils! That’s what they are!
+	Gunther: Ok...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IDLE
+	Farmer: ...
+	Gunther: Do you want a drink?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: Why the hell am I even talking to you? Just send me an ale already!
+	@hide Farmer
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>PISSED
+	Gunther: ( What an asshole... )
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: D-darling?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM pos:50
+	Mira: Hmm?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: Guess who’s back?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+	Mira: Oh, The grumpy old guy again..
+	Gunther: Yep. He wants the same thing.
+	@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>MUH,BASE/FX>SIGH_AIR
+	Mira: Guess I gotta hear his vents once again...
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>AH
+	Mira: Well, if it keeps him coming back...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX-
+	@hide Mira
+
+	@back BLANK
+	...
+	
+	@back TAVERN_ANGLE2_DAY_ON
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH pos:50
+	Mira: Welcome back~!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH pos:35
+	@char Mira pos:70
+	Farmer: Well, look who it is again.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>GRIN
+	Mira: Here's your ale along with a smile to brighten your day!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: Gonna need more than a smile to brighten this day.
+	Farmer: The gods are just taking a big shit on my life day after day!
+	@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HUH
+	Mira: Sounds rough, What happened?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: Well, since you’re being so kind I guess I’ll tell you...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+	Gunther: ( This guy is so predictable. )
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: I tell you what today’s been a real kick in the balls.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH
+	Mira: I think we’ve all had those days.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>UH
+	Farmer: Loaded up my corn from the harvest into the wagon to get ready to sell it in the city markets. Took me all damn week!
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH
+	Mira: That’s tough. And the missus?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: Yelling at me as always. But that’s not even the problem this time.
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>OH
+	Mira: Oh?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: Yeah! These damn hooligan kids stole half the crates out of the cart!!!
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>EH
+	Mira: You were robbed? Oh no...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: I tried to shoot em with my old crossbow but I’m just not the shot I was when I was younger.
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH
+	Mira: People are so greedy. I’m so sorry.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: They weren’t even doing it for the corn. 
+	Farmer: They just wanted to piss me off. Those kids are always messing with me.
+	Mira: That’s terrible.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>OH
+	Farmer: No respect for an old man of the land like me in today’s society, I guess!
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+	Mira: I respect you!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: ...well, that’s good at least.
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH
+	Mira: Anyway, I should get back to work. 
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>SMILE
+	Mira: Hope it was helpful to have me lend an ear.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: If only all women knew how to listen as well as you did, it’d be a better world.
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE
+	Mira: R-Right, Later then~
+	@stopbgm old_farmer_theme
+
+	@if debugMode==1
+		@goto .RESET
+	@else
+		@goto _LOOPER.end_day
+	@endif
+@stop
+
+; SKIP
+#FLAG_3
+	@sfx crowd_adjusted
+	@back BLANK
+	...
+
+	@back TAVERN_DAY_ON
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	Gunther: Ah, That farmer’s back again.
+	@showUI DayIndicator
+	@bgm old_farmer_theme
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH,BASE/FX-
+	Farmer: ALE! HURRY UP!
+	Gunther: Uh, nice to see you too... 
+	@hide Farmer
+	
+	; ( Mira appears )
+
+	Gunther: Crotchety old farmer’s here again.
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>AH
+	Mira: I heard him shout for ale. He’s such a grouch!
+	Gunther: He’s an asshole.
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH
+	Mira: No no no... He’s just burdened...I think. 
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>OH
+	Mira: Some men get trapped in a life they don’t want to live and don’t know how to escape.
+	Gunther: Hmm, that’s sad. 
+	Gunther: It great that I don’t feel that way. 
+	Gunther: I’m glad you’re mine.
+	@char Mira.{def_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH
+	Mira: Same.
+	Farmer: OI! WHERE’S THAT ALE?!?
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>EH
+	Mira: Guess I better get moving. Yeesh...
+	Gunther: Better do..
+	@hide Mira
+
+	@back BLANK
+	...
+	
+	@back TAVERN_ANGLE2_DAY_ON
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+	Mira: Hey there~!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>LOOSE,BASE/FACE/MOUTH>EH
+	Farmer: Well hey there again, girlie.
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>GRIN
+	Mira: Name’s Mira. You can call me by it.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Meh, at my age you stop trying to remember people’s names, sweetie.
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>OH
+	Mira: ...ok.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>UH
+	Farmer: Gimme that ale!
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+	Mira: Here you go...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH,BASE/FX>DRUNK
+	Farmer: Ah, that’s the stuff. My whole damn body hurts!
+	@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HUH
+	Mira: You’re in pain? What happened?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: Rat bites. Those Little bastards.
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>EH
+	Mira: Ew... that sounds awful!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>OH
+	Farmer: Damn rodents are overrunning my fields. Some of the squash rotted and I didn’t have time to clear it, and it attracted them.
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+	Mira: Taking care of a business, whether it’s a farm or a tavern, is a LOT of work.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: Don’t lecture me. Last thing I need is a lecture on “hard work” from some woman who makes all her money by pushing her tits out for tips.
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HMM
+	Mira: ...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>LOOSE,BASE/FACE/MOUTH>OH
+	Farmer: Eh, I-i guess you get tips for being a good listener too.
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH
+	Mira: Damn right.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: But you’re not gonna convince me those funbags don’t get you the extra coin here and there!
+	@char Mira.{def_config},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+	Mira: W-Well...from some, sure. I suppose.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: Hehe...
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+	Mira: R-Right, then. I better get-
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: Let me see em.
+	@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>SMILE,BASE/FX>SURPRISED,BASE/FX_BODY>BLUSH
+	Mira: Hmm?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: Come on, cheer a pissed off old farmer up after he’s had a rough day.
+	@char Mira.{def_config},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FALL,BASE/FX_BODY>BLUSH
+	Mira: A-Absolutely not.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: ...hehehehehehe! You thought I was serious?
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HMM,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+	Mira: ...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: I was completely joking!
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+	Mira: Oh, ha!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: Unless...
+	@char Mira.{def_config},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>HMM,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+	Mira: ...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IDLE
+	Farmer: ...
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FALL,BASE/FX_BODY>BLUSH
+	Mira: I-i’m gonna get back to work.
+	@stopbgm old_farmer_theme
+
+	@if debugMode==1
+		@goto .RESET
+	@else
+		@goto _LOOPER.end_day
+	@endif
+@stop
+
+; SKIP
+#FLAG_4
+	@sfx crowd_adjusted
+	@back BLANK
+	...
+
+	@back TAVERN_DAY_ON
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	Gunther: Welc-...Ugh...
+	Gunther: ( That guy’s got some nerve coming back here after asking Mira to show him her tits. )
+	@bgm old_farmer_theme
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH,BASE/FX-
+	Farmer: Well, if it isn’t the dunce husband.
+	Gunther: You know, this is MY tavern too. We don’t have to serve-
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>LOOSE,BASE/FACE/MOUTH>OH
+	Farmer: Ah, shove it. I’m in no mood for this. Just tell your wife to bring me my ale already.
+	@hide Farmer
+	Gunther: ( Sigh...If only we didn't need the money.. )
+
+	; ( Mira appears )
+
+	Gunther: Farmer’s back. Looks grumpy as ever.
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE
+	Mira: Wonder what’s bugging him this time?
+	Gunther: I’m sure you’ll find out.
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH
+	Mira: I did thought you wouldn’t let him back in here again.
+	Gunther: ...
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM
+	Mira: ...?
+	Gunther: I mean-
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>EH,BASE/FX>SIGH_AIR
+	Mira: Oh, forget it Gunther I’ll just bring him his ale.
+	@hide Mira
+
+	@back BLANK
+	...
+
+	@back TAVERN_ANGLE2_DAY_ON
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+	Mira: Hey again, hon! Here’s your usual.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: Heh, YOU’RE my usual. This is just an ale.
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+	Mira: Haha, so what’s eating ya today? It seems like every time you show up something’s wrong.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>LOOSE,BASE/FACE/MOUTH>OH
+	Farmer: Funny you put it that way. What’s eating me today is EATING.
+	@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>MUH
+	Mira: Huh?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: I work hard ALL DAY.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HUH
+	Mira: Right!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: And all I ask of my wife is to take care of our home...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>UH
+	Farmer: And our kids. 
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>OH
+	Farmer: And the animals. 
+	Farmer: And to make sure all of our meals are made.
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>SMILE,BASE/FX>SWEATY_FACE
+	Mira: ( Kind of sounds like his wife is doing way more work than him... )
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: But her cooking... it’s awful! I can’t stand it.
+	Farmer: I just want a decent meal after hard labor and she cooks with NO EFFORT.
+	Farmer: She barely tries! It’s downright sinful is what it is!
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: Well, no one likes eating badly made food.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: It’s worse than that! It’s disrespectful to me. 
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH
+	Mira: Huh?
+	Farmer: A wife shows her husband respect by doing things like making meals.
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>MUH
+	Mira: ( Oh he’s one of THOSE types... )
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>SMILE,BASE/FX>SWEATY_FACE
+	Mira: I-i see.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: If she wanted to be a good wife, she’d LEARN how to cook better!
+	Farmer: Now I’m tired and sore and have an upset stomach on top of it.
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>AH
+	Mira: Sure you should be drinking?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: Shut up.
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>SMILE,BASE/FX>SWEATY_FACE
+	Mira: ...
+	Mira: ( Suit yourself i guess.. )
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: You put in any more thought to my offer, by the way?
+	@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>OH
+	Mira: Offer?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: You know... earning a little extra TIP from me?
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: I am NOT showing you my tits, old man.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>OH
+	Farmer: Oh, come on... If not just for the extra tip, how about just to make a tired old man feel a little better? I’ve had a ROUGH month.
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: ...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: Come on now! No need to be stubborn.
+	@goto .stillpure
+
+	#stillpure
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>AH
+		Mira: Sorry oldman, Not happening.
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+		Farmer: Aww Come on!
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+		Mira: Anyway, I should get back to work now! Enjoy your drink!
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IDLE
+		Farmer: Hmph.
+		@stopbgm old_farmer_theme
+	@goto _LOOPER.end_day
+
+	#corrupt
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+		Mira: Fine. For ONE SECOND.
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+		Farmer: Hehe, works for me.
+
+		; ( Mira very quickly flashes her breasts )
+
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+		Farmer: !!!!!!
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+		Mira: OK! That’s it. We’re done now.
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+		Farmer: Wow what I would do to have a wife with a pair like that...
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+		Mira: Yeah yeah.
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+		Farmer: That husband of yours isn’t treating you right.
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+		Mira: What?
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+		Farmer: Not enough marks on those tits. He should be biting and sucking them every day.
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+		Mira: ...
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+		Farmer: You oughta come down to my farm...
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+		Mira: Not happening. Bye.
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+		Farmer: We’ll see...
+
+	@if debugMode==1
+		@goto .RESET
+	@else
+		@goto _LOOPER.end_day
+	@endif
+@stop
+
+; SKIP
+#FLAG_5
+	@sfx crowd_adjusted
+	@back BLANK
+	...
+
+	@back TAVERN_DAY_ON
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	Gunther: ( There’s that farmer again. Today he looks really upset. Almost sad, even. Hmm...)
+	Gunther: Nice to see you, sir!
+	@bgm old_farmer_theme
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>LOOSE,BASE/FACE/MOUTH>IDLE
+	Farmer: Hmph.
+	Gunther: Want me to get Mira and an ale for you?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: What do you think?
+	@hide Farmer
+	Gunther: ...right.
+
+	; ( Mira appears )
+
+	Gunther: Darling...your usual old "Guest" is back..
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>POUT
+	Mira: ...
+	Gunther: What? 
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HMM
+	Mira: ...
+	Gunther: Come on now! I’m just teasing!
+
+	@choice "No harm in showing those pair you know.." goto:.corrupt_5
+	@choice "Don't worry, he's just cranky and all.." goto:.pure_5
+	@stop
+
+	#corrupt_5
+		Gunther: But, if he asks to see them again... no harm showing them to him for a little longer this time.
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+		Mira: You’re seriously the most perverse person I’ve ever met.
+		Gunther: And you married me. So what does that say about YOU?
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+		Mira: ...
+		@goto .cnt
+	@stop
+
+	#pure_5
+		Gunther: He’s such a cranky man. You shouldn’t have to put up with someone like him.
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+		Mira: Awww... it’s ok really. I do it for us!
+		Gunther: I know. I love you.
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+		Mira: You too.
+		@goto .cnt
+	@stop
+
+	#cnt
+	Gunther: Regardless, he IS an asshole. So I’m sorry you have to deal with him.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: I can handle it.
+	Gunther: I know.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: Hey, Gunther?
+	Gunther: ...?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: You’re not looking for me to... like with this guy...
+	Gunther: N-no!
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: You say that like it’d be unusual for you to want that...
+	Gunther: No, it’s not that. He’s just too much of a jerk to me. I don’t like the idea of him getting to spend time with you like that...
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: I see. That’s different for you.
+	Gunther: Eh, something about him just rubs me the wrong way. I don’t want to reward him for how he acts I guess.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: Well, he’s looking really down today. I better go check on him.
+	Gunther: Right. Good luck, then.
+	Gunther: (Weird, she doesn’t usually open that subject about customers with me... she must really not like this guy.)
+
+	; ( Farmer appears )
+
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: Why the long face, hon?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Ugh...
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: Woah, you seem really down. Can I try to cheer you up?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Royal knights are camping on my land and invoking the right to seize food and property from me!
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: That’s... actually really terrible. I’m sorry.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: (For once he’s got a really serious problem that isn’t his fault.)
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: The damn kingdom is corrupt! Those knights are eating me out of house and home.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: I’m sure your wife isn’t happy about it either.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Eh, who cares. Honestly, I’d rather them take HER than my cattle at this point!
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: (This guy is a real piece of work...)
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: How much have they taken?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Most of the yield for this year! They’re thieves with permission from the kingdom, that’s what they are.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: Things are definitely tough right now.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: ...want to help make them better for me?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: ...how?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Maybe, let me see them again?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: No. That was a one time deal.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: And this time let me touch them.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: I just said no! Why would you think I’d let you do MORE?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Because, I’m a sad old man who just wants something nice in his life now and then... honestly, what I really want is to sleep with you.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: I kind of figured that out, already.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Well?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: I’m married! And so are you!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: I’m married to a harpy. And you’re married to a pig with brain damage!
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: That’s... not what Gunther is like at all!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Yes it is. I’ve seen him. He’s a buffoon and he probably doesn’t satisfy you in bed.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: Th-that’s not true! And that’s none of your business anyway!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: If I had a woman like you, I’d make sure she was screaming with pleasure every day.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: I’m done with this conversation.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: ...if you were really done, you’d leave.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: I was trying not to be rude.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Mmm.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: Oh, shush! I’m out of here!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Damn. Fine.
+
+	( Farmer leaves, Mira is talking to Gunther again )
+
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: I can’t believe he just did that!
+	Gunther: ...
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: Did you hear all that?
+	Gunther: Yeah. He was-
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: So rude. And manipulative! Trying to use his sad state of affairs to make me feel sorry for him and sleep with him. Disgusting!
+	Gunther: Totally.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: ...
+	Gunther: ...
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: Gunther.
+	Gunther: What?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: You’ve got that look on your face.
+	Gunther: What look?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: And you’ve got that look in your pants too. Jeeeeeeze!
+	Gunther: ...
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: It’s not happening with him.
+	Gunther: What if he pays?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: No! Look, he’s very rude to me and to you too. He insults you all the time! I don’t want to reward him for that...
+	Gunther: Ok...
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+	Mira: Ugh, you sound so disappointed...
+
+	@if debugMode==1
+		@goto .RESET
+	@else
+		@goto _LOOPER.end_day
+	@endif
+@stop
+
+#FLAG_6
+	@set weather="sunny"
+	@sfx crowd_adjusted
+	@back BLANK
+	...
+
+	@back TAVERN_DAY_OFF
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE pos:{g_POS} scale:{g_SCALE}
+	Gunther: Hmmm~♫
+	@showUI DayIndicator
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+	Gunther: ( Oh boy, he's here again... )
+	Gunther: ( Pretty early too.. )
+	@bgm old_farmer_theme
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH,BASE/FX- pos:50
+	Farmer: Don't utter a word and just serve me with your strongest Ale...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+	Gunther: ( Well someone's extra grumpy today... )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+	Gunther: Just a second..
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>OH
+	Farmer: Hey-
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX-
+	Gunther: Hm?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: How long you two been married?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: Uhm...
+	Gunther: Few years now, Why'd you ask?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>OH
+	Farmer: I notice you ain’t got kids...
+	Gunther: No...We don’t have one yet...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: I’ve got a bunch with my wife. 
+	Farmer: Seven of em. All grown up good-for-nothings at this point.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: That’s...a lot of kids.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: Damn right!!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: When you marry a woman you gotta start pumping her full of children.
+	Gunther: That definitely sound inappropri-
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Otherwise, she’ll always be looking around behind your back for the next virile stud who can do it instead of you.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX-
+	Gunther: ...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Well, what are you waiting for.
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: Tell that woman to bring me a drink already!
+	@hide Farmer
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+	Gunther: *SIGH..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+	Gunther: Hun~
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH pos:50
+	Mira: I know~ I know~ I heard him...
+	Mira: He's back again huh?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+	Gunther: Yeah, and obnoxious as ever.
+	@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE
+	Mira: Can’t say I’m shocked.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX-
+	Gunther: You don’t have to be nice to him. I’m not sure he’s worth the money!
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+	Mira: Don't worry, Every coin counts you know~!
+
+	@goto .fine
+	; @choice "Alright, Alright..." goto:.fine
+	; @choice "I don't like how close he is to you though.." goto:.notlike
+	; @stop
+
+	#notlike
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-
+		Gunther: Okay then...I don’t like him though.
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE
+		Mira: Really now...
+		Mira: He may be loud and grumpy but his totally harmless..
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH
+		Mira: Besides what could an oldman like him do anyway?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+		Gunther: *SIGH...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX-
+		@goto .flag_6_ret
+	@stop
+
+	#fine
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?,BASE/FX-
+		Gunther: Fine..Fine..
+		Gunther: Here's..Serve this Ale to him...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX-
+		@goto .flag_6_ret
+	@stop
+
+	#flag_6_ret
+	@back TAVERN_ANGLE2_DAY_OFF
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH pos:35
+	@char Mira pos:70
+	Farmer: Well, if it isn’t the girl who married the wrong man.
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>SMILE,BASE/FX>SWEATY_FACE
+	Mira: ...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: Heh, can’t even argue with me on it...Cause you know it’s true! Heheh~
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH
+	Mira: That’s not why-
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH,BASE/FX-
+	Farmer: Just give me my drink! Will ya!
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>POUT
+	Mira: Hmmph!
+	Farmer: [sfx drinking]*GULP* *GULP*
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH,BASE/FX>DRUNK
+	Farmer: Ah... That’s the stuff...
+	Farmer: I gotta tell you, my life is hard.
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>SMILE,BASE/FX>SWEATY_FACE
+	Mira: Hmhmm...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: But coming here now and then, that really takes a bit of weight off.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+	Mira: Oh, well...I’m glad we can ease your burden a bit..
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+	Mira: What else are taverns for?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+	Farmer: Right.
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH
+	Mira: So, anything particularly weighing you down this week?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: Yeah. I can’t focus on anything these days!
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH
+	Mira: I think everyone is feeling a bit stressed...
+	Mira: It’s affecting all of our work and The world is pretty crazy right now!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: Yeah, that’s not why.
+	@stopbgm old_farmer_theme
+	
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH
+	Mira: Oh, well then...?
+	
+	@bgm creep_theme
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: I just keep thinking about those tits of yours, that’s why.
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: ...
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+	Farmer: I can barely farm because of you!
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: And how is that my fault?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: Strutting around, serving me drinks. 
+	Farmer: You got me worked up on purpose and now you want to play all innocent?
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HAH?,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: What the- That’s ridiculous!
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>OH
+	Farmer: You owe me.
+	@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HAH?,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: WHAT?!?
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>OH
+	Farmer: You ruined my week. Can’t sleep right. Fighting with the missus everyday. 
+	Farmer: I can’t focus on work. You gotta fix it.
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HAH?,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: F-fix it? I don’t see how I can-
+	@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+	Farmer: Sure ya do...
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: ...
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: Are you asking me too-
+	Farmer: Heheheh...You know what I mean...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+	Gunther: [spawn ShakeCharacter params:"Gunther"]( This bastard has some balls to directly ask her for such "service"... )
+	
+
+	@if mira_service_count>=2
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: ...
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>EH
+		Farmer: I'll make sure to <color=#FFBB53>pay a month's worth</color> of my harvest..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: [spawn ShakeCharacter params:"Gunther"]!!
+		Mira: ...
+
+		@choice "<color=#FFBB53>Interrupt</color> their conversation..." goto:.shake
+		@choice "<color=#FFBB53>Pretend</color> like you heard nothing.." goto:.pretend
+		@stop
+
+		#pretend
+			Farmer: Well?
+			@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH,BASE/FX>SIGH_AIR
+			Mira: *SIGH*~
+			@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+			Mira: ...
+			@wait 2
+			@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+			Mira: ....J-just keep your stupid mouth shut about it, Okay?
+			@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>EH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+			Mira: Go to that room on the right...
+			Mira: I'll follow in a bit...
+			Farmer: Heheheh~
+			@set mira_service_count++
+			@goto .secretsex
+		@stop
+
+		#shake
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>PISSED
+			Gunther: Excuse me Oldman...
+			Gunther: I could put up with your rude remarks but I won't stand for this..
+			Gunther: I'd prefer if YOU LEAVE our Tavern at once...
+			@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+			Farmer: Tsk~!
+			@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+			Farmer: Whatever!! I'm never going back here again!!
+			@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>IH
+			Farmer: Stupid tavern and your stupid drinks! Phff~!
+			@hide Farmer
+			@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH,BASE/FX>SIGH_AIR pos:50
+			Mira: ...
+			@wait 2
+			@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+			Mira: T-thanks love...
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX-
+			Gunther: Hmm..
+			@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>AH
+			Mira: Anyway, We should get back to work now...
+
+			@if debugMode==1
+				@goto .RESET
+			@else
+				@goto _LOOPER.end_day
+			@endif
+		@stop
+	@else
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>KOWA,BASE/FX>PISSED
+		Mira: Why you stupid oldman..That's very rude of you..
+		Mira: Leave our Tavern at once!
+		@char Farmer.BASE/HEAD+,BASE>ATTIRE,BASE/FACE/BROW>CROSS,BASE/FACE/MOUTH>AH
+		Farmer: What the-
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+		Gunther: ( You bought this to yourself oldman.. )
+		Mira: Leave before I break your bones to pieces!
+		Farmer: [spawn ShakeCharacter params:"Farmer"]Ugh! How rude!!
+		Farmer: I'm never going back here again!!
+		Farmer: Phff~! Stupid tavern and your stupid drinks!
+		@hide Farmer
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HMM,BASE/FX_BODY>KOWA,BASE/FX>PISSED pos:50
+		Mira: Hmmph..
+		Gunther: ....
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: H-honey...
+		Mira: Hmmph!?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: I-I'll go clean that up..
+		Gunther: You go ahead and drink some water first, okay?
+		Mira: ...
+		@hide Mira
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SWEAT_SING
+		Gunther: ( Guess I had nothing to worry about to begin with... )
+
+		@if debugMode==1
+			@goto .RESET
+		@else
+			@goto _LOOPER.end_day
+		@endif
+		@stop
+	@endif
+	
+	#secretsex
+	@stopbgm creep_theme
+	@hide Farmer
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>SMILE,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE pos:50
+	Mira: ...
+	@printer Fullscreen
+	Before Mira left,[br]She glanced at me...[br][br]A naughty glanced that signals me about[br]The <color=#FFBB53>"deed"</color> that she's about to do..[br][br]	I gently nodded..[br][br]She turned her back on me[br]as she followed the Oldman[br]back to the <color=#FFBB53>Storage room</color>
+	@hide Mira
+
+	@printer Dialogue
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+	Gunther: ....
+	@sfx heartbeat
+	@hide Gunther
+
+	@back BLANK
+	@printer IntroPrinter
+	A short while later...
+	@sfx heartbeat
+	@wait 2
+
+	@printer Dialogue
+	@back TAVERN_DAY_OFF
+	@bgm creep_theme
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+	Gunther: ....
+	Gunther: ( It's been a few minutes now since they went in.. )
+
+	@back MAIN_STORAGE_DAY
+	Gunther: ( Should I check on them? )
+
+	#flag_6_choice
+	@choice "Nudge the door..." goto:.nudge
+	@stop
+
+	#nudge
+
+	@set mira_service_count++
+	@if hasKnob==1
+		@set g_farmer_pound=1
+
+		#mm_sexscene
+		#sexscene
+		@sfx MedievalDoor_Close volume:0.3
+		@hide Gunther
+		@back BLANK
+		...
+
+
+		@showUI LetterBox
+		@printer ScenePrinter_up
+		
+		@back FARMER_1 id:static_set
+		Mira: *PANT* *PANT*
+		Farmer: Ugh~! This pussy feels so good!
+		Gunther: ( Are they already on it? )
+		Gunther: ( Gotta sway this curtain a bit... )
+
+		@back FARMER_2 id:static_set
+		Mira: *PANT* *PANT*
+		Gunther: ( Oh wow...so they already begun.. )
+
+		@back FARMER_3 id:static_set
+		Mira: I-it seems you can't last too long huh? Oldman~
+		Farmer: Heheh~ Your taunts are useless...
+		Farmer: I'm gonna empty my balls in you and you're gonna screech like a pig until your husbands hears it!
+		Mira: Heh~ Your all just talk and no ac-
+		
+		@back BLANK_W
+		@hide static_set
+		@back FARMER_4 id:static_set
+		@sfx slop_single
+		@sfx hng_single
+		Mira: Oghh~❤
+		@bgm slap_slow
+
+		@back FARMER_5 id:static_set
+		Mira: Don't suddenl- Hngggh~❤
+		Mira: You-
+		Farmer: Heheh! Ugh-
+
+		@back FARMER_6 id:static_set
+		Farmer: Your top is on the way! Remove it will ya!?
+		Mira: Hngghh~❤
+
+		@back FARMER_7 id:static_set
+		Mira: Ah~❤ Ah~❤
+		Farmer: Better...Now I can lick your back too~
+		Mira: Aghh~❤! Sto- Don't!
+		Farmer: Stop acting like you don't want this...
+		Farmer: Your pussy is clamping me like a tight rubber~!
+
+		@stopbgm slap_slow
+		@bgm slap_fast
+		@back FARMER_8 id:static_set
+		Mira: Ah~❤...S-shut up!
+		Farmer: Heh, that’s what I thought...
+		Mira: H-hurry up...Gunther might..
+		Mira: Aghhh~❤
+		Farmer: Who gives a fuck about that idiot?
+		Mira: He’s my husb- Ah~❤
+		Farmer: Yeah, well if he knew how to treat you, you both have several useless kids by now
+		Mira: ...Ahh~.....Ahh~
+		Farmer: You stuck up cityfolk always think you’re so much better than us farmers. I’m gonna show you...
+		Mira: But we're barely cityfo- Aghh~❤
+		Farmer: Shutup! I'm gonna fuck your brains out!
+		Mira: Ahhh~❤ Ahhh~❤
+		Farmer: Hehehe~
+		Gunther: ...
+		Farmer: Fuuuuck~! your pussy feels good!
+		Mira: Just...hurry...and cum already!
+		Farmer: As you wish~!!!
+		Farmer: AHHHHH!!!!!
+
+		@back BLANK_W
+		@hide static_set
+		@back FARMER_8 id:static_set
+		@back BLANK_W
+		@hide static_set
+		@back FARMER_8 id:static_set
+		@back BLANK_W
+		@hide static_set
+		@back FARMER_8 id:static_set
+		@back BLANK_W
+		@hide static_set
+
+		@stopbgm slap_fast
+
+		@back FARMER_9 id:static_set
+		Mira: Hnghh~❤
+		Farmer: Hoho..I still got it...
+		Farmer: It's impossible, If you won't get pregnant with all this cum..Heheh~
+		Mira: Hnghh~❤
+
+		@back FARMER_6 id:static_set
+		Farmer: Heheh..Round 2..
+		Mira: H-hey! Watch it! What are you d-
+		Mira: Ahh~❤!
+
+		@back FARMER_10 id:static_set
+		Farmer: If we do it on these sacks it should be a little quieter than the creaking floorboards...
+		Farmer: Hehe, wouldn’t want that moron husband of yours catching on...
+		Farmer: I could pound the fuck out of your pussy this better...
+		Mira: H-hey this isn't what we agreed-
+
+		@back BLANK_W
+		@hide static_set
+		@sfx slop_single
+		@sfx hng_single
+		@back FARMER_12 id:static_set
+		@bgm slap_fast
+		Mira: Agghhh~❤!
+		Farmer: Huh? What is it your saying?
+		Mira: T-this isn't....Ahh~❤!
+		Farmer: Say again? I can't hear with all this juice coming out from your pussy
+		Mira: Hnnghh~❤!
+		Farmer: Huh?
+		Mira: J-just hurry upppp~❤
+
+		Farmer: OOhh~!
+		Gunther: ...
+		Mira: Oh~❤! Oh gods~❤! 
+		Gunther: ( They're getting really rough. huh.. )
+		Farmer: That’s how you like to be treated, isn’t it bitch?
+		Mira: Ahh~❤ Fuck~❤!
+		Farmer: Ah! Ahh! Your ass cheeks are top notch~!
+		Gunther: ...
+		Farmer: Tell me how much better I am than that idiot husband of yours!
+		Mira: Oh~❤! Much Better! Much Better!!
+		Farmer: Heheh!
+		Farmer: I’m gonna plant my seeds in you!
+		Mira: Ohh~❤! Plant it! Plant it deep!
+		Gunther: ...
+		Farmer: Oh I thought my life was bad, but yours must be AWFUL if you’re this desperate for a cock.
+		Mira: AHh~❤! AHh~❤!
+		Farmer: I bet this is the best thing to happen to you in a long time, huh slut?
+		Mira: Ahhh~❤! Ahhh~❤!
+		Farmer: I'll take those moans as yes!! Hnghh!
+		@stopbgm slap_fast
+
+		@bgm slap_cum
+		Mira: AHHHH~❤! I’M CUMMING!! I'M CUMMING!!
+		Farmer: Shit! SHIT! It’s gonna happen! I’m gonna cum too!!
+		Farmer: Take this! You fucking whore!!
+		Farmer: AHHHH!
+		Mira: Aghh~❤!
+
+		@back BLANK_W
+		@hide static_set
+		@back FARMER_12 id:static_set
+		@back BLANK_W
+		@hide static_set
+		@back FARMER_12 id:static_set
+		@back BLANK_W
+		@hide static_set
+		@back FARMER_12 id:static_set
+		@back BLANK_W
+		@hide static_set
+
+		@stopbgm slap_cum
+		@back FARMER_13 id:static_set
+		Mira: Hmm~❤
+		Mira: *PANT* *PANT*
+		Farmer: Phew..My tanks empty..Hehehe
+		Mira: You came so much you perverted Oldman...
+		Farmer: Heheh~
+		Gunther: ( I think they're done... )
+		Gunther: ( I should head back the the tavern before they notice I'm here...)
+	@else
+		Gunther: ( Shit...It won't budge from this side.. )
+		Gunther: ( If only I had <color=#FFBB53>replaced this knob</color> earlier... )
+		Mira: Ah~❤ Ah~❤...S-shut up!
+		Farmer: I'm gonna fuck your brains out!
+		Mira: J-just..hurry up..Ah~❤
+		Gunther: !!!
+		Gunther: ( Guess, I'll just have to wait then... )
+		@goto .later
+		@hide Gunther
+	@endif
+	
+	@if galleryMode==1
+		@set galleryMode=0
+		@goto _MEMORY
+	@else
+
+	#later
+	@back BLANK
+	@stopbgm creep_theme
+	@hide static_set
+	@hideUI LetterBox
+	@printer IntroPrinter
+	@back BLANK id:SubBackground
+	...
+
+	@set weather="rainy"
+	@bgm rain volume:0.3
+	@back FRONT_RAIN id:SubBackground
+	@spawn Rain params:2000,0,1.1
+
+	@printer IntroPrinter
+	A while later..[br]It suddenly poured rain...[br][br]As I eagerly waited[br]at the counter of the Tavern[br]Along with empty seats before me...[br][br]I still hear faint moans[br]coming from the Storage Room[br]despite the trickling of Raindrops..
+
+	@despawn Rain params:0
+	@stopbgm rain
+
+	@printer IntroPrinter
+	@back BLANK id:SubBackground
+	...
+
+	@set messy="BASE/ARMS>,BASE>BODY,BASE/HAIR>DEFAULT_MESSY,BASE/FACE>NOSE,BASE/CLOTHES/MAIN>DEFAULT,BASE/EARINGS>CLASSIC,BASE/FX_BODY+BLUSH,BASE/FX_BODY+SWEAT,BASE/FX_BODY+SWEAT_DRIP+"
+
+	@printer Dialogue
+	@back HALL_BACK_DAY id:SubBackground
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: ...
+	???: Gunther?
+	Gunther: Hmm?
+
+	@bgm confession
+	@char Mira.{messy},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH look:left pos:50
+	Mira: I-i'm back...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH pos:{g_POS} scale:{g_SCALE}
+	Gunther: O-oh...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH pos:{g_POS} scale:{g_SCALE}
+	Gunther: Where's the old guy?
+	@char Mira.{messy},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>AH look:left pos:50
+	Mira: H-he just left...
+	Gunther: I see..
+	Mira: A-anyway, I-i'll just take a bath...
+	@char Mira.{messy},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>AH look:left pos:50
+	Mira: I feel so sticky all over...Heheh
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX>SWEAT_SING
+	Gunther: O-okay..
+	@char Mira.{messy},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>GRIN look:left pos:50
+	Mira: Also, looks like someone was sneaking a while ago...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH pos:{g_POS} scale:{g_SCALE}
+	Gunther: Eh?! How did you-
+	@char Mira.{messy},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>AH look:left pos:50
+	Mira: Did you like it?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SWEAT_MULT 
+	Gunther: ...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_MULT pos:{g_POS} scale:{g_SCALE}
+	Gunther: Not bad, I guess..
+	@char Mira.{messy},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>SMILE look:left pos:50
+	Mira: *GIGGLE*
+	@char Mira.{messy},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH look:left pos:50
+	Mira: Oh here by the way...
+	You received <color=#FFBB53>Leather Pouch x 1</color>[sfx item]
+	Mira: I'm off to the washrooms now...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SWEAT_MULT 
+	Gunther: Hmm~
+	@hide Mira
+
+	You opened the <color=#FFBB53>Pouch</color>
+	You received <color=#FFBB53>2500G</color>[sfx coin_4]
+	@set currentgold=currentgold+2500
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH,BASE/FX>SWEAT_MULT pos:{g_POS} scale:{g_SCALE}
+	Gunther: Oh...
+	Gunther: This is quite a lot alright..
+
+	@if debugMode==1
+		@goto .RESET
+	@else
+		@goto _LOOPER.end_day
+	@endif
+@stop
+
+#FLAG_7
+; Farmer and his wife got into a fight.
+; So farmer decided to sleep the night off at the Inn.
+
+@stop

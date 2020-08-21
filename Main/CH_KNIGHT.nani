@@ -1,0 +1,1274 @@
+
+#RESET
+	@set debugMode=1
+	@back BLANK
+	@choice "Flag 1" goto:.FLAG_1
+	@choice "Flag 2" goto:.FLAG_2
+	@choice "Flag 3" goto:.FLAG_3
+	@choice "Reset" goto:.RESET
+@stop
+
+#FLAG_1
+	
+	@printer IntroPrinter
+	@back BLANK
+	@bgm morning_ambient volume:0.7
+	Next day...
+
+	@back TAVERN_DAY_ON
+	@printer Dialogue
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SPARKLE pos:{g_POS} scale:{g_SCALE}
+	Gunther: Hmmm~ ♫ 
+	@showUI DayIndicator
+	Gunther: ( Heheh~ We really made a lot of coins with last nights show..)
+	Gunther: ( If we are to continue this we should have enough coins even before the annual taxation..)
+	@bgm old_farmer_theme
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>OH look:left pos:50
+	Mira: Hey, What are you smirking at?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX>SPARKLE pos:{g_POS} scale:{g_SCALE}
+	Gunther: N-nothing..
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE look:left pos:50
+	Mira: Hmm..
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE
+	Mira: I hope your not planning another unusual event...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?,BASE/FX>SPARKLE pos:{g_POS} scale:{g_SCALE}
+	Gunther: I-i'm not!
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE look:left pos:50
+	Mira: Hmm..
+	@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>MUH,BASE/FX+SWEATY_FACE,BASE/FX+SIGH_AIR look:left pos:50
+	Mira: *SIGH*....Anyway...
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH,BASE/FX- look:left pos:50
+	Mira: We're out of Ingredients so I'll be out for a while to buy us some supplies...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX-
+	Gunther: Do you need help?
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>AH,BASE/FX- look:left pos:50
+	Mira: Nah, I'll be fine.
+	Mira: Besides, who'll run the tavern if both of us are not around?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-
+	Gunther: Okay then...you sure you'll be fine?
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>SMILE,BASE/FX- look:left pos:50
+	Mira: Hmm~ I'll be back in a bit...
+	@stopbgm old_farmer_theme
+	@hide Mira
+	@hide Gunther
+
+	@back BLANK
+	@printer IntroPrinter
+	A short while later..
+
+	@back TAVERN_DAY_ON
+	@printer Dialogue
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE pos:{g_POS} scale:{g_SCALE}
+	Gunther: Hmm~♫ 
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	???: Hail!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: Huh?
+	@stopbgm morning_ambient
+	@bgm knight_theme
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HMM,BASE/EXTRA>SCARY pos:50
+	Knight: Hmph…
+	Gunther: ( A knight...How unusual... )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+	Gunther: W-welcome, sir...
+	Gunther: Please have a seat..
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>AH
+	Knight: Do you own this establishment, Innkeep?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+	Gunther: Y-yes sire...Why’d you ask?
+
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HMM,BASE/EXTRA>SCARY
+	Knight: Hmm…
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>OH,BASE/EXTRA-
+	Knight: Apparently, Last night...
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>AH,BASE/EXTRA-
+	Knight: We had reports of…<color=#FFBB53>”unusual”</color> activity within your premises..
+	Gunther: Activities?
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY
+	Knight: Yes…
+	Knight: The one that pitches a tent into an average man’s trouser...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+	Gunther: *Gulp*
+	Gunther: ( Crap...Someone must’ve have reported us... )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_MULT
+	Gunther: R-really? I-i don’t think we conducted such..uhm....indecent...activity...
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY
+	Knight: Heh~..Really, huh..
+	Knight: We'll see about that...
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>OH,BASE/EXTRA>SCARY
+	Knight: Say, Innkeep...Have you heard of the new mandate?
+	Gunther: M-mandate?
+	Knight: Establishments conducting “<color=#FFBB53>activities</color>” within their primary purpose is <color=#FFBB53>strictly prohibited and punishable</color> within the Kingdom..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+	Gunther: ( *GULP* )
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY
+	Knight: AND...
+	Knight: Owners who encouraged such acts are to face punishments accordingly..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+	Gunther: ( This is definitely not good… )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_MULT
+	Gunther: Y-yes, I do remember the <color=#FFBB53>Highness</color> announcing such mandate a few weeks ago...
+	Knight: Good...Good...
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>HAH,BASE/EXTRA-
+	Knight: What an upstanding citizen you are...
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>AH
+	Knight: Say, Innkeep…
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY
+	Knight: You won’t mind if I conduct a small Investigation within your premises…
+	Knight: Wouldn't you...?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+	Gunther: ( *GULP* )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: O-of course not...C-carry on Sir...
+	Knight: Heheh~
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+	Gunther: ( Crap... )
+	@hide Knight
+	@hide Gunther
+	@stopbgm knight_theme
+
+	@back BLANK
+	@printer IntroPrinter
+	A while later…
+	@wait 1
+
+	@printer Dialogue
+	@back TAVERN_DAY_ON
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+	Gunther: …
+	@bgm knight_theme
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>AH,BASE/EXTRA- pos:50
+	Knight: I have returned,Innkeep...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: S-Sir..
+
+	@if hideAttire==1
+		Gunther: H-how did your investigation went sir?
+		@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HMM,BASE/EXTRA- pos:50
+		Knight: Hmmm...
+		@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>EH,BASE/EXTRA- pos:50
+		Knight: I didn't find anything suspicious...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_MULT
+		Gunther: ( Hehehe... )
+		Gunther: ( Good thing I found <color=#FFBB53>Mira's dance outfit</color> last night.. )
+		@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HUH,BASE/EXTRA- pos:50
+		Knight: However!
+		Knight: I will make sure to keep an eye on your establishment mister..
+		@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>HAH,BASE/EXTRA>SCARY pos:50
+		Knight: I will be back...
+		@sfx MedievalDoor_Open
+		@sfx MedievalDoor_Close
+		@hide Knight
+		@stopbgm knight_theme
+		Gunther: ( Phew... )
+		Gunther: ( We gotta be more careful from now on.. )
+		@goto _LOOPER.end_day
+	@endif
+
+	Knight: Well,Well…
+	Knight: It seems you have lied to me Innkeep…
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_MULT
+	Gunther: W-what are you saying..Hehe...( *Gulp* )
+	Knight: Look what I found in your <color=#FFBB53>Washroom</color>...
+	Knight: Care to explain this <color=#FFBB53>Wig and Indecent attire</color>?
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_MULT
+	Gunther: ( Crap… )
+	Gunther: ( I told Mira to keep it in the closet.. )
+	Gunther: ( She must’ve forgot about it after taking a bath last night… )
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SWEAT_MULT
+	Gunther: B-But that doesn’t prove anythi-
+	Knight: Still denying it huh?
+	Knight: In case you didn't know...
+	Knight: I have several eye witnesses who I can simply testify to your actions last evening...
+	Gunther: ...
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY
+	Knight: Did you bite your tongue, eh? Innkeep?
+	Knight: How would you explain this?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_MULT
+	Gunther: ....
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_MULT
+	Gunther: A-apologies, Sir…
+	Gunther: B-Business was not good...We had to make compromi-
+	Knight: Tch..Tch..
+	Knight: Innkeep,Innkeep…
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>AH,BASE/EXTRA>SCARY
+	Knight: You’re coming with me!! Liars like you belongs to the dungeons!!
+	Gunther: P-please! Let’s talk this thr-
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>HUH,BASE/EXTRA>SCARY
+	Knight: [spawn ShakeCharacter params:"Knight"]SILENCE!!
+	Knight: I hereby capture you Gunther of the Adelaide Inn for violating the rules of-
+	@stopbgm knight_theme
+
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	@bgm morning_ambient
+	???: Hun, I’m back~
+	@char Knight pos:38
+	@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>MUH look:left pos:73
+	Mira: Huh...?
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>OH,BASE/EXTRA-
+	Knight: Mira?
+	@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>OH
+	Mira: S-Sagarus...?
+	Gunther: Y-you know this person?
+	Mira: W-what’s going on?
+	@stopbgm morning_ambient
+
+	@bgm knight_theme
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>GRIN,BASE/EXTRA-
+	Knight: It’s been a while...Captain...
+	Gunther: C-captain?
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH
+	Mira: He used to serve under me when I was still with the King's Army...
+	Knight: Times have changed...
+	Knight: Say, Did your bust size grow again?
+	Knight: I'd pay a lot to suck on those melons, Heheh~!
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+	Mira: H-how rude!! What are you doing here anyway?
+	Gunther: M-Mira...I’ll be sent to the <color=#FFBB53>Dungeons</color>...
+	@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FALL
+	Mira: W-what happened!? What did you do!?
+	Gunther: Well...You see...
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>AH,BASE/EXTRA-
+	Knight: We had reports that this establishment has conducted <color=#FFBB53>"illicit"</color> activity last night.
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>GRIN,BASE/EXTRA-
+	Knight: And you see...
+	Knight: Your husband right here just happens to confess it a while ago...
+	Knight: Surely you know best, What awaits the <color=#FFBB53>owners</color> of these establishments right?
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE
+	Mira: ....
+
+	@printer IntroPrinter
+	I watched their banter,[br]too worried to butt in.[br][br]Mira shakes her head,[br]Shifting her gaze to me then to the knight.
+	
+	@stopbgm knight_theme
+
+	@bgm creep_theme
+	@printer Dialogue
+	@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FALL
+	Mira: L-let's not talk here...
+	Knight: Hmm, why not here?
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>OH,BASE/FX>SWEATY_FACE
+	Mira: I believe it’s much better if we talk alone...
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE
+	Mira: A-an oath of sorts amongst knights.
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HMM,BASE/EXTRA-
+	Knight: Hmmm..
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>GRIN,BASE/FX>SWEATY_FACE
+	Mira: Please...
+	Knight: ...
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>OH,BASE/EXTRA-
+	Knight: Very well...
+	@sfx cloth_shuffle
+	@hide Knight
+	@hide Mira
+
+	@printer IntroPrinter
+	Mira offers me a kind smile[br]before leading the knight[br]To the hallway beside[br][br]Dividing both of us with a curtain[br][br]What was she going to do?[br]I’ve always heard the dungeons were a nasty place[br]but to be detained, that would be terrible.
+	 
+	I twiddled my fingers in nervousness,[br]unsure of the predicament that I’ve led myself into.[br][br]The entire Tavern was silent,[br][br]perhaps I can listen in on what they’re saying.
+	 
+	I nudge myself closer to the curtain...[br]Hearing a bit of their banter[br][br]The Knight sounded annoyed[br]as he listened to Mira’s proposition.
+
+	@printer ScenePrinter
+	Mira: C-come on now. let’s talk about this…
+	Knight: You know well this is illegal.
+	Mira: I do but-
+	Knight: As a former knight, who knew you’d be throwing excuses now.
+	Knight: And to bribe another one to boot..
+	Mira: Sagarus...
+	Knight: Let's hear your offer, Your bribe must be worth the trouble after all...
+	Mira: ...
+	Mira: Uh-Ugh...
+	Knight: Think fast woman, I don’t have all day to dally with the lot of you.
+	Mira: *SIGH*
+	Mira: M-Me...
+	Knight: Huh?
+	Mira: H-how about me....
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM
+	Gunther: ( M-mira.. )
+	Knight: Interesting...
+	Mira: J-just for a night...
+	Knight: Only for a single night? Bah, foolishness!!
+	Mira: A-All right, all right. Two then.
+	Knight: I don't think you're in the right position to demand the rules here woman..
+	Mira: Ugh..
+	Knight: Though I must say...
+	Knight: When I was still your underling,[br]I always wanted try what it’s like to bed you.
+	Mira: ....
+	Knight: Fine. I’ll accept your proposal.
+	Mira: ...
+	Knight: I'll visit once again later this evening...
+	Knight: I hope you prepare for the best..Hehehe~
+	Mira: ....
+	Knight: Make sure to wear your[br]Finest "lingerie" in your wardrobe tonight...Alright?
+	Knight: Answer, Woman!
+	Mira: F-fine, fine...
+	Knight: Good!!
+	 
+	@printer IntroPrinter
+	Before Mira and the Knight[br]returned to the Tavern..[br][br]I quickly nudged myself back[br]from where I was..[br][br]Wiping the sweat trickling[br]down my brow as soon the two came back.
+	 
+	@printer Dialogue
+	@sfx cloth_shuffle
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY pos:70
+	@char Mira.{def_config},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH look:left pos:35
+	Knight: Well, It seems I’ll have to postpone your warrant Innkeeper..
+	Mira: ...
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HAH,BASE/EXTRA>SCARY pos:70
+	Knight: I must say...Your one lucky man...Heheh~
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM
+	Gunther: ...
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>EH,BASE/EXTRA>SCARY pos:70
+	Knight: I shall come back this evening to claim my "bribe"..
+	Knight: Don’t go back on your word, woman.
+	@char Mira.{def_config},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH look:left pos:35
+	Mira: ....H-hmm...
+
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY pos:70
+	Knight: Heh~
+	@hide Knight
+	@hide Mira
+	@hide Gunther
+	@hideUI DayIndicator
+	@stopbgm creep_theme
+
+	@printer IntroPrinter
+	@back BLANK
+	Later that Evening..
+	@wait 2
+
+	@set lingerie_config="BASE/ARMS>,BASE>BODY,BASE/HAIR>DEFAULT,BASE/FACE>NOSE,BASE/CLOTHES/LINGERIE>DEFAULT_VER2,BASE/EARINGS>CLASSIC,BASE/FX_BODY+SWEAT"
+	@set lingerie_after_config="BASE/ARMS>,BASE>BODY,BASE/HAIR>DEFAULT_MESSY,BASE/FACE>NOSE,BASE/CLOTHES/LINGERIE>DEFAULT_MESSY_VER2,BASE/EARINGS>CLASSIC,BASE/FX_BODY+BLUSH,BASE/FX_BODY+SWEAT,BASE/FX_BODY+SWEAT_DRIP,BASE/FX/STEAM_DBL+"
+
+	@back BEDROOM_EVE
+	@printer Dialogue
+	@bgm evening_ambient
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: ....
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH
+	Gunther: M-mira...
+	Mira: Gunther...Not now...I'm changing
+	Gunther: You shouldn't have done that..
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HEHE
+	Gunther: I-i'm alright with staying in the dungeons for a while, you know..
+	Mira: And what? So you can feed on rats and sewage water?
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH
+	Gunther: Well, that doesn't sound so ba-
+	@stopbgm evening_ambient
+	@sfx cloth_shuffle
+	@bgm creep_theme
+	@char Mira.{lingerie_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE look:left pos:50
+	Mira: ...
+	Gunther: ....
+	Gunther: ( It's the lingerie I brought for her.. )
+	Gunther: ( I haven't seen her wear it since our Honeymoon.. )
+	@char Mira.{lingerie_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE look:left pos:50
+	Mira: What?
+	@stopbgm creep_theme
+	@bgm evening_ambient volume:0.6
+	Gunther: A-are you sure about this?
+	@char Mira.{lingerie_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE look:left pos:50
+	Mira: It’s not like we have choice anyway...
+	Mira: I know Sagarus...
+	Mira: He's a persistent bastard...and a sly one too at best...
+	Mira: He'd always make his captives suffer in the dungeons and...
+	@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE look:left pos:50
+	Mira: If I don’t do this...You'll...
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>H-HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: ...
+	@wait 2
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>H-HAM
+	Gunther: I'm sorry...I'm so sorry...
+	@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FACE look:left pos:50
+	Mira: Gunther....Please don't...
+	Mira: You didn't do anything wrong...
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>H-HMM
+	Gunther: ...
+	@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE look:left pos:50
+	Mira: I-i'll be fine, okay?
+	Mira: You have nothing to worry about...
+	Gunther: ....
+	Mira: I'll be back in a bit...
+	@hide Mira
+	Gunther: ...
+	@hide Gunther
+	@stopbgm creep_theme
+
+	@printer IntroPrinter
+	@back BLANK
+	A while later…
+
+	@sfx tick_tock
+	Gunther: …
+	@sfx heartbeat
+	Gunther: …
+	@sfx heartbeat
+
+	@back BEDROOM_MD
+	A few hours has passed yet[br]Mira haven't returned yet..[br][br]I paced myself,walking back and-[br]forth into our small bedroom[br]waiting for her return...
+
+	Yet not a creak nor a hinge was heard[br]coming towards the door..
+
+	@printer Dialogue
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: ...
+
+	@choice "<color=#FFBB53>Sneak</color> to the Guestroom" goto:.SNEAK1
+	; @choice "Lay in bed and <color=#FFBB53>wait</color>" goto:.WAIT
+	@stop
+
+	#SNEAK1
+	@set g_knight_pound=1
+	@hide Gunther
+	@stopbgm evening_ambient
+
+	@printer IntroPrinter
+	@back BLANK
+	...[sfx footstep_custom]
+
+	@bgm salivate volume:0.6
+	@back HALLWAY_MD
+	I slowly crept upstairs..[br][br]As I approach their room,[br]I hear subtle moans[br]echoing to the empty hallway..
+	@bgm ah_reverb_loop
+	@printer ScenePrinter
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: ...
+	Mira: Haah~❤ Haah~❤
+	Knight: You should listen to yourself, panting so loudly.
+	Knight: Never had a cock this big, woman. Eh?
+	Mira: Ahh~❤
+	Knight: I can’t blame you, your husband looks so pathetic. 
+	Knight: I don’t even understand why you married him.
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>TSK pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( This bastard.. )
+	@stopbgm ah_reverb_loop
+	 
+	@printer IntroPrinter
+	As I quietly nudge the door to their room..[br]Trying not to make the floorboards creak..[br][br]I stumbled upon a scene...[br][br]A scene I wasn't suppose to witness..
+
+	@hide Gunther
+	@back BLANK
+	; I watched the way Mira’s body moved against the Knight’s hard thrusts. It’s so different having a view of my wife on this angle as she’s being fucked so roughly. Her breasts are moving to and fro, as if the sheer force of his cock is hitting her so deeply.
+	@bgm slap_slow volume:0.7
+	@showUI LetterBox
+	@printer ScenePrinter
+	@showUI S_DoorShutterRight
+	@camera zoom:0.1 offset:-2,,
+	@camera zoom:0.1 offset:1,, time:10 wait:false
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	Mira: Anghh~❤!
+	Mira: You're stretching me so much...
+	Knight: No need to be so overdramatic~
+	Knight: You're pussy we'll get used to it's shape in no time.
+	Mira: Hnngg~❤
+
+	@printer IntroPrinter
+	Despite the thought of condemning the knight,[br][br]I couldn’t help but feel[br]the tightness in my pants.[br][br]I swallowed thickly,[br]My eyes glued to the scene as Mira-[br]shifts a bit from the knight’s hips.
+
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back KNIGHT_POUND_1 id:static_set
+
+	@printer ScenePrinter_up
+
+	@back BLANK_W
+	@hide static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back BLANK_W
+	@hide static_set
+	@back KNIGHT_POUND_1 id:static_set
+	@back BLANK_W
+	@hide static_set
+	@back KNIGHT_POUND_2 id:static_set
+	@back BLANK_W
+	@hide static_set
+
+	@back KNIGHT_POUND_3 id:static_set
+	Knight: What? Cumming already?
+	Knight: That must have felt really good then.
+	Mira: *PANT* w...wait...
+	Mira: Let....me rest...a bit.
+	Knight: Haha, Come now, "Captain"...
+	Knight: Surely, you can do better than this.
+	Knight: Or is it because your husband can’t get you this riled up?
+	Mira: S-shush...!
+	Knight: You even complained about it...What a liar.
+	Knight: Your cunt is so wet already, much soaked now If I must say...
+	Knight: Heheh, Well, Ready for more?
+	Mira: W-wait, hold on...just a sec-
+	Knight: No more waiting!
+	Mira: Hngghh~❤
+
+	@camera zoom:0.1 offset:0.5,, time:10 wait:false
+	@back KNIGHT_POUND_3 id:static_set
+	@back KNIGHT_POUND_4 id:static_set
+	@back KNIGHT_POUND_3 id:static_set
+	@back KNIGHT_POUND_4 id:static_set
+	@back KNIGHT_POUND_3 id:static_set
+	@back KNIGHT_POUND_4 id:static_set
+	@back KNIGHT_POUND_3 id:static_set
+	@back KNIGHT_POUND_4 id:static_set
+	@back KNIGHT_POUND_3 id:static_set
+	@back KNIGHT_POUND_4 id:static_set
+	@back KNIGHT_POUND_3 id:static_set
+	@back KNIGHT_POUND_4 id:static_set
+	@back KNIGHT_POUND_3 id:static_set
+	@back KNIGHT_POUND_4 id:static_set
+	@back KNIGHT_POUND_3 id:static_set
+	@back KNIGHT_POUND_4 id:static_set
+	@back KNIGHT_POUND_3 id:static_set
+
+	Gunther: ( He’s being so rough with her but I can’t barge in.. )
+	Gunther: ( Mira...What do I do? )
+	Mira: Anh~❤!
+
+	@back KNIGHT_POUND_2 id:static_set
+	@printer IntroPrinter
+	I bit my lips,[br][br]My eyes focused on my wife[br]as her body was pushed forward and pulled back.[br][br]The knight’s hand on her shoulders is keeping[br]her pressed tight against him.[br][br]My hand unconsciously[br]brushes over my clothed erection.
+
+	@printer ScenePrinter
+	Gunther: ( I shouldn’t be feeling like this but… )
+	Gunther: ( Seeing Mira in such a state…)
+
+	@back KNIGHT_POUND_1 id:static_set
+	Mira: So...big...
+	Knight: See, I wasn’t wrong at all. You can handle a cock of this size.
+	Knight: Your cunt is so wet, I can easily slide in.
+	Knight: Do you feel that?
+	Mira: Unggf~❤ 
+	Knight: Of course you do. You wouldn’t even be moaning so much if you didn’t.
+	Mira: Unggffff~❤ Sagarus…~!
+	Gunther: ( I never heard Mira make such moans before...)
+	 
+	@back KNIGHT_POUND_2 id:static_set
+	Knight: What’s wrong? Don't hold back now!
+	Knight: Be more vocal! 
+	Knight: HNGGGHHH~!!
+	Mira: Aghhh~❤! You're hitting me so deep!
+
+	@printer IntroPrinter
+	His hips snapped forward,[br]as Mira lets out a strangled cry.[br][br]She looks like she’s almost crumpling[br]if not for the knight’s hands on her shoulders.
+
+	@printer ScenePrinter_up
+	Knight: That’s the spirit woman.
+	Knight: Wouldn’t want to make it seem like your partner isn’t pleased.
+	Knight: You went in on a performance, show me how good you are.
+	Mira:  Unggffff~❤
+
+	@printer IntroPrinter
+	He taunted her so badly yet[br]Mira is already in state of trance to further react...[br][br]I bit my hand as I continued to-[br]palm my erection through my pants.[br][br]This would have to do for now,[br][br]I wouldn’t want to risk getting caught by[br]this Knight and make things even worse..
+
+	@printer ScenePrinter_up
+	Mira: Ah! Ah! Unf~ So big~!
+	Knight: That’s it woman. That’s what I want to hear.
+	Knight: Do you feel that? Your cunt is sucking me.
+	Knight: Never had a man this size huh?
+	Mira: Anhhhh~❤
+	Knight: Good to know but I’m not satisfied with just this.
+	Mira: Hnngghh~❤
+	Gunther: (What is he doing?!)
+	@stopbgm slap_slow
+
+	@bgm slap_fast
+	@back BLANK_W
+	@hide static_set
+	@back KNIGHT_POUND_BLUR_4 id:static_set
+	Mira: Ah~❤! Ah~❤! Ah~❤!
+	Knight: That’s it woman!! Your cunt is grasping me tighter.
+	Knight: You like that don’t you, getting a real man to fuck you so nicely like this.
+	Mira: Just...finish...up...already...
+	Mira: Ah~❤ Ah~❤
+	Knight: You like this cock that much eh? "Captain"?
+	Knight: What do you think about it huh?
+	Mira: Angh~❤
+	Gunther: ( Scum! He’s purposely torturing Mira. )
+	@back KNIGHT_POUND_BLUR_3 id:static_set
+	Knight: Hey! I asked you a question.
+	Mira: Yes❤! I-it’s so good❤!
+	Knight: That’s it woman. You have to be more vocal.
+	Knight: Let everyone know!
+	Mira: Aghhh~❤! It’s sooo good!
+	Knight: Louder!
+	Mira: Aggghh~❤! Aghhh~❤!
+	Mira: Aghh~❤! I don’t think I can hold on anymore!
+	Knight: Oh, what’s this? Almost done, are we?
+	Knight: Well…HNNGGHH~!
+	Mira: Ah~❤!!
+
+	@printer IntroPrinter
+	The knight hasten his pace..[br][br]His pelvis slapping faster[br]onto Mira’s ass...[br][br]Her body riddled with sweat[br]as she pants for him.
+
+	@printer ScenePrinter_up
+	@back KNIGHT_POUND_BLUR_4 id:static_set
+	Knight: You want to cum, Mira?
+	Mira: Yes❤!
+	Knight: Hah! Hah! I’m close. Cum with me, woman.
+	Mira: Yes❤! Oh❤! Sagarus❤!!
+	Mira: Aaaah❤!!
+
+	@camera zoom:0 offset:-0.5,, time:10 wait:false
+
+	@back KNIGHT_POUND_BLUR_4 id:static_set
+	@back KNIGHT_POUND_BLUR_3 id:static_set
+	@back KNIGHT_POUND_BLUR_4 id:static_set
+	@back KNIGHT_POUND_BLUR_3 id:static_set
+	@back KNIGHT_POUND_BLUR_4 id:static_set
+	@back KNIGHT_POUND_BLUR_3 id:static_set
+	@back KNIGHT_POUND_BLUR_4 id:static_set
+	@back KNIGHT_POUND_BLUR_3 id:static_set
+	@back KNIGHT_POUND_BLUR_4 id:static_set
+	@back KNIGHT_POUND_BLUR_3 id:static_set
+	@back KNIGHT_POUND_BLUR_4 id:static_set
+	@back KNIGHT_POUND_BLUR_3 id:static_set
+	@back KNIGHT_POUND_BLUR_4 id:static_set
+	@back KNIGHT_POUND_BLUR_3 id:static_set
+	@stopbgm slap_fast
+
+	@back BLANK_W
+	@hide static_set
+	@back KNIGHT_POUND_BLUR_4 id:static_set
+	@back BLANK_W
+	@hide static_set
+	@back KNIGHT_POUND_BLUR_3 id:static_set
+	@back BLANK_W
+	@hide static_set
+	@back KNIGHT_POUND_BLUR_4 id:static_set
+	@back BLANK_W
+	@hide static_set
+
+	@printer IntroPrinter
+	@back KNIGHT_POUND_5 id:static_set
+	Mira lets out a load groan...[br]Her body falling forward looking spent[br][br]
+
+	A spurt of hot cum oozes[br]along my wife’s ass and thighs.[br][br]She moans softly,[br]her sweaty body spread on the bed[br]while the knight continues to cum into her.
+
+	My eyes focused on the[br]splatters of cum all over my wife’s body.[br][br]He’s still nestled deep within her.
+
+	@printer ScenePrinter
+	Gunther: ...
+	Mira: *PANT~❤* *PANT~❤*
+	Knight: That’s a good woman. Look at you, full of my cum. As it should be.
+	Mira: Hnnggg...
+
+
+	@hide static_set
+	@back BLANK
+	@camera zoom:0 offset:,, time:0 wait:false
+
+	@printer IntroPrinter
+	I quickly pushed myself out of the doorway...[br]Still not knowing what to do next...[br][br]I rushed back to our bedroom for[br]fear that the knight might find me.
+	@stopbgm salivate
+
+	@hideUI LetterBox
+	@hideUI S_DoorShutterRight
+	@back BLANK
+	Before dawn...[br][br]I saw the Knight left without a word..[br]Mira wobbly returned to our room...[br]without uttering a word[br][br]I quietly helped her get to bed[br]and let her rest..
+
+	@printer Dialogue
+	@bgm morning_ambient
+	@back TAVERN_DAY_ON
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX- pos:{g_POS} scale:{g_SCALE}
+	Gunther: Mira...
+	Gunther: ...
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>MUH,BASE/FX>SLEEPY,BASE/FX_BODY>EYEBAG look:left pos:50
+	Mira: Gunther?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+	Gunther: O-oh, your awake...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( She still seems tired from last night.. )
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>H-HMM,BASE/FX>SLEEPY,BASE/FX_BODY>EYEBAG look:left pos:50
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HAM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+	Gunther: Y-you should rest a bit more!
+	Gunther: There's not much guest anyway, I can handle this on my own...
+	Mira: ...
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>MUH,BASE/FX>SLEEPY,BASE/FX_BODY>EYEBAG look:left pos:50
+	Mira: Hun, Are you mad at me?
+
+	@choice "Absolutely not!" goto:.abnot
+	@choice "I'm....conflicted.." goto:.conflict
+	@stop
+
+	#abnot
+		Gunther: Absolutely not! I would'nt hate you!
+		Gunther: You've been always there for me! How could I hate you!
+		@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>H-HMM,BASE/FX>SLEEPY,BASE/FX_BODY>EYEBAG look:left pos:50
+		Mira: ...
+		@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX>SLEEPY,BASE/FX_BODY>EYEBAG look:left pos:50
+		Mira: I-i'm glad...
+		@goto .ret1
+	@stop
+
+	#conflict
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+		Gunther: I...
+		Gunther: I'm just conflicted...right now..
+		@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>H-HMM,BASE/FX>SLEEPY,BASE/FX_BODY>EYEBAG look:left pos:50
+		Mira: I-I see...
+		@goto .ret1
+	@stop
+
+	#ret1
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+	Gunther: A-anyway, Go and rest a bit more..
+	Gunther: Call me if you need something okay?
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>SMILE,BASE/FX>SLEEPY,BASE/FX_BODY>EYEBAG look:left pos:50
+	Mira: Hmm...
+
+	@stopbgm morning_ambient
+	@hide Mira
+	@hide Gunther
+
+	; @if debugMode==1
+	; 	@goto .RESET
+	; @else
+	; 	@goto _LOOPER.end_day
+	; @endif
+
+	@if galleryMode==1
+		@set galleryMode=0
+		@goto _MEMORY
+	@else
+		@goto .FLAG_2
+	@endif
+@stop
+
+#FLAG_2
+	@back BLANK
+	@printer IntroPrinter
+	Few days later...
+	@wait 2
+
+	@printer Dialogue
+	@bgm evening_ambient
+	@back TAVERN_EVE_ON
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX- pos:{g_POS} scale:{g_SCALE}
+	Gunther: ...
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	Gunther: ( A customer? This late... )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: Good Ev-
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: Oh..
+	@stopbgm evening_ambient
+
+	@bgm knight_theme
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY pos:50
+	Knight: Good evening, Innkeep.
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HAH,BASE/EXTRA>SCARY pos:50
+	Knight: Looks like business is somewhat flourishing now..
+	Knight: All thanks to the Midnight show, I assume?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+	Gunther: ...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: W-what do you need...
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY pos:50
+	Knight: You know why I’m here.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+	Gunther: ...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: I-I thought you and Mira already had an agreement...
+	Knight: Exactly why I'm here, To "continuously" fullfill that agreement..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+	Gunther: ...
+	Knight: In fact, you’re actually doing yourselves a favor.
+	Knight: You’re not thrown into the dungeons and your wife gets fucked silly.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH
+	Gunther: Now, sir-
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>AH,BASE/EXTRA>SCARY pos:50
+	Knight: Hurry, I don’t have all day.
+ 	@hide Knight
+ 	@stopbgm knight_theme
+	@stopbgm evening_ambient
+ 	@sfx footsteps_custom
+
+ 	@printer IntroPrinter
+	Before I could say anything else,[br]He quickly went upstairs without even paying.[br][br]I slowly went at the back to check on Mira
+	@sfx cloth_shuffle
+
+	@back HALL_BACK_EVE
+	@printer Dialogue
+	@bgm evening_ambient volume:0.5
+	Gunther: M-mira...
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>OH look:left pos:50
+	Mira: I know...
+	Mira: He's back isn't he?
+	Mira: I heard his voice from the kitchen...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM
+	Gunther: ....
+	@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>MUH,BASE/FX>SIGH_AIR look:left pos:50
+	Mira: *SIGH*
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE look:left pos:50
+	Mira: Anyway, I’ll sort this out.
+	Mira: You should close up now and sleep early...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: But Mira-
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE look:left pos:50
+	Mira: Gunther....
+	Mira: Please don't argue..
+	Mira: We don’t have a choice here...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM
+	Gunther: ....
+	@stopbgm evening_ambient
+	@hide Mira
+	@hide Gunther
+
+	#mm_sexscene
+	@set g_knight_doggy=1
+	@printer IntroPrinter
+	@back BLANK
+	A while later..
+
+	@bgm salivate
+	@back HALL_BACK_MD
+	@printer IntroPrinter
+	Tonight’s no different...[br][br]Do I really want my wife to[br]get through this once again?[br][br]I couldn’t really think lightly about it.
+	
+	@back HALLWAY_MD 
+	Was there was nothing I could really do?[br][br]Mira knows what she’s doing but..[br]I can’t leave her to go through everything alone.[BR]
+	
+	@printer ScenePrinter
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: (It seems like they’re already at it.)
+	 
+	@hide Gunther
+	@back BLANK
+	@printer IntroPrinter
+	Once again,[br][br]I silently nudged the door[br][br]Greeted by the sight of my wife on the bed,[br]Propped up her hands and knees.[br][br]The knight is behind her but[br]this time they’re both facing the door.
+	
+	@showUI LetterBox
+	@printer ScenePrinter_up
+	@showUI S_DoorShutterLeft
+	@back KNIGHT_DOGGY_1 id:static_set
+	Mira: Come on. Just hurry up. This’ll be the last one, right?
+	Knight: Hah! What are you saying?
+	Knight: We’re done when I tell you we’re done!
+	Gunther: ...
+	Mira: That’s not what you agreed.
+	Knight: As if I agreed to anything.
+	Knight: Don’t worry. I’m going to take a bit of time.
+
+	@sfx slop_single
+	@sfx hng_single
+	@back BLANK_W
+	@hide static_set
+	@back KNIGHT_DOGGY_2 id:static_set
+	Mira: OAH~❤
+	Knight: You like that huh?
+	Mira: Hngh~
+
+	@printer IntroPrinter
+	He doesn’t mince his words..[br][br]As I watch him slot himself right in.[br]Mira lets out a loud gasp,[br]her body pushed forward[br]by the sheer force of the knight’s thrust.
+		
+	@printer ScenePrinter_up
+	@bgm slap_slow
+	@back KNIGHT_DOGGY_4 id:static_set
+	Mira: Ahhngh~❤
+
+	Knight: Just the way I remembered it would be.
+	Knight: Your cunt really feels good for an innkeeper’s wife huh
+	Knight: Isn’t he fucking you well like I do?
+	Gunther: ....
+	Mira: S-sagarus, please.
+	Knight: I’m right, aren’t I?
+	Knight: Your body is bad at lying, Mira.
+	Knight: Now then, let a real man take care of you. Hahaha~
+	 
+	@back KNIGHT_DOGGY_2 id:static_set
+	Knight: Cat got your tongue, woman?
+	Knight: Or did you want me to go faster?
+	@stopbgm slap_slow
+	@bgm slap_fast
+	@back KNIGHT_DOGGY_4 id:static_set
+	Mira: Ahh~❤ Ahh~❤ Ahh~❤
+	Mira: Sagarus~❤
+	
+	@printer IntroPrinter
+	He quickens his pace,[br]making her softly moan his name.[br][br]The bed rocks forward[br]as each of his thrust pushes her.[br][br]
+
+	Pants escape Mira’s lips[br]and the room starts to smell of sweat and sex.[br][br]I could feel the familiar tightening in[br]my pants at the sight of their coupling.
+	 
+	@printer ScenePrinter_up
+	@back KNIGHT_DOGGY_6 id:static_set
+	Mira: Mmm~!
+	Knight: That’s it woman!
+	Mira: Ah~❤ Ah~❤ So deep...
+	Knight: It better be fucking you deep, wouldn’t want to miss a spot after all.
+	Mira: Ah❤! Sagarus❤!
+	Knight: You like that don’t you, woman?
+	Mira: Ahhh❤! 
+	
+	@printer IntroPrinter
+	He pushes Mira down onto the bed,[br]her body pressed against the sheets.[br][br]His hand on her back keeping[br]her in place as he continues[br]to slot his cock into her.
+
+	I watch with rapt attention,[br]my hand brushing against my clothed erection.[br][br]I shouldn’t do this.[br]This was not helping Mira at all.[br][br]But I couldn’t tear my eyes[br]away from what was happening in the room.
+
+	@printer ScenePrinter_up
+	Mira: Ah~❤! Anh~❤! 
+	Knight: Oh, you just tightened around me just now.
+	Knight: You’re close aren’t you?
+	Mira: Ahhh❤! 
+	Knight: Ah, I’m pretty close to cumming too..
+	Knight: You’re pretty good...holding out this long.
+	Knight: Do you want to cum?
+	Mira: Y-yes…
+	Knight: Louder woman, you’d think there’s room getting shy now?
+	Mira: Yes!
+	Knight: Good, coz I’m going to fuck you hard until you cum then.
+	 
+	@printer IntroPrinter
+	True to his promise,[br]Sagarus starts a relentless pace.[br][br]Thrusting faster into her like a machine.
+	
+	@printer ScenePrinter_up
+	Mira: Ah❤! I’m going to cum❤! I’m going to cum❤!
+	Knight: Cum then whore!
+	Mira: Aaah~❤
+	@stopbgm slap_fast
+
+	@back BLANK_W
+	@hide static_set
+	@back KNIGHT_DOGGY_6 id:static_set
+	@back BLANK_W
+	@hide static_set
+	@back KNIGHT_DOGGY_6 id:static_set
+	@back BLANK_W
+	@hide static_set
+	@back KNIGHT_DOGGY_6 id:static_set
+	@back BLANK_W
+	@hide static_set
+
+	@printer IntroPrinter
+	@back KNIGHT_DOGGY_7 id:static_set
+	Cum splattered on her ass[br]and trickling down to her back.[br]She pants loudly as the knight[br]does a few more thrusts.[br][br]Before pulling out and[br]examining his handicraft.
+	 
+	@printer ScenePrinter_up
+	Knight: Ah~ Look at you, covered in my cum. Mm.
+	Knight: You make a good cumslut don’t you, Mira?
+	Mira: Hnggg...
+	Knight: Ready for more?
+
+	@back KNIGHT_DOGGY_8 id:static_set
+	Mira: Ehh?
+	Knight: What? You think we're done here?
+	Knight: I'll fuck your brains till morning woman!
+	Knight: Heheh~
+	 
+	@back BLANK
+	@hide static_set
+	@hideUI LetterBox
+	@hideUI S_DoorShutterLeft
+	@stopbgm salivate
+
+	@printer IntroPrinter
+	@back BLANK
+	Later that morning…
+	@bgm rain volume:0.2
+
+	@back BEDROOM_DAY
+	I hadn’t noticed I’d fallen asleep.[br]It was already raining outside...[br][br]In my drowsy state,[br]I’d reached out to where my wife sleeps..[br][br]but the covers are cold....
+
+	@showUI LetterBox_v2
+	I jolted awake,[br][br]quickly getting[sfx footstep_custom] out of bed[br]and rushing to the guest room.
+
+	@back HALLWAY_DAY
+	I didn’t have to sneak in,[br][br]the door was partially open.[br][br]Perhaps the knight had taken[br]leave in the early hours of morning
+
+	@back BLANK
+	@bgm curious volume:0.6
+	As I open the door to the room...[br][br]The smell of sweat, sex and cum[br]permeated in the air[br][br]I hesitantly pushed the door into the room...[br]
+
+	@printer Dialogue
+	Gunther: M-Mira...Are you all right?
+	Mira: …
+	Gunther: Mira?
+	@wait 1
+
+	@stopbgm rain
+
+	@back MINDBREAK_CREAMPIE id:static_set
+	@hideUI LetterBox_v2
+
+	@printer IntroPrinter
+	Mira lay on the bed,her eyes were unfocused[br]and her body still glistens with sweat... 
+
+	Kiss and Bite marks..[br]All over her body..[br]Cum leaked from her cunt,[br]Puffy and red under my gaze.[br][br]Her legs were kept open[br]as if showcasing her prize.
+
+	@printer ScenePrinter
+	Gunther: ....
+	Mira: *PANT* *PANT*
+	Mira: Haah~❤ Haah~❤
+	Mira: Saga..rus...*PANT*
+	Mira: Fuck...me...*PANT*
+	Mira: Hah~❤
+	Mira: Fuck..*PANT*...me....more....
+	Gunther: ( What has he done to my wife... )
+	Gunther: ....
+
+	@hide static_set
+	@hideUI LetterBox
+	@stopbgm 
+	@back BLANK
+
+	@if galleryMode==1
+		@set galleryMode=0
+		@goto _MEMORY
+	@else
+		@goto CREDITS_BAD
+	@endif
+@stop
+
+#FLAG_3
+	; FINISH THIS
+
+	@back BLANK
+	@printer IntroPrinter
+	@bgm rain volume:0.6
+	Few days later...
+
+	@printer Dialogue
+	@back TAVERN_DAY_OFF
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( It's still raining outside.. )
+	Gunther: ( I wonder when will Mira get back from the Market... )
+
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	???: Ah...Finally...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: Welcome to the Ad-
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: ....
+
+	@stopbgm rain
+	@bgm curious
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY pos:50
+	Knight: Ah..Gunther is it?
+	Knight: How's the wife? Hehehe..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>TSK,BASE/FX>SWEAT_SING
+	Gunther: ...
+
+	@printer IntroPrinter
+	I find myself having the urge[br]to slam my fist with his annoying smirk[br][br]Yet my guts tells me...[br]It will make things even worse than it already is..
+
+	@printer Dialogue
+	Gunther: What do you want...
+	Knight: No need to be mad now...
+	Knight: I'm not here for your wife...
+	Gunther: ...
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HAH,BASE/EXTRA>SCARY pos:50
+	Knight: As a matter of fact, I have a proposition for you, Innkeep..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: Huh?
+	Gunther: ( What is he planning now... )
+	Knight: You see, I was thinking.....
+	Knight: Why don't you volunteer yourself to be <color=#FFBB53>imprisoned momentarily</color>? Hmm?
+	Knight: It would automatically settle this..."<color=#FFBB53>Issue</color>" right away...
+	Gunther: ....
+	Knight: Of course, I'll personally see to it that you'll be "tend" to properly within your cell..
+	Gunther: ....
+	Gunther: Will this also settle the "Agreement" between you and my wife?
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HMM,BASE/EXTRA- pos:50
+	Knight: ...
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY pos:50
+	Knight: Of....course...
+	Gunther: ...
+	Knight: So, How about it?
+
+	#surrenderChoice
+	@choice "<color=#FFBB53>Surrender</color> self..." goto:.acceptsurr
+	@choice "??? <color=#FB4141>( Locked )</color>" goto:.surrenderChoice
+	@stop
+
+	#acceptsurr
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+	Gunther: ...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: I-If it helps my wife, I will.
+	Knight: Excellent...Shall we head now?
+	Knight: Travelling to the lord’s castle can take some time and you don’t want to waste that, right?
+	Gunther: I-Indeed...
+	Gunther: But...let's wait until Mira arrives..
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>HUH,BASE/EXTRA>SCARY pos:50
+	Knight: No need..
+	Gunther: Huh?
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>AH,BASE/EXTRA>SCARY pos:50
+	Knight: I'll make sure to bring her to you before you proceeded into your cell..
+	Gunther: But-
+	Knight: I don't have all day now, Innkeep...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+	Gunther: ....
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: U-understood...
+	@hide Gunther
+	@hide Knight
+
+	@printer IntroPrinter
+
+	@bgm rain volume:0.3
+	@back FRONT_RAIN
+	@spawn Rain params:2000,0,1.1
+	I couldn’t help the odd sinking[br]feeling that was settling in my stomach.
+
+	@despawn Rain params:0
+	@stopbgm rain
+	@back BLANK
+	As we arrived In the Castle's gate..[br][br]I looked around,[br]unsure of the grim faces that[br]some of the men had on their faces.
+
+	@back PRISON_DAY
+	@showUI LetterBox_v2
+	@printer ScenePrinter
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH pos:{g_POS} scale:{g_SCALE}
+	Gunther: ...
+	@char Warden pos:50
+	Warden: Hail!!
+	Warden: Welcome back..Captain Sagarus.
+	@char Warden pos:35
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>OH,BASE/EXTRA>SCARY pos:76
+	Knight: At ease men..
+	Warden: Is this him?
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>EH,BASE/EXTRA>SCARY pos:76
+	Knight: Yes, I’ll have you look after him.
+	Warden: Understood...
+	Gunther: H-hey you said Mira will...
+
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY pos:76
+	Knight: Don’t worry about it...I'll let her know
+	Gunther: ...
+	Knight: I leave him to you now..
+	Warden: Understood...
+	@hide Knight
+	@char Warden pos:50
+
+	@printer IntroPrinter
+	I watched Sagarus pace away from the dungeon[br]as the warden ushers me behind the bars.[br][br]There’s a smug gait in the man’s steps[br]but I couldn’t say anything more as he exits.
+
+	@printer ScenePrinter
+	Warden: You! Hurry up and get inside!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: ...
+	@hide Gunther
+	@hide Warden
+
+	@printer IntroPrinter
+	A few hours has passed,[br][br]As the faint light from the window slowly fades..[br][back PRISON_EVE]Hunger and Cold has slowly settled within me..[br][br]I lied down on the cold floors of the dungeon[br]and slowly passed out..
+
+	@stopbgm curious
+	@back BLANK
+	[sfx hearbeat]Suddenly,I felt warmth...[br][br]It was coming from my chest...[br]I held it closer...[br][br]It was the necklace the Witch gaved to me..
+
+	@printer IntroPrinter
+	@showUI gemView
+	@sfx heartbeat
+	......
+	@sfx heartbeat
+	....
+	@sfx heartbeat
+	...
+	; cut to mira POV
+
+	@bgm darkdrone
+	@printer ScenePrinter
+	Mira: Just where is Gunther?
+	@char Gunther.BASE>HAIR,BASE/BODY>NAKED,BASE/FACE>UH pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( Mira?)
+	Gunther: ( Where am I? )
+
+	@back TAVERN_EVE_ON
+	@char Mira.{def_config_2},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HMM look:left pos:50
+	Mira: ( He didn’t say anything about leaving and its already almost supper. )
+	@char Mira.{def_config_2},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>MUH
+	Mira: Where could that man be...
+	Gunther: ( What the... )
+	@char Gunther.BASE>HAIR,BASE/BODY>NAKED,BASE/FACE>OAH pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( Miraa! I'm here!! )
+
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	@char Mira pos:30
+	@char Knight.BASE>BODY,BASE/FC/EYES>SQUINT,BASE/FC/MOUTH>EH,BASE/EXTRA- pos:70
+	Knight: Mira...
+	Mira: Sagarus!
+	@char Gunther.BASE>HAIR,BASE/BODY>NAKED,BASE/FACE>UH pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( What is happening!? )
+	Knight: I have bad news for you.
+	Mira: Eh? 
+	Knight: It's about your husband..
+	@char Mira.{def_config2},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE
+	Mira: W-what happened?!
+	Knight: He ran off...
+	@char Gunther.BASE>HAIR,BASE/BODY>NAKED,BASE/FACE>GRR pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( What!? No!! I did not! )
+	Knight: I came to visit earlier to tell him the rulings of the illicit activities were off.
+	Knight: But he strode up to me and told me he was leaving..
+	Knight: He said he was tired..
+	Knight: Tired of trying to keep this Inn afloat...
+	Knight: Tired of you...
+	Knight: So he ran off..
+	@char Mira.{def_config2},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FACE
+	Mira: N-no...
+	Mira: M-my husband won't do such a thing!
+	Knight: I tried looking for him which is why it took me a while to get back.
+	@char Mira.{def_config2},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FACE
+	Mira: No...No....No....
+	@hide Mira
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>AH,BASE/EXTRA- pos:50
+	Knight: Mira!!
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>HMM
+	Knight: ....
+	@char Knight.BASE>BODY,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>GRIN,BASE/EXTRA>SCARY
+	Knight: ...
+	@char Gunther.BASE>HAIR,BASE/BODY>NAKED,BASE/FACE>GRR pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( THIS BASTARD! )
+
+	@hide Knight
+	@hideUI gemView
+	@back BLANK
+	@hide Gunther
+
+	@printer IntroPrinter
+	To be continued...
+	@wait 2
+
+	@title
+
+	@stopbgm darkdrone
+@stop

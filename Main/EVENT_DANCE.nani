@@ -1,0 +1,367 @@
+#FLAG_1
+	@set g_stripdance=1
+	@back BLANK
+	@bgm crowd_adjusted
+	@printer IntroPrinter
+	Later that week...
+
+	@printer Dialogue
+	@stopbgm crowd_adjusted
+	@bgm naughty volume:0.7
+	@set dancer_set="BASE/ARMS>,BASE>BODY,BASE/HAIR>SHORT_WIG,BASE/FACE>NOSE,BASE/CLOTHES/LINGERIE>PINK_WHORE,BASE/EARINGS>CLASSIC"
+	@back HALL_BACK_EVE
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE pos:{g_POS} scale:{g_SCALE}
+	Gunther: ...
+	@showUI DayIndicator
+	@char Mira.{dancer_set},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FALL look:left pos:50
+	Mira: Oh no! Oh no!
+	@showUI DayIndicator
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+	Gunther: What’s wrong? So many people are here tonight! It should be great for business-
+	Mira: Ugh...I'm getting stomach cramps..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH pos:{g_POS} scale:{g_SCALE}
+	Gunther: Right now?
+	@char Mira.{dancer_set},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FALL look:left pos:50
+	Mira: S-Sorry..I'm just nervous...
+	@char Mira.{dancer_set},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>OH,BASE/FX_BODY>BLUSH,BASE/FX>SIGH_AIR look:left pos:50
+	Mira: *breaths deeply*
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: *GULP*..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+	Gunther: L-lemme make an introductory first...
+	@hide Mira
+	@hide Gunther
+	
+	@printer ScenePrinter
+	@back BLANK
+	
+	@printer IntroPrinter
+	As I enter the Tavern...[br]I saw before me Men with such..[br]Thirst in their eyes..[br][br]I briefly tried to calm everyone down[br]And made a short introductory before[br]going back to check on Mira...
+
+	@printer Dialogue
+	@back HALL_BACK_EVE
+	@stopbgm naughty
+	@bgm crowd_adjusted
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_MULT pos:{g_POS} scale:{g_SCALE}
+	Gunther: Hun..Are you ready?
+	@char Mira.{dancer_set},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FALL look:left pos:50
+	Mira: Ready...?
+	@char Mira.{dancer_set},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FALL look:left pos:50
+	Mira: I'm really doing this? Huh? Heheh~!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX>SPARKLE pos:{g_POS} scale:{g_SCALE}
+	Gunther: You’ll be great. Go get em while I serve the drinks..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/EXTRA>BLUSH pos:{g_POS} scale:{g_SCALE}
+	Gunther: I love you so much honey, You're so beautiful...
+	@stopbgm crowd_adjusted
+	@bgm dance volume:0.7
+	@char Mira.{dancer_set},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>SMILE,BASE/FX_BODY>BLUSH look:left pos:50
+	Mira: ...
+	@char Mira.{dancer_set},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>OH,BASE/FX_BODY>BLUSH,BASE/FX>SIGH_AIR look:left pos:50
+	Mira: *breaths deeply*
+	@char Mira.{dancer_set},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH look:left pos:50
+	Mira: Let's get this show on the road then...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/EXTRA>BLUSH pos:{g_POS} scale:{g_SCALE}
+	Gunther: Hmm~
+	@hide Mira
+	@sfx cloth_shuffle
+	Mira: Greetings, fellas!
+
+	@hide Gunther
+	@printer IntroPrinter
+	@back BLANK
+	[sfx crowd_cheer_1 volume:0.7]That night,[br][br]As my wife enter the tavern[br][camera zoom:0.3 offset:1.5,-0.9][back STRIPDANCE][camera zoom:0.3 offset:-1.0,-0.9 time:15 wait:false]The crowd roared and was left in awe[br][br]Her performance startled the drunkards red[br]As she gracefully swayed her hips...
+
+	@printer ScenePrinter
+	Crowd: Whooo!!
+	Crowd: By the gods! Where did they get such Lass!
+	Crowd: I'd empty my balls on you missy! Heheh~
+
+	@back BLANK
+	@camera zoom:0 offset:0,0 time:0
+	@back STRIPDANCE
+
+	Crowd: Remove your clothes, missy!
+	Gunther: ( Well, it seems they like her very much.. )
+	Crowd: STRIP! STRIP! STRIP!!
+	Gunther: ( ...or perhaps a bit too much )
+	Gunther: ( I wonder what she'll do... )
+	Gunther: ( Oh..She's staring at me.. )
+
+	#stripSignal
+	@choice "Signal your finger with <color=#FFBB53>an OK sign</color>" goto:.stripSignal
+	@choice "Signal by <color=#FFBB53>crossing your hands</color>" goto:.nostrip
+	@stop
+
+	#strip
+		You signaled her an <color=#FFBB53>OK sign</color>
+		Mira: Heheh~
+		Mira: Very well~!
+		Crowd: OAAHHHH!!
+		Gunther: ( Oh boy, They're getting really riled up... )
+		@goto .ret_2
+	@stop
+
+	#nostrip
+		You signaled her with <color=#FFBB53>crossed your hands</color>
+		Mira: Heheh~
+		Mira: Not today~!
+		Crowd: AWWWW!!!
+		Gunther: ( Gotta make sure she's in check... )
+		@goto .ret_2
+	@stop
+
+	#ret_2
+		Gunther: ( I hope the <color=#FFBB53>Patrol guards</color> won't take the noise too seriously.. )
+		@stopbgm dance
+
+		@printer IntroPrinter
+		@back BLANK
+		@bgm crowd_adjusted
+		A while later...
+
+		@printer Dialogue
+		@back HALL_BACK_EVE
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE pos:{g_POS} scale:{g_SCALE}
+		Gunther: Hmph~
+		@sfx cloth_shuffle
+		@char Mira.{dancer_set},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH,BASE/FX_BODY+BLUSH,BASE/FX_BODY+SWEAT,BASE/FX+STEAM pos:50
+		Mira: Whew, well, they seem happy.
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Very.
+		@char Mira.{dancer_set},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>GRIN,BASE/FX_BODY+BLUSH,BASE/FX_BODY+SWEAT,BASE/FX+STEAM pos:50
+		Mira: Oh jeez~! you seem pretty happy too, mister.
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN
+		Gunther: You bet...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Better go and get changed so no one would notice it's you~
+		@char Mira.{dancer_set},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>SMILE,BASE/FX_BODY+BLUSH,BASE/FX_BODY+SWEAT,BASE/FX+STEAM pos:50
+		Mira: Hmm~!
+		@hide Mira
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX-
+		Gunther: Don't forget to wash your Wig and Clothes!!
+		Mira: Hm~
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH,BASE/FX-
+		Gunther: Then return it back to the Closet!
+		Mira: I know Gunther~!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX-
+		Gunther: Heheh~
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN
+		Gunther: ( I should go collect the tips then.. )
+		@hide Gunther
+		@back BLANK
+		You earned <color=#FFBB53>3500G</color> for the day.[sfx coin_4]
+		@set currentgold=currentgold+3500
+		@stopbgm crowd_adjusted
+
+		@hideUI DayIndicator
+		@printer IntroPrinter
+		@bgm evening_ambient volume:0.7
+		@back BLANK
+		A while later...
+
+		@printer Dialogue
+		@back HALL_BACK_MD
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+		Gunther: YAWN~
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+		Gunther: ( My shoulder hurts... )
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>IDLE,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+		Gunther: ( Good thing it's now over... )
+		Gunther: ( We sure did well tonight..I only hope it continues for the better... )
+		Gunther: ( I should relax myself for a bit...Mira's asleep anyway...Maybe I should...)
+
+		@set hideAttire=0
+		@choice "Take a nap..." goto:.nap
+		@choice "Take a bath..." goto:.bath
+		@stop
+
+		#bath
+			@set hideAttire=1
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>IDLE,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+			Gunther: ( Hmm~! A warm bath shall suffice.. )
+			@hide Gunther
+
+			@back BLANK
+			...[sfx footstep_custom]
+
+			@back WASHROOM_ENTRANCE_EVE
+			@stopbgm evening_ambient
+			@bgm old_farmer_theme
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>IDLE,BASE/FX-,BASE/EXTRA- pos:{g_POS} scale:{g_SCALE}
+			Gunther: Hmmm~♫
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX- pos:{g_POS} scale:{g_SCALE}
+			Gunther: Huh? What is this...
+			You picked up <color=#FFBB53>Mira's Wig & Dance Attire </color>
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE,BASE/FX>PISSED pos:{g_POS} scale:{g_SCALE}
+			Gunther: ( I told her to wash if after.. )
+			Gunther: ...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: *SIGH* Whatever, I'll do it myself..
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>IDLE,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: ( She's done enough for the Tavern anyway.. )
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>AH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: Alright~! Off to the scrubbing board we go...
+			@goto .main
+		@stop
+
+		#nap
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+			Gunther: YAWN~
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>H-HMM,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+			Gunther: ( I guess it's better get some sleep now..)
+			Gunther: ( I still gotta wake up early tomorrow... )
+			@goto .main
+		@stop
+
+
+		#main
+			@if galleryMode==1
+				@set galleryMode=0
+				@goto _MEMORY
+			@else
+				@goto CH_KNIGHT.FLAG_1
+			@endif
+		@stop
+	@stop
+@stop
+
+#FLAG_2
+	RANDOM PATRONS: Lana! Lana! Lana!
+	Gunther: Fuck, I guess they’re expecting “Lana” to be here regularly...
+	Mira: Ugh, I should’ve seen this coming. Well, that was a one time deal-
+	Gunther: I don’t know if we should risk losing the patrons. What’s one more dance?
+	Mira: They were ogling and leering at me! One man grabbed my ass!
+	Gunther: ...
+	Mira: ...which of course you liked watching. Yeeeeesh.
+	Gunther: B-but it’s MAINLY about the money.
+	Mira: Well, glad you’re willing to sacrifice your wife for such a noble cause...
+	Gunther: Hey, that’s not fair!
+	Mira: I’m teasing you. I’m annoyed but... it’s fine. I’ll do it.
+	Gunther: Go get ready! Maybe try a new outfit this time?
+	Mira: Yes, sir! Right away sir!
+
+	Gunther: ...I liked that.
+	Mira: OH MY GOD YOU ARE SUCH A PERV	I’ll be back.Mira leaves. Gunther: Gentleman, in just a moment we’ll be seeing the famed Lana! Please begin singing a song for her to dance to...
+
+	
+	RANDOM PATRONSOhhhhhhhhh my lassie...
+	( singing continues )
+	Mira appears and begins to dance. 
+	RANDOM PATRONS
+	Wooohooo! Take it off! Gimme a lap dance!
+
+	Gunther: ( It’s amazing what an instant effect she has on people	I think one of the guys is trying to
+	quietly pleasure himself while he watches. I wonder if she’s noticing him...
+	Mira finishes her dance. MIRA (WHISPER)
+	Whew, this is a work out! But I guess they’re loving it!!! Go get those tips.
+
+	GUNTHER (WHISPER)Yeah, you were really something out there.
+
+	MIRA (WHISPER)Did you see that creep, though? The one trying to jack off?!?
+
+	GUNTHER (WHISPER)Yeah, no big deal.
+
+	Mira: ...
+	Gunther: I’ll go collect your tips. See you soon! Nice work.
+@stop
+
+#FLAG_3
+	Gunther: Crowd’s back again.
+	Mira: Sigh...
+	Gunther: Look, I know you don’t want to but I really think-
+	Mira: Gunther, stop. It’s ok. I’ll be “Lana” tonight again.
+	Gunther: Really?
+	Mira: Yeah... I mean what’s the big deal, right? Dancing is fun! And it’s kind of fun to get the looks from all those horny guys...
+	Gunther: !!!
+	Mira: I’m kidding! Mostly... go get me set up and I’ll get changed! Mira leaves.Gunther: Ok guys! You know what time it is!
+
+	
+	RANDOM PATRONSWoooo! Shut up loser and bring out Lana! Yeah, she’s almost as hot as your bimbo wife!
+
+	Gunther: ...
+	
+	RANDOM PATRONS
+	Lana! Lana! Lana!
+
+	Mira: Hear I am! Where’s my song boys?!?
+	
+	RANDOM PATRONS*Singing*
+
+	Gunther: ( She seems a lot more... enthusiastic tonight! I think she really is having fun...
+
+	Mira keeps dancing. Then she turns towards one patron who has a clear boner and licks his pants around his erection.
+	
+	RANDOM PATRONSHoly shit! You see that?!? What a slut!!!! Me next!!!
+
+	Gunther: ( She’s really going for it...
+
+	Mira: Mmmm, delicious! Thanks boys! See you next time! Mira leaves as she blows a kiss to the crowd.Gunther: ( 
+	She didn’t even talk to me this time. It’s like she’s so high off the attention she forgot about me...
+@stop
+
+#FLAG_4
+	Mira: Gunther!
+	Gunther: Hey-
+	Mira: I’m ready to dance. Get the crowd ready for me.
+	Gunther: W-woah. You’re really on top of this! You’re taking this as seriously as anything.
+	Mira: What can I say, maybe I’ve found a new calling in life! Hehehe...
+
+	Gunther: ...
+	Mira: Relax, I’m kidding. It’s just for the money. Warm them up for me. This is going to be my best show yet. You won’t wanna miss it.
+	She leaves.
+	Gunther: Gentlemen, get ready-
+
+	
+	RANDOM PATRONSAin’t no gentlemen here! Bring on the tits already! Shut the fuck up dumbass we don’t care about you!
+
+	Gunther: Well, please start singing so that Lana can dance for you all.
+	
+	RANDOM PATRONS*start singing*
+
+	MIRA (OFF SCREEN)You’re not ready for me tonight, boys!
+	Mira appears, she looks insanely hot in a ridiculously hot stripper outfit. She starts dancing. 
+	RANDOM PATRONS
+	FUCK ME! She’s so hot! Lana Lana over here!!! Touch my cock!!!! Leave your husband and let us fuck you!!!
+
+	Gunther: ...
+	Mira: You boys have such nice singing voices! And you’re so funny! I should reward your good behavior...
+	Mira begins to give a patron a lapdance.
+	LAPDANCE PATRON
+	Oohhh holy fuck she’s on my lap!!!
+
+	Mira: Mmm... I can feel you hard between my legs. Naughty naughty... She moves onto another patron and a new lapdance position.LAPDANCE PATRON 2
+	D-don’t stop... ohhh....
+
+	Mira: Haha, you’re squirming so much sweetie	almost like you’re about to. Oh no.The patron starts to cum in his pants. LAPDANCE PATRON 2
+	OHHHHHHHH!!! FUCK I’M SORRY!!!! OHHHH!!!!
+
+	
+	RANDOM PATRONSHahahah he came! WOW!!! Damn I want her to make me cum!!!
+
+	Mira: Oh my gods!!!! You- you just... well	I guess you should go get that cleaned up. Whoops!Mira moves onto a third patron and a new lap dance position. Mira: Sir, try not to grab me so tightly...
+
+	LAPDANCE PATRON 3Huhuh... I’ll do whatever I want to you slut...
+
+	Mira: ...well, I think that’s it for tonight!
+	LAPDANCE PATRON 3No. A little longer.
+
+	Mira: Ok... it’s just that, the way you’re prodding at me through my clothes...
+	LAPDANCE PATRON 3Hehehe, you’re sensitive, huh?
+
+	Mira: Ffff- no. I mean... Dammit. DAMMIT. AHHHH! I’m gonna- AHHHHHHHHHHHHHH! Mira cums while grinding on the man. She gets up after.
+	Mira: Oh- oh wow... OKAY! Show’s over! Mira runs off.
+	Gunther: ( 
+	Holy shit. I better check on her.
+
+	
+	RANDOM PATRONSDid that bitch cum!?!? Fuck get he back here! Encore! MORE DANCING!
+
+	Gunther: Sh-show’s over for the night fellas! Thanks for your patronage! Transition to bedroom.Gunther: Mira? You ok? The patrons all left. We’re closed up. I figured you needed a minute.
+
+	Mira: Mmmm... that was... FUN.
+	Gunther: Oh!!! You’re alright?!?
+	Mira: Yeah, I just got... a little carried away. Sorry about that.
+	Gunther: It was fun to watch, honestly.
+	Mira: Hehe, I bet. Still, maybe we should pause the dance shows for a bit!
+	Gunther: Hehe, fair enough.
+@stop

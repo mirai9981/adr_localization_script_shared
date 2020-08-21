@@ -1,0 +1,410 @@
+
+#RESET
+	@set debugMode=1
+	@choice "Flag 1" goto:.FLAG_1
+	@choice "Flag 2" goto:.FLAG_2
+	@choice "Reset" goto:.RESET
+@stop
+
+#FLAG_1
+	@set weather="rainy"
+	@bgm rain volume:0.3
+	@back FRONT_RAIN
+	@spawn Rain params:2000,0,1.1
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( It seems this rain will be for a while... )
+	@showUI DayIndicator
+	Gunther: ( Folks would usually prefer to rest in their homes rather than for a pint of ale..)
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+	Gunther: *SIGH...There goes another day without earnings..
+	???: Goddamn rain...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-
+	Gunther: Huh?
+	???: My wares almost got soaked..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH,BASE/FX-
+	Gunther: A-are you okay sir?
+
+	@bgm creep_theme
+	@char Stranger.BASE>BODY,BASE/MOUTH>IDLE pos:50 scale:0.8
+	Stranger: ...
+	@char Stranger.BASE>BODY,BASE/MOUTH>AH
+	Stranger: Have i seen you somewhere before...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: I...don't think so...
+	@char Stranger.BASE>BODY,BASE/MOUTH>IDLE
+	Stranger: Hmmm..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+	Gunther: ( What a strange man.. )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH,BASE/FX-
+	Gunther: Why don't you warm yourself inside for a while?
+	Gunther: Have a drink or something to eat..
+	@char Stranger.BASE>BODY,BASE/MOUTH>IDLE
+	Stranger: Hmmm..
+	@char Stranger.BASE>BODY,BASE/MOUTH>GRIN
+	Stranger: Very well...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+	Gunther: Shall we head inside then?
+	Stranger: Hmm.
+	@hide Stranger
+	@hide Gunther
+	@despawn Rain params:0
+	@stopbgm rain
+	@back BLANK
+	...[sfx MedievalDoor_Open]
+
+	@back TAVERN_DAY_ON
+	@char Stranger.BASE>BODY,BASE/MOUTH>AH POS:50
+	Stranger: Quiet a Tavern you have i must say...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+	Gunther: Thanks, It definitely had better times though..
+	Stranger: I see...
+	@char Stranger.BASE>BODY,BASE/MOUTH>OH
+	Stranger: Very well...Give me something...
+	@char Stranger.BASE>BODY,BASE/MOUTH>AH
+	Stranger: "Warm" and "Bitter"
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: ( Hmm..What should i serve him.. )
+	Gunther: ( "Warm" and "Bitter" he say...)
+
+	@choice "Serve him some <color=#FFBB53>Warm Broth</color>" set:disc=0
+	@choice "Serve him some <color=#FFBB53>Warm Tea</color>" set:disc=1
+	@stop
+
+	@back TAVERN_DAY_ON
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+	Gunther: Here you go~
+	@stopbgm creep_theme
+	@char Stranger.BASE>BODY,BASE/MOUTH>IDLE POS:50
+	Stranger: Hmm...
+	Stranger: ....
+	@wait 1
+
+	@bgm creep_theme
+	@if disc==1
+		@sfx coin_4
+		@char Stranger.BASE>BODY,BASE/MOUTH>GRIN
+		Stranger: Heheh~! Not bad!
+		Stranger: Just what I need...
+	@else
+		@sfx negative
+		@char Stranger.BASE>BODY,BASE/MOUTH>OH
+		Stranger: Hmm..Not quite what i need..
+		Stranger: I guess it'll do for now...
+	@endif
+
+	@char Stranger.BASE>BODY,BASE/MOUTH>AH
+	Stranger: Say, Boy...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE
+	Gunther: Hmm?
+	@char Stranger.BASE>BODY,BASE/MOUTH>GRIN
+	Stranger: Are you by any chance interested in buying some of my <color=#FFBB53>Goods</color>?
+
+	@if disc==1
+		@char Stranger.BASE>BODY,BASE/MOUTH>AH
+		Stranger: I'd give ya a discount for that treat..
+		@set item1_price=750
+	@else
+		@char Stranger.BASE>BODY,BASE/MOUTH>OH
+		Stranger: I won't handle discounts though...
+		@set item1_price=1000
+	@endif
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: ( Hmm..sounds interesting.. )
+	Gunther: ( It won't hurt to take a look.. )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: Sure..What are you offering?
+	Stranger: Here...I'm offering this <color=#FFBB53>Golden Wig</color>...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: O-oh....
+	Gunther: ( I definitely expected something else... )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: Okaaay...How much do you sell it for?
+	Stranger: <color=#FFBB53>{item1_price}G</color> take it or leave it...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX>SWEAT_SING
+	Gunther: Wha- That much!? Just for this item!?
+	Stranger: Yes...
+
+	#buy_state_1
+	@choice "No thanks.." goto:.notbought
+	@if currentgold>=item1_price
+		@choice "Buy it...(<color=#FFBB53>-{item1_price}G</color>)" goto:.bought
+	@else
+		@choice "Buy it...( <color=#FB4141>Not enough gold</color> )" goto:.buy_state_1
+	@endif
+	@stop
+
+	#notbought
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: I don't see any use for that...so...
+		Gunther: I'll have to pass...
+		Stranger: Very well then...
+		@goto .END
+	@stop
+
+	#bought
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+		Gunther: *SIGH...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-
+		Gunther: I can't believe i'm paying that much for a <color=#FFBB53>Wig</color>...
+		Gunther: Here take the money...[sfx coin_1]
+		You paid <color=#FB4141>{item1_price}G</color>
+		@set currentgold=currentgold-item1_price
+		@char Stranger.BASE>BODY,BASE/MOUTH>GRIN
+		Stranger: Heheh~
+		Stranger: Thanks...Stranger...
+		@set hasWig=1
+		@goto .END
+	@stop
+	
+	; @char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	; Gunther: Sure let's see!	
+	; @char Stranger.BASE>BODY,BASE/MOUTH>GRIN
+	; Stranger: Help yourself then....
+	; @hide Dialogue
+	; @hide Gunther
+	; @char Stranger pos:80
+	; @showUI StrangerShop
+	; @stop
+
+	#END
+		@set weather="sunny"
+		
+		; @hideUI StrangerShop
+		; @char Stranger pos:50
+		; @char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+		; Gunther: ( Quite a collection he have... )
+		; Gunther: ( Where did he get all these? )
+		; Gunther: ( Some of it doesn't feel anything from this world.. )
+		Stranger: Well, It seems the rain has somewhat lighten a bit..
+		Stranger: I shall continue my way now..
+		Stranger: Here, for the treat...
+		You received <color=#FFBB53>10G</color>[sfx coin_4]
+		@set currentgold=currentgold+10
+		Stranger: I might walk this road once again boy, so keep a look out..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Very well then, take care...
+		@hide Stranger
+		@sfx MedievalDoor_Close
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE
+		Gunther: What a strange fellow...
+
+	@if debugMode==1
+		@goto .RESET
+	@else
+		@goto _LOOPER.end_day
+	@endif
+@stop
+
+#FLAG_2
+	@back BLANK
+	@printer IntroPrinter
+	Next day...
+
+	@set weather="rainy"
+	@bgm rain volume:0.3
+	@back FRONT_RAIN
+	@spawn Rain params:2000,0,1.1
+	@printer Dialogue
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: Looks like this rain we'll be a while..
+	Gunther: ( Better head back Inside...)
+	@sfx MedievalDoor_Open
+	@showUI DayIndicator
+	@despawn Rain params:0
+	@stopbgm rain
+
+	@back TAVERN_DAY_OFF
+	@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>OH pos:50
+
+	@bgm trader_theme
+	Mira: Hun, have you seen my <color=#B88AFF>Comb</color>? I can't seem to find it...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-
+	Gunther: Huh? where did you last put it?
+	@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>OH
+	Mira: It was just on our bedroom and I never use it anywhere else...
+	Gunther: That's...strange...
+	Gunther: You sure you didn't just misplaced it..
+	@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HUH
+	Mira: What do you take me for!?
+	Mira: I always keep my belongings organized...
+	Gunther: Have you tried looking at the Kitchen?
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>MUH
+	Mira: Not there either...
+	@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>HUH,BASE/FX>SIGH_AIR
+	Mira: *SIGH*
+	Mira: Anyway, I'll go check the <color=#FFBB53>Storage Room</color>...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX-
+	Gunther: Hmm~ 
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH
+	Gunther: Oh! Right! 
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: While your at it, Could you check if we got Roof leaks in there?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: This rain might be for a while...
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+	Mira: Okay then...I'll prepare the buckets just in case...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN
+	Gunther: Thanks, Dear~
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>SMILE
+	Mira: Hmm~!
+	@hide Mira
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE
+	Gunther: ...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: ( It's really is unusual for Mira to misplace her belongings...)
+	Gunther: ....
+	@stopbgm trader_theme
+	@sfx MedievalDoorOpen
+	???: Ah..Dry feet at last...
+	Gunther: Hmm?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH
+	Gunther: Oh it's you again..
+
+	@bgm creep_theme
+	@char Stranger.BASE>BODY,BASE/MOUTH>OH pos:50 scale:0.8
+	Stranger: Of course....
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: The usual drink?
+	@char Stranger.BASE>BODY,BASE/MOUTH>AH
+	Stranger: Yea, just the usual..
+	Gunther: Got it...
+	Gunther: Here..
+	@char Stranger.BASE>BODY,BASE/MOUTH>IDLE
+	@sfx drinking
+	Stranger: ...
+
+	@char Stranger.BASE>BODY,BASE/MOUTH>GRIN
+	Stranger: Aghh..That's warm...
+
+	@if priest_visit==1
+		Stranger: Say boy...
+		Gunther: Hmm?
+		Stranger: How many visitors stayed at your Inn this week?
+		Gunther: Uhm...
+		Gunther: There was just one yesterday...Hahah...
+		Gunther: Business isn't really kicking well here so...
+		Stranger: ....
+		Stranger: Hmm...Is that so...
+		Stranger: *GULP*...Ahh~...
+		Stranger: ....
+		Stranger: Was he wearing suit?
+		Gunther: How'd you know!?
+		Stranger: ....
+		Stranger: Be careful who you accept as visitors, Boy...
+		Stranger: Not all are the <color=#FFBB53>Peculiar kind</color>...
+		Stranger: It might cost your <color=#FFBB53>Sanity</color>..
+		Gunther: ( That's kinda unsettling... )
+		Gunther: W-what do you mean? Heheh~
+		Stranger: ...
+		Gunther: A-anwywa, What do you have for me today?
+		Stranger: Ah right..right..
+	@else
+		Gunther: Got anything for me today?
+		Stranger: Ah right..right..
+	@endif
+	Stranger: Here...
+
+	Stranger: I'm offering this <color=#FFBB53>Silver Door Knob</color>...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: ( A <color=#FFBB53>Door Knob</color>? )
+	Gunther: ( I don't think we have any broken knobs that needs to replaced...)
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: How much do you sell it for?
+	Stranger: Just <color=#FFBB53>1500G</color> for you..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX>SWEAT_SING
+	Gunther: [spawn ShakeCharacter params:"Gunther"]What the-! for a <color=#FFBB53>Door Knob</color>!?
+	@char Stranger.BASE>BODY,BASE/MOUTH>OH
+	Stranger: "Silver"...Door Handle...and yes that's my price for it...
+
+	#buy_state_1
+	@choice "No thanks.." goto:.notbought2
+	@if currentgold>=1500
+		@choice "Buy it...(<color=#FFBB53>-1500G</color>)" goto:.bought2
+	@else
+		@choice "Buy it...( <color=#FB4141>Not enough gold</color> )" goto:.buy_state_1
+	@endif
+	@stop
+
+	#notbought2
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: I don't see any use for that so I'll have to pass...
+		Stranger: Very well then...
+		@goto .END
+	@stop
+
+	#bought2
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+		Gunther: *SIGH...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-
+		Gunther: ( Guess I'll just keep it as a spare... )
+		Gunther: Here take the money...[sfx coin_1]
+		You paid <color=#FB4141>1500G</color>
+		@set currentgold=currentgold-1500
+		@char Stranger.BASE>BODY,BASE/MOUTH>GRIN
+		Stranger: Heheh~
+		Stranger: Thanks...Stranger...
+		@set hasKnob=1
+		@goto .END2
+	@stop
+
+	#END2
+		@char Stranger.BASE>BODY,BASE/MOUTH>AH
+		Stranger: Anyway, I should leave now..
+		Stranger: I have someone to meet today...
+		Gunther: Is that so..
+		@char Stranger.BASE>BODY,BASE/MOUTH>OH
+		Stranger: Here, for the treat...
+		You received <color=#FFBB53>10G</color>[sfx coin_4]
+		@set currentgold=currentgold+10
+		Stranger: As usual, I'll be here again next week..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Alright then! Safe Travels~
+		@sfx MedievalDoor_Open
+		@sfx MedievalDoor_Close
+		@hide Stranger
+		@stopbgm creep_theme
+
+		@if hasKnob==1
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+			Gunther: Now where should I place this knob...
+			@sfx door_knock
+			Gunther: Hmm?
+			@wait 1
+
+			@back MAIN_STORAGE_DAY
+			@bgm old_farmer_theme
+			Mira: Gunther? 
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH
+			Gunther: Mira?
+			Mira: Gunther, Can you open this door?
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+			Gunther: Huh? What happened?
+			Mira: I think the knob is broken...
+			Gunther: ...
+			Gunther: ( It's probably just a coincidence )
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+			Gunther: ( That Merchant's timing is too good for selling me this <color=#FFBB53>Door knobs</color> )
+			Gunther: How strange...
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH
+			Gunther: Alright, Gimme a minute to fix it..
+			Mira: Okay- Gyaaah!!![spawn ShakePrinter]
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH
+			Gunther: WHAT HAPPENED!?
+			Mira: ...
+			Mira: T-there's a mouse in here...H-hurry up..
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+			Gunther: Hahahah~!
+			Mira: STOP LAUGHING AND HURRY UP!!!![spawn ShakePrinter]
+			Gunther: Alright! Alright!
+		@endif
+
+	@if debugMode==1
+		@goto .RESET
+	@else
+		@goto _LOOPER.end_day
+	@endif
+@stop

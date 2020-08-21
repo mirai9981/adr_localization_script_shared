@@ -1,0 +1,625 @@
+
+#RESET
+	@set debugMode=1
+	@choice "Flag 1" goto:.FLAG_1
+	@choice "Flag 2" goto:.FLAG_2
+	@choice "Flag 6" goto:.FLAG_6
+	@choice "Reset" goto:.RESET
+@stop
+
+#FLAG_1
+	@back BLANK
+	@bgm evening_ambient volume:0.7
+	@back FRONT_EVE
+	@printer IntroPrinter
+	Later that evening...
+	@wait 1
+
+	@printer Dialogue
+	@back TAVERN_EVE_ON
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( I wonder how much we'll earn this week... )
+	@showUI DayIndicator
+	@sfx MedievalDoor_Open
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: ( A customer! )
+	Gunther: Welco-
+	@showUI DayIndicator
+	@stopbgm evening_ambient
+
+	@bgm mechanical volume:0.3
+	@char Goblin.SMIRK_ALL pos:50 scale:1.15
+	Goblin: To another day working at the mines!
+	Goblin: To the mines!
+	Goblin: To the fucking mines! Fuck you!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: ( Oh, it’s just the <color=#FFBB53>Goblin miners</color>.. )
+	@char Goblin.FCM_SPEAK
+	Goblin: You know what I saw on my way back from the mines today?
+	@char Goblin.FCR_SPEAK
+	Goblin: Some tits!
+	@char Goblin.FCL_SPEAK
+	Goblin: A bear!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX+SWEAT_SING,BASE/FX+SIGH_AIR
+	Gunther: ( They’re always so loud when they’re drunk. )
+	Gunther: ( Do they have to yell everything? )
+	@char Goblin.FCR_SPEAK
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX-
+	Goblin: I saw a figure going into an <color=#FFBB53>Old shack right in the dark forest</color>...
+	@char Goblin.FCM_SPEAK
+	Goblin: And then tits?
+	@char Goblin.FCR_SPEAK
+	Goblin: No you moron. But I think... 
+	@char Goblin.FCR_SPEAK
+	Goblin: Well, don’t quote me on this... 
+	Goblin: But it looked awful lot like the <color=#FFBB53>Queen</color>...
+	@char Goblin.FCL_SPEAK
+	Goblin: Ah, yer full of it!
+	@char Goblin.FCM_SPEAK
+	Goblin: Rubbish, I tell you that..
+	@char Goblin.FCL_SPEAK
+	Goblin: Why would the <color=#FFBB53>Queen</color> be out in the forest in the Middle of the night?
+	@char Goblin.FCR_SPEAK
+	Goblin: Dunno~ Perhaps to fuck!?
+	@char Goblin.SMIRK_ALL 
+	Goblin: Bwahahaha~
+	Goblin: Let’s drink to that! Barkeep DRINKS HERE!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: R-right away!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+	Gunther: *SIGH...( Well as long as they pay... )
+	@hide Goblin
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: Hun?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE look:left pos:50
+	Mira: Hmm?
+	Gunther: Can you serve these to the goblins?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH look:left pos:50
+	Mira: Oh~ They’re back again?
+	Gunther: And loud as usual...
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH look:left pos:50
+	Mira: But It’s good to have regulars, right?
+	Gunther: I suppose...
+
+	@back TAVERN_ANGLE2_EVE_ON id:SubBackground
+	Mira: Hey fellas! here are your drinks~!
+	@char Goblin.SMIRK_ALL pos:35
+	@char Mira pos:75
+	Goblin: Miraaaa~ 
+	Goblin: Scrumptious as always eh~!
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>AH
+	Mira: Silly Humanoids...Come on now..
+	Mira: You're compliments won't lead to anything~
+	@char Goblin.OH_ALL
+	Goblin: Awwww~
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH
+	Mira: Well, In case you need refills just call me out or Gunther okay?
+	Goblin: Hmmm~!
+	@hide Mira
+	@char Goblin.SMIRK_ALL pos:50
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+	Gunther: *SIGH...
+	Goblin: I don’t make enough money to put up with the things I put up with!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX-
+	Gunther: ( That's my line! )
+	@char Goblin.FCR_SPEAK
+	Goblin: Yeah, me neither! I’ll drink to that!
+	@char Goblin.FCL_SPEAK
+	Goblin: Cheers!
+	@char Goblin.FCM_SPEAK
+	@stopbgm mechanical
+	Goblin: You know...if you really need money-
+	@bgm creep_theme
+	Goblin: Now, I’m not getting involved in any <color=#FFBB53>Illegal</color> schemes.
+	Gunther: ( I sure do hope they don't mind me overhearing this... )
+	Goblin: I just......
+	Goblin: I just heard a rumor from some of the other miners...
+	Goblin: That a group of thieves a while back hid a <color=#FFBB53>stash of gold</color> somewhere inside the abandoned passages... 
+	Goblin: I think I know where it is, but there might be a <color=#FFBB53>cave troll</color> living down there...
+	@char Goblin.FCL_SPEAK
+	Goblin: Interesting...
+	Goblin: I'm surprised you said something Interesting for once...
+	Goblin: That aside, A cave troll is no joke!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: ( Hmm...That does sound interesting indeed. )
+	@hide Goblin
+	@hide Gunther
+	@stopbgm creep_theme
+	@bgm evening_ambient volume:0.7
+	@back FRONT_EVE id:SubBackground
+	@printer IntroPrinter
+	A short while later,[br]The <color=#FFBB53>goblins</color> left the place..[br][br]Mira and I started cleaning up for the night..[br][br]However,[br]I kinda wonder if such <color=#FFBB53>Rumor of gold stash</color> is true[br]and even worth the trouble..
+
+	@back BLANK id:SubBackground
+	A while later...
+
+	@printer Dialogue
+	@back HALL_BACK_MD id:SubBackground
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+	Gunther: We all good?
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE look:left pos:50
+	Mira: Hmm~, I just finished up things in the Kitchen...
+	Gunther: I see..
+	@stopbgm evening_ambient
+
+	@bgm creep_theme
+	Gunther: Well....
+	Mira: Hmm?
+
+	@choice "<color=#FFBB53>Rest</color> for the day..." goto:.rest
+	@choice "Tell the <color=#FFBB53>Gold Stash rumor</color>..." goto:.rumor
+	@stop
+
+	#rest
+		@set rumor_mira=0
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+		Gunther: ( I think it's not worth the trouble to tell Mira about it... )
+		Gunther: ( It's just a rumor after all..)
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>MUH look:left pos:50
+		Mira: What is it?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+		Gunther: It's nothing...I just wondering if you used a perfume again?
+		@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>HUH look:left pos:50
+		Mira: Wha- No, I didn-
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE pos:{g_POS} scale:{g_SCALE}
+		Gunther: ....
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH look:left pos:50
+		Mira: Ahhh~
+		Mira: Heheh~❤
+		
+		@hide Mira
+		@hide Gunther
+
+		@back BLANK id:SubBackground
+		@printer ScenePrinter
+		Mira: You naughty bastard~❤!....Not tonight!
+		Mira: You and I know we're both tired and we still got a long day tomorrow..
+		Gunther: Awww~
+		Mira: Come on now, Time to get some sleep!
+		@goto .flag_end
+	@stop
+
+	#rumor
+		@set rumor_mira=1
+		Gunther: So there's this "rumor" I heard a while ago...
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM
+		Mira: Hmmhmmm....
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH
+		Mira: I certainly hope you didn't heard this "rumor" of yours from those goblins...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: ...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: W-well...just hear me out for a bit...
+		@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>MUH,BASE/FX>SIGH_AIR
+		Mira: *SIGH*
+		@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>HUH
+		Mira: Okaay..What's it about?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+		Gunther: You see they said there was...
+		Gunther: There was a <color=#FFBB53>stash of gold</color> hidden in the <color=#FFBB53>Abandoned Mines</color>...
+		Mira: And....? 
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>OH
+		Mira: What do you want me to do with this "Rumor" of yours?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: D-do you think you can talk them down and...perhaps...
+		Gunther: Get more information about it? I mean it could be a lot of money...
+		Mira: And you think it's worth the trouble? 
+		Gunther: ...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: W-well...If you make it sound like that-
+		@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>MUH,BASE/FX>SIGH_AIR
+		Mira: *SIGH*
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: You don't need to do anything...They're harmless..I think...just...
+		Gunther: Just give them a small talk...
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE
+		Mira: ...
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE
+		Mira: You sure bout this?
+		Gunther: Small talk..That's all...
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE
+		Mira: ...
+		@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>MUH,BASE/FX>SIGH_AIR
+		Mira: *SIGH*
+		Mira: Alright...I'll see what I can do once they return...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX>SPARKLE
+		Gunther: Heheh! Thanks love!
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE
+		Mira: I really don't know how you can talk me into this...
+		@goto .flag_end
+	@stop
+
+	#flag_end
+	@if debugMode==1
+		@goto .RESET
+	@else
+		@goto _LOOPER.end_day
+	@endif
+@stop
+
+#FLAG_2
+	@set weather="evening"
+	@back BLANK
+	@printer IntroPrinter
+	Few days later...
+	@bgm evening_ambient
+
+	@printer IntroPrinter
+	@back FRONT_EVE
+	Once again,[br][br]The <color=#FFBB53>Goblins</color> have arrived to[br]the tavern for their usual...[br][br]Drinking sessions[br]
+
+
+	@printer Dialogue
+	@back TAVERN_EVE_ON
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR pos:{g_POS} scale:{g_SCALE}
+	Gunther: *SIGH*
+	@showUI DayIndicator
+
+	@stopbgm evening_ambient
+	@bgm mechanical volume:0.3
+	@char Goblin.SMIRK_ALL pos:50 scale:1.15
+	Goblin: Barkeep! More drinks here!!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: C-coming..
+	@char Goblin.FCL_SPEAK
+	Goblin: This ale is getting old for my taste...
+	@hide Goblin
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+	Gunther: *SIGH*
+	Gunther: ( I hope we can squeeze out some information about them tonight.. )
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH,BASE/FX-
+	Gunther: Hun~
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH look:left pos:50
+	Mira: Coming~
+	Gunther: Another set for the Goblins..
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>SMILE look:left pos:50
+	Mira: Hmm~
+
+	@back TAVERN_ANGLE2_EVE_ON
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH look:left pos:50
+	Mira: Hey guys, here's your 4th set..
+	@char Mira pos:70
+	@char Goblin.SMIRK_ALL pos:35 scale:1.15
+	Goblin: Mirraaa~
+	Goblin: The only reason we keep coming back here!
+	Goblin: Yeah, after a hard days work there’s nothing like a stiff drink and a stiff pecker!
+	Goblin: AHAHAHAHAHAHA!!!!
+	@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE
+	Mira: This idiots...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX-
+	Gunther: ...
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM
+	Mira: Hmm?
+	@stopbgm mechanical
+
+	@bgm creep_theme
+	@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>OH
+	Mira: O-oh right...By the way...
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>AH
+	Mira: Last time you came, I heard you guys talking about a secret of some sort..
+	Mira: Is that..."hidden gold stash" thing...real?
+	Goblin: Eh?...How'd you heard that...
+	@char Mira.{def_config},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>AH
+	Mira: Nothing...just something i've overheard...
+	@char Goblin.IDLE_ALL
+	Goblin: ....
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE
+	Mira: ...
+	@char Goblin.FCM_SPEAK
+	Goblin: Do you want to know more about it?
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>AH
+	Mira: If...you wouldn't mind...
+	@char Goblin.IDLE_ALL
+	Goblin: ....
+	@char Goblin.FCL_SPEAK
+	Goblin: I guess there had to be a reason you let us drink ale for a cheaper price tonight...
+	Gunther: ( They're sharp for a goblin alright... )
+	@char Goblin.FCR_SPEAK
+	Goblin: How about we trade?
+	@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FACE
+	Mira: Huh? T-Trade? for what?
+	@char Goblin.IDLE_ALL
+	Goblin: .....
+	@char Goblin.SMIRK_ALL
+	Goblin: Hehehe...
+	Mira: What?
+	Goblin: Come closer...
+	@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE
+	Mira: O-okay...
+	@char Mira pos:65
+	@char Goblin.SMIRK_ALL pos:38 scale:1.15
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM,BASE/FX>SWEATY_FACE
+	Mira: H-hmm..
+	Goblin: We'll.....st.....for....night
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+	Gunther: ( I can't hear what are they whispering to her... )
+	@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE
+	Mira: Eh?
+	Goblin: Give....service....us...private
+	@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FALL,BASE/FX_BODY>BLUSH
+	Mira: [spawn ShakeCharacter params:"Mira"]Ehhhh!?
+	Goblin: Hehehe~
+	@char Mira pos:70
+	@char Goblin.SMIRK_ALL pos:35 scale:1.15
+	Goblin: I do think it's worth the trouble though,Right guys?
+	@char Goblin.FCL_SPEAK
+	Goblin: Absolutely...
+	@char Goblin.FCR_SPEAK
+	Goblin: No Doubt..
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FALL,BASE/FX_BODY>BLUSH
+	Mira: ...
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FALL,BASE/FX_BODY>BLUSH
+	Mira: J-just a second....
+	@hide Goblin
+
+	@char Mira pos:50
+	@back TAVERN_EVE_ON
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+	Mira: ...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: Everything ok, love?
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+	Mira: Uh...
+	Gunther: What is it?
+	@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+	Mira: T-they were thinking of staying for the night..
+	Gunther: Oh really? Why sudden?
+	Mira: Uhmm...
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>OH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+	Mira: The goblins said they will only exchange information if...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SWEAT_SING
+	Gunther: Hmm?
+	@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+	Mira: I-if I sleep with them...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: Eh!?
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+	Mira: ....
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX>SWEAT_SING
+	Gunther: [spawn ShakeCharacter params:"Gunther"]Ehhh!?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_MULT
+	Gunther: ( How should I respond to this... )
+
+	#goblinSex
+	@choice "Tell Mira to <color=#FFBB53>deny</color>..." goto:.goblinSex
+	@if hide_extra_service==false
+		@choice "Tell Mira to <color=#FFBB53>accept</color>..." goto:.acceptGoblin
+	@endif
+	@stop
+
+	#acceptGoblin
+		@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FALL,BASE/FX_BODY>BLUSH
+		Mira: [spawn ShakeCharacter params:"Mira"]Ehhhh!?
+		Mira: Y-your okay with me...d-doing it with those...goblins?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: If it's just for the night...I guess so...
+		Gunther: They're harmless...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: They'll probably just going play with your breast and all...
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: ....
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX>SIGH_AIR,BASE/FX_BODY>BLUSH
+		Mira: *SIGH*
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: I can't believe you just said that...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: What?
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>POUT,BASE/FX_BODY>BLUSH
+		Mira: Hmmph..
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: Fine...
+
+		@back TAVERN_ANGLE2_EVE_ON
+		Mira: Oi...you three..
+		@char Mira pos:70
+		@char Goblin.IDLE_ALL pos:35 scale:1.15
+		Goblin: Hmmm?
+		Mira: Get upstairs...
+		Mira: To the last room on the right...
+		@char Goblin.SMIRK_ALL pos:35 scale:1.15
+		Goblin: Heheheh~
+		@hide Goblin
+
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>SMILE,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH pos:50
+		Mira: ....
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+		Gunther: ( Crap..she's glaring at me... )
+		Gunther: ....
+		@hide Mira
+		@hide Gunther
+		@stopbgm creep_theme
+		@goto .sexscene
+	@stop
+
+	#sexscene
+	@set g_goblin_bang=1
+	
+	@back BLANK
+	@printer IntroPrinter
+	A while later...
+
+	@showUI LetterBox
+	@bgm voyeur
+	@back HALLWAY_MD
+	After quickly closing the Inn,[br][br]I slowly crept upstairs that night..[br][br]I can almost hear echoes of moans[br]and flesh slapping with each other[br] 
+
+	With my heartbeat racing...[br][br]I slowly nudged the door to their room[br]Waiting to see what unfolds behind the door..
+
+	@back BLANK
+	; @showUI S_DoorShutterLeft
+	@bgm slap_fast
+	@printer ScenePrinter
+	Mira: Ohh~❤ Ohh~❤
+
+	; @camera zoom:0 offset:-1,,
+	; @camera zoom:0 offset:3,, time:10 wait:false
+	
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+
+	@stopbgm slap_fast
+
+	Goblin: Wewe~! I never thought this day will come!!
+	Goblin: Mira's pussy so wet! Heheh~!
+	Mira: Ohhh~❤! My Ass~❤! You guys are too rough~❤!
+	Mira: You'll break my ass❤!
+
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+	@back GOBLINS_BANG_1 id:static_set
+	@back GOBLINS_BANG_2 id:static_set
+
+	Mira: Stop thrustingggg...
+	Mira: Oghh~❤! Hngg~❤!
+	Gunther: ( By the gods, They're really pounding her.. )
+	Goblin: I think i'm cumming again!!
+	
+	@back BLANK_W
+	@hide static_set
+	@back GOBLINS_BANG_1 id:static_set
+	Mira: Ahhh~❤!
+	Goblin: Oh yeah! Let’s-a-go!!!
+	Mira: Don't...Ahhh~❤!
+	Mira: W-wait a second!! let me catch my- OHHHHH!!!!
+	Goblin: Oooh- I knew you loved it you slut
+	Goblin: I bet you woulda fucked us even if we didn’t have that information, wouldn’t you have?!?
+	Mira: Ohhh~❤! Ohhh~❤!
+
+	@back BLANK_W
+	@hide static_set
+	@back GOBLINS_BANG_3 id:static_set
+	@back BLANK_W
+	@hide static_set
+	@back GOBLINS_BANG_3 id:static_set
+	@back BLANK_W
+	@hide static_set
+	@back GOBLINS_BANG_3 id:static_set
+
+	Goblin: Shit I'm cumming again!!
+
+	@back GOBLINS_BANG_3 id:static_set
+	@back GOBLINS_BANG_4 id:static_set
+	@back GOBLINS_BANG_3 id:static_set
+	@back GOBLINS_BANG_4 id:static_set
+	@back GOBLINS_BANG_3 id:static_set
+	@back GOBLINS_BANG_4 id:static_set
+	@back GOBLINS_BANG_3 id:static_set
+	@back GOBLINS_BANG_4 id:static_set
+	@back GOBLINS_BANG_3 id:static_set
+	@back GOBLINS_BANG_4 id:static_set
+	@back GOBLINS_BANG_3 id:static_set
+	@back GOBLINS_BANG_4 id:static_set
+	@back GOBLINS_BANG_3 id:static_set
+	@back GOBLINS_BANG_4 id:static_set
+	@back GOBLINS_BANG_3 id:static_set
+	@back GOBLINS_BANG_4 id:static_set
+	@back GOBLINS_BANG_3 id:static_set
+	@back GOBLINS_BANG_4 id:static_set
+
+	Goblin: Me too! here it comes!!! WAAAHHHHHH!!!!
+
+	@back BLANK_W
+	@hide static_set
+	@back GOBLINS_BANG_4 id:static_set
+	@back BLANK_W
+	@hide static_set
+	@back GOBLINS_BANG_3 id:static_set
+	@back BLANK_W
+	@hide static_set
+	@back GOBLINS_BANG_4 id:static_set
+	@back BLANK_W
+	@hide static_set
+
+	@camera zoom:0.2 offset:,, roll:5
+	@showUI S_ItemNear3
+	@back GOBLINS_BANG_7 id:static_set
+	Mira: Unghhh~❤
+	Gunther: ( She's being filled...)
+	Goblin: oNE MoRe!!!
+	Goblin: Let's go!!!!
+	Mira: Ughhh~❤!
+
+	@printer IntroPrinter
+	@hideUI S_ItemNear3
+	@back BLANK
+	@hide static_set
+	@camera zoom:0 offset:,, roll:0
+	@back HALLWAY_MD
+	@hide static_set
+	That evening...[br][br]The entire Inn was filled with my wife's moans[br]as she gets continous pounding from the goblins...
+
+	@back HALL_BACK_MD
+	All I could do was stare at the scene..[br][br]and before I notice, It was already morning..[back HALL_BACK_DAY]
+
+	[back TAVERN_DAY_OFF]Before the goblins left..[br][br]We all had an agreement to go together-[br]to the said "<color=#FFBB53>Mines</color>" to find this <color=#FFBB53>rumored treasure</color>..[br][br]That just might change our lives forever
+
+	To be continued...
+
+	@if galleryMode==1
+		@set galleryMode=0
+		@goto _MEMORY
+	@else
+		@goto CREDITS
+	@endif
+
+	; @if debugMode==1
+	; 	@goto .RESET
+	; @else
+	; 	@goto _LOOPER.end_day
+	; endif
+@stop
+
+#FLAG_6
+	Gunther: Uh...Mira...Hun, have you read the paper this morning?
+	Mira: Nu-uh..Anything interesting?
+	Gunther: Uh....
+	Gunther: You might wanna take a look...here..
+	Mira: Hmmm...
+	Mira: "Three masked figures were seen stealing equipment carrying along a rusted chest"
+	Mira: "Which is suspected to be...The “thief’s horded” Items taken from the mines..."
+	Gunther: They’re wanted....and currently at large.
+	Mira: Seriously!?
+	Gunther: ...
+	Gunther: I guess we’ll never see them again. Or that money.
+	Mira: Why those little!! 
+	Mira: After I let them...
+	Mira: Ergh...I planned and negotiated with them so much!
+	Mira: And I gave them all blowj-
+	Mira: I-I mean we blew a bunch of money on them too!
+	Gunther: *SIGH...
+	Gunther: Well..This is all my fault after all..
+	Gunther: I-i'm sorry...
+	Mira: Ugh!!
+@stop

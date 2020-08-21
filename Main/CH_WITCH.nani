@@ -1,0 +1,1313 @@
+
+; IF GUNTHER DENIES HER OF ACCESS TO MIRA
+; WITCH TAKES A BATH LATER THAT NIGHT AND TEASES GUNTHER(WHO'S SUPPOSEDLY GOING TO CLEAN THE ONSEN)
+; THEN THEY FUCK
+
+#debugmenu
+	@choice "FLAG_1" goto:.FLAG_1
+	@choice "FLAG_2" goto:.FLAG_2
+	@stop
+@stop
+
+#FLAG_1
+	@set weather="morning"
+
+	@printer IntroPrinter
+	@back BLANK
+	Next morning...
+
+	@printer Dialogue
+	@bgm morning_ambient volume:0.7
+	@back TAVERN_DAY_OFF
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+	Gunther: *Yawn...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+	Gunther: ...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+	@showUI DayIndicator
+	@stopbgm morning_ambient
+	@bgm old_farmer_theme volume:0.6
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+	Gunther: Mira?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: ...
+	Gunther: ( Where is she... )
+
+	#choice_01
+	@choice "Check <color=#FFBB53>Upstairs</color>..." goto:.upstairs
+	@choice "<color=#FFBB53>Prepare</color> for the Day.." goto:.washroom
+	@stop
+
+	#washroom
+		@set g_washroom=1
+
+		@sfx choice_click2
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX-
+		@stopbgm old_farmer_theme
+		@bgm morning_ambient volume:0.7
+		Gunther: ( She probably went to buy some supplies from the Market )
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SIGH_AIR
+		Gunther: *SIGH*
+		Gunther: ( Empty tables as usual... )
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX-
+		Gunther: ( Guess I'll just clean the washroom for today.. )
+		@hide Gunther
+		@stopbgm old_farmer_theme
+		...
+
+		@back BLANK
+		@sfx footstep_custom
+		@wait 2
+
+		#gallery_washroom
+		@back WASHROOM_ENTRANCE_ON
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX- pos:{g_POS} scale:{g_SCALE}
+		Gunther: ( The bucket should be around here somewhere )
+		Gunther: ... [sfx bucket_splash]
+		Gunther: ( Huh? )
+		@sfx bucket_splash
+		Gunther: ..... [sfx bucket_splash]
+		Gunther: ( Wait..is someone using the washroom? )
+
+		@stopbgm morning_ambient
+		
+		@back BLANK
+		@hide Gunther
+
+		@printer ScenePrinter
+		@sfx HEARTBEAT
+		...
+		@sfx HEARTBEAT
+		...
+		@sfx HEARTBEAT
+		...
+
+		@bgm creep_theme
+		@showUI LetterBox
+		@camera zoom:0.3 offset:,2,
+
+		@showUI S_CurtainRight
+		@back WASHROOM id:static_set
+		@printer Fullscreen
+		As I slowly pushed the curtain of the washroom aside, [br]I was met with the sight of my naked wife. [br][br]She was drenched with water, [br]just starting her bath it seems. [br][br]I kept the cloth aside,[br]before I lean back as quietly as possible.
+
+		@sfx cloth_shuffle
+		@hideUI S_CurtainRight
+		@back WASHROOM id:static_set
+		@printer ScenePrinter
+		Gunther: She's looking a lot more beautiful as time passes by...
+		
+		@camera zoom:0.3 offset:,-2, time:10 wait:false
+		@printer Fullscreen
+		I swallowed thickly,[br]The sound drowned out the splash of water on her skin.[br][br]She starts to hum a familiar song[br]and slowly ties her hair..
+
+		@hideUI LetterBox
+		@camera zoom:0 offset:,0, time:0 wait:false
+		@back WASHROOM id:static_set
+		@printer ScenePrinter
+		Gunther: (Was Mira always this beautiful?)
+		Gunther: (Were her breasts always this large?)
+		Gunther: ......
+		Gunther: ...
+		Gunther: ( Shit i still got work to do.... )
+		Gunther: ( Not the time to be distracted.. )
+		Gunther: ( A-Anyway, I should just prepare for the day.. )
+		@stopbgm creep_theme
+
+		@back BLANK
+		@hide static_set
+		@printer Dialogue
+
+		@if galleryMode==1
+			@set galleryMode=0
+			@goto _MEMORY
+		@else
+			@goto .witchstart
+		@endif
+	@stop
+
+	#upstairs
+		@sfx choice_click2
+		Gunther: ( Upstairs maybe? )
+		@stopbgm old_farmer_theme
+		@bgm morning_ambient volume:0.7
+		@back HALLWAY_DAY
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Honey? You there?
+		....
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+		Gunther: ( She probably went to the market... )
+		Gunther: ( Oh well, I should just clean up the guestroom the <color=#FFBB53>Trader used last night</color>.. )
+
+		@sfx MedievalDoor_Open
+		@back GUESTROOM_DAY
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH
+		Gunther: Suprisingly neat...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Alright..Let's start scrubbing the fl-
+		@stopbgm morning_ambient
+		@bgm creep_theme
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: Wait, what is this...?
+		You picked up a <color=#FFBB53>Pouch x1</color>[sfx choice_click]
+		Gunther: He probably forgot this..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX-
+		Gunther: ( Looks like there's plenty of gold inside... )
+		
+		@set returnTraderPouch=0
+		@choice "<color=#FFBB53>Keep</color> the pouch.." goto:.keep
+		@choice "<color=#FFBB53>Return</color> the pouch later..." goto:.return
+		@stop
+
+		#keep
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+			Gunther: ( Oh well, Finder's keepers.. )
+			You received <color=#FFBB53>150G</color>[sfx coin_1]
+			@set currentgold=currentgold+150
+
+			@goto .m
+		@stop
+
+		#return
+			@set returnTraderPouch=1
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+			Gunther: ( I probably should return this when he comes back... )
+			@goto .m
+		@stop
+
+		#m
+		@sfx door_knock
+		???: Honey? You there?
+		@stopbgm creep_theme
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH
+		Gunther: Mira?! I was just looking for you..
+		@sfx MedievalDoor_Open
+		@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HUH pos:50
+		Mira: What are you doing?
+		@bgm old_farmer_theme
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: Cleaning...
+		@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH
+		Mira: With a pouch?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH
+		Gunther: Oh, This?
+		Gunther: I think the <color=#FFBB53>Trader</color> left it...
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HUH
+		Mira: Should'nt you return it?
+
+		@if returnTraderPouch==0
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?
+			Gunther: Nah~
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+			Gunther: Besides, he probably has enough of this with him...
+			@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM
+			Mira: Hmmm..
+		@else
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+			Gunther: Don't worry, I will...
+			@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE
+			Mira: Hmm~
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+			Gunther: That is if he comes back..
+			@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>AH
+			Mira: Gunther...
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+			Gunther: Just kidding...
+		@endif
+		
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH
+		Mira: Alright then...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: By the way, Where did you go?
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+		Mira: Oh, I just came from the Market, Bought us some supplies..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH
+		Gunther: You should have woke me up!
+		@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>GRIN
+		Mira: It's alright~!
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH
+		Mira: By the way...
+		Mira: There seems to be <color=#FFBB53>some kind of Festival</color> going on at the Townsquare..
+		Mira: I saw a lot of <color=#FFBB53>pointy hats</color> walking around...
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: Pointy hats?
+		Mira: You know...<color=#FFBB53>Witches</color> and <color=#FFBB53>Wizards</color>...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH
+		Gunther: Ohh~
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN
+		Gunther: Sounds like an <color=#FFBB53>opportunity to earn extra coins</color>..
+		@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>MUH
+		Mira: I sure do hope so...
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+		Mira: Anyway, We should prepare for the day..
+		@hide Mira
+		@hide Gunther
+		@stopbgm old_farmer_theme
+		@goto .witchstart
+	@stop
+
+	#witchstart
+	@printer IntroPrinter
+	@set weather="evening"
+
+	@back BLANK
+	Later that evening...
+	@bgm evening_ambient volume:0.7
+
+	@printer Dialogue
+	@back STORAGE_EVE id:SubBackground
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX>SWEAT_MULT pos:{g_POS} scale:{g_SCALE}
+	Gunther: Phew..
+	Gunther: That should be all of the flour....
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_MULT
+	Gunther: ( This <color=#FFBB53>Storage room</color> needs to be repaired soon )
+	Gunther: ( Rats might house some of the empty barrels here if I don't fix it early.. )
+	Gunther: ( Better head back to the <color=#FFBB53>Tavern</color> before a customer heads in... )
+	@sfx MedievalDoor_Open
+	@back MAIN_STORAGE_EVE id:SubBackground
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX>SWEAT_MULT
+	Gunther: It sure is hot in there...
+	???: Excuse me...
+	Gunther: ( Oh crap..There's a customer.. )
+	@sfx HEARTBEAT
+	@stopbgm evening_ambient
+	@back TAVERN_EVE_ON id:SubBackground
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+	Gunther: How may i hel-
+	
+	@bgm shady volume:0.7
+	@set HAT_CONFIG="BASE/HAT>BASE,BASE/HAT/FACE/EYES>LOWERED,BASE/HAT/FACE/MOUTH>IDLE,BASE/HAT/FACE/FX-"
+	@set WITCH_CONFIG="BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>OH"
+	@char Witch.{WITCH_CONFIG},{HAT_CONFIG} pos:50
+	Witch: Good tidings~
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH
+	Gunther: ( Ohh! A witch.. )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE
+	Gunther: ( It's been a long time since a witch visited this place )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: Good Evening Madam~
+	
+	@set HAT_CONFIG="BASE/HAT>BASE,BASE/HAT/FACE/EYES>LOWERED,BASE/HAT/FACE/MOUTH>IDLE,BASE/HAT/FACE/FX-"
+	@set WITCH_CONFIG="BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>OH"
+	@char Witch.{WITCH_CONFIG},{HAT_CONFIG}
+	Witch: Please call me <color=#FFBB53>Lilith</color>...
+	Gunther: Gunther...At your service...
+	Gunther: Uhm..How may i help you?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+	Gunther: ( I feel like her hat is staring at me... )
+
+	@set HAT_CONFIG="BASE/HAT>BASE,BASE/HAT/FACE/EYES>ANGRY,BASE/HAT/FACE/MOUTH>AH,BASE/HAT/FACE/FX-"
+	@set WITCH_CONFIG="BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>SMILE"
+	@char Witch.{WITCH_CONFIG},{HAT_CONFIG}
+	Witch: (Hat) What are you staring at boi~!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SHAKE
+	Gunther: [spawn ShakeCharacter params:"Gunther"]!!!
+
+	@set HAT_CONFIG="BASE/HAT>BASE,BASE/HAT/FACE/EYES>ANGRY,BASE/HAT/FACE/MOUTH>IDLE,BASE/HAT/FACE/FX-"
+	@set WITCH_CONFIG="BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>AH"
+	@char Witch.{WITCH_CONFIG},{HAT_CONFIG}
+	Witch: Oh..Apologies,This is Wallace..
+	@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>ANGRY,BASE/HEAD/MOUTH>OH,BASE/HAT>BASE,BASE/HAT/FACE/EYES>ANGRY,BASE/HAT/FACE/MOUTH>IDLE,BASE/HAT/FACE/FX-
+	Witch: Wallace, Keep your mouth shut..
+	@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>ANGRY,BASE/HEAD/MOUTH>HMM,BASE/HAT>BASE,BASE/HAT/FACE/EYES>ANGRY,BASE/HAT/FACE/MOUTH>AH,BASE/HAT/FACE/FX-
+	Witch: (Hat) But he's staring at me!!
+	@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>ANGRY,BASE/HEAD/MOUTH>OH,BASE/HAT>BASE,BASE/HAT/FACE/EYES>ANGRY,BASE/HAT/FACE/MOUTH>IDLE,BASE/HAT/FACE/FX-
+	Witch: Wallace!!
+	@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>ANGRY,BASE/HEAD/MOUTH>OH,BASE/HAT>BASE,BASE/HAT/FACE/EYES>ANGRY,BASE/HAT/FACE/MOUTH>IDLE,BASE/HAT/FACE/FX-
+	Witch: (Hat) ...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: S-so...How may I serve you tonight madam?
+	@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>CLOSED,BASE/HEAD/MOUTH>AH,{HAT_CONFIG}
+	Witch: I'd like to rent a room please~
+	Gunther: Absolutely...one for the night?
+	Witch: Yes,Pleas-
+	@char Witch pos:70
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH look:left pos:35
+	Mira: Love, Can you help m-
+	@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>EH look:left pos:35
+	Mira: Ohh! A Customer! I-i'm so sorry..Please carry on...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX>SWEAT_SING
+	Gunther: Psst~ Hey,What is it?
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE look:left pos:35
+	Mira: T-take care of her first! I'll be in the kitchen~!
+	@hide Mira
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SWEAT_SING
+	Gunther: ...
+	@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>OH,{HAT_CONFIG} pos:50
+	Witch: Such a...lovely wife...you have..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+	Gunther: T-thanks...
+	@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>EH,{HAT_CONFIG}
+	Witch: Does she..
+	@stopbgm shady
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SWEAT_SING
+	Gunther: Hmm?
+
+	Witch: Not to be rude..but
+	@bgm trader_theme
+	Witch: Have you ever thought about...
+	@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>OH,{HAT_CONFIG}
+	Witch: Your wife having sex with a stranger...
+	Witch: Of course...for an exchange of gold...
+
+	#choice02
+	@choice "W-why'd you ask such thing, Madam?" goto:.cont
+	@choice "No, I would'nt!" goto:.wouldnt
+	@stop
+
+	#wouldnt
+		@sfx choice_click2
+		@set hide_extra_service=true
+
+		@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>HMM,{HAT_CONFIG}
+		Witch: Hmm..Is that so?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: To be honest, our Inn is rather in a rough state right now..
+		Gunther: But I don't think resolving to such methods would do us any better..
+		@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>HMM,{HAT_CONFIG}
+		Witch: ...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+		Gunther: ...?
+		@wait 2
+		@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>HMM,{HAT_CONFIG}
+		Witch: Hmmm...Is that so...
+		@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>OH,{HAT_CONFIG}
+		Witch: Well, I apologize for my "unusual" inquiry..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: I-it's okay...
+		Gunther: A-anyway, Here's the key for your room...
+		Gunther: It's just on the far left upstairs..
+		@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>AH,{HAT_CONFIG}
+		Witch: Thank you and Good night Innkeep...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX-
+		Gunther: Rest well, Madam..
+		@hide Witch
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX-
+		Gunther: ( I better start cleaning up for the night..)
+		@hide Gunther
+		@hideUI DayIndicator
+		@stopbgm trader_theme
+
+		@goto CH_GUNTHER.FLAG_1
+	@stop
+
+	#cont
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SWEAT_SING
+	Gunther: Eh?!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: W-why'd you ask such thing, Madam? H-heheh...
+	Witch: I'm also interested in such things...
+	Witch: And her type has piqued my interest...
+	@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>UNSURE,BASE/HEAD/MOUTH>AH,{HAT_CONFIG}
+	Witch: To be honest..I'd gladly pay a <color=#FFBB53>generous amount of gold</color> for such...<color=#FFBB53>"Services"</color>
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+	Gunther: ....
+	@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>UNSURE,BASE/HEAD/MOUTH>OH,{HAT_CONFIG}
+	Witch: Anyway...I have mumbled enough and It's already getting late
+	Witch: I'll be on my room now..
+	@char Witch.BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>UNSURE,BASE/HEAD/MOUTH>OH,{HAT_CONFIG}
+	Witch: Here, for the night's rent..
+	You received <color=#FFBB53>20G</color>[sfx coin_1]
+	@set currentgold=currentgold+20
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: T-Thank you for your payment...
+	@hide Witch
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+	Gunther: ....
+	@stopbgm trader_theme
+	@wait 2
+	@hide Gunther
+
+	@printer IntroPrinter
+	@back BLANK id:SubBackground
+	Later that Midnight...
+	@bgm evening_ambient volume:0.6
+
+	@printer Dialogue
+	@back HALL_BACK_MD id:SubBackground
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM,BASE/FX- pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( Ugh..I can't sleep.. )
+	Gunther: ....
+	Gunther: ( The thought of Mira to sleep with another person...... )
+
+	@set miraPurpose=0
+	@choice "Does kinda turns me on.." goto:.forMe
+	@choice "Might help with the Inn..." goto:.mirawake
+	@stop
+
+	#forMe
+		@set miraPurpose=1
+		@goto .mirawake
+	@stop
+
+	#mirawake
+		@set lingerie_config="BASE/ARMS>,BASE>BODY,BASE/HAIR>DEFAULT,BASE/FACE>NOSE,BASE/CLOTHES/LINGERIE>DEFAULT,BASE/EARINGS-"
+		@sfx MedievalDoor_Open
+		Gunther: Hmm?
+		???: Hun?
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>OH look:left pos:50
+		Mira: Can't sleep? Is something bothering you?
+
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: I-I'm sorry..Did i wake you up?
+		Mira: Not at all...
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>IDLE,BASE/FX>SWEAT_SING
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HMM
+		Mira: ...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH
+		Mira: Come, Let me make you a cup of hot cocoa...
+		Mira: Let's talk in the <color=#FFBB53>Kitchen</color>...
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+		Gunther: ....
+		@hide Gunther
+		@hide Mira
+		@stopbgm evening_ambient
+
+		@back BLANK id:SubBackground
+		...
+		@sfx cloth_shuffle
+
+		@back KITCHEN_EVE id:SubBackground
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+		Gunther: ...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH pos:50
+		Mira: So...what's bothering you?
+		Mira: Is it about the Inn?
+
+		@bgm confession volume:0.7
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		@if miraPurpose==1
+			Gunther: K-kinda.....Kinda not..
+		@elseif miraPurpose==0
+			Gunther: Y-yea...
+		@endif
+
+		@char Mira.{lingerie_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM
+		Mira: Hmm...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+		Mira: So what's it about?
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: Mira...my love...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>SMILE
+		Mira: Hmm?
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>OAH,BASE/FX>SWEAT_SING
+		Gunther: Have you ever thought of having sex with someone else besides me?
+		@char Mira.{lingerie_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>SMILE,BASE/FX_BODY>BLUSH
+		Mira: ...
+		Mira: ...Hmm?
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+		Gunther: ....
+		@char Mira.{lingerie_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: I-i think i've misheard something...C-care to repeat that?
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>EH,BASE/FX>SWEAT_SING
+		Gunther: D-do you fantasize having sex with oth-
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: W-wha-? No! Of course not!
+		Gunther: Cause I think I do...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: [spawn ShakeCharacter params:"Mira"]Eh!?
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>H-HMM,BASE/FX>SWEAT_MULT
+		Gunther: ...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: W-wait a second....
+		Mira: This is a lot to take in....
+		@char Mira.{lingerie_config},BASE/FACE/EYES>CROSSED,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: So let me get this straight...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>CROSSED,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: You're aroused of the idea of me doing...<color=#FFBB53>"it"</color> with other men?
+		; Mira: You mean..you're okay with the Idea of me having to do "it" with other Men? 
+		@char Mira.{lingerie_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: Is that right?
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: Y-yea...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: ...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: W-well...I won't judge you for it..
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: H-however...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: A-are you proposing that I should...you know....do "it"..with the Customers?
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_MULT
+		@char Mira.{lingerie_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Gunther: I-I mean...not to everyone...I guess...just a selected few...
+		Gunther: You know that there are "Customers" who are interested in such...<color=#FFBB53>"Services"</color>...So
+		@char Mira.{lingerie_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: And you're okay with that?
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>H-HMM,BASE/FX>SWEAT_MULT
+		Gunther: ...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: ...
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE,BASE/FX>SWEAT_MULT
+		Gunther: ....
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: Y-you know what, I-i'm sorry...
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>OH,BASE/FX>SWEAT_SING
+		Gunther: Just forget everything i just said.....
+		Gunther: It's just something that's been on my mind for a while now..
+		Gunther: And now i've blurted it ou-
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: Gunther...Do you still Love me?
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HAH?,BASE/FX-
+		Gunther: I do! and always will do!
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>SMILE,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: ....
+		@wait 2
+		@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>H-HMM,BASE/FX>SIGH_AIR,BASE/FX_BODY>BLUSH
+		Mira: Hmmm...
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: J-Just forget what i've blurted out it's jus-
+		@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: I-it's fine...
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>EH,BASE/FX>SWEAT_SING
+		Gunther: Eh?
+		@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>EH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: If it’s what you really want, and as long as it will help save the inn, then I’ll do it.
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>OAH,BASE/FX>SWEAT_SING
+		Gunther: Y-you mean it?
+		@char Mira.{lingerie_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: However!!
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING
+		Gunther: Hm?!
+		@char Mira.{lingerie_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>OH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: I need you to promise me that you won’t hate me after it’s done...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>POUT,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: Otherwise I won’t do it.
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>OAH,BASE/FX>SWEAT_SING
+		Gunther: That would never happen. I couldn’t ever hate you. 
+		Gunther: You’re the woman of my dreams! I swear it.
+		@char Mira.{lingerie_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>POUT,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH
+		Mira: ...
+		@wait 2
+		@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SIGH_AIR
+		Mira: *SIGH...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>OH,BASE/FX_BODY>BLUSH
+		Mira: Alright....I believe you...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>KAH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: You're such a peculiar man i must say...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH
+		Mira: Probably, one of the reasons i married you...
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: Hahah~
+		@char Mira.{lingerie_config},BASE/FACE/EYES>CROSSED,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH
+		Mira: I always love you dear and will always do...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH
+		Mira: But remember...
+		Mira: This was your idea,Alright? Don't hate me for it!
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>OAH,BASE/FX>SWEAT_SING
+		Gunther: I won't!
+		@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>OH,BASE/FX_BODY>BLUSH
+		Mira: You better keep your promise! Gunther!
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>IDLE,BASE/FX-
+		Gunther: Hmm..
+		@char Mira.{lingerie_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: A-Anyway, It’s already getting past midnight...
+		Mira: We should get some sleep now...
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: Y-you're right...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH
+		Mira: Well, I hope you can get some sleep now....You naughty man..
+		@goto _LOOPER.end_day
+	@stop
+@stop
+
+#FLAG_2
+	@set HAT_CONFIG="BASE/HAT-"
+	@set WITCH_CONFIG="BASE/BODY/CUSTOM+BASE,BASE/BODY/CUSTOM+TOWEL,BASE/HEAD>MAIN"
+
+	@back BLANK
+	@printer IntroPrinter
+	Next morning...
+	@bgm morning_ambient volume:0.4
+	
+	@printer Dialogue
+	@back WASHROOM_DAY
+	@sfx bath_sfx
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: Phew...
+	@showUI DayIndicator
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE
+	Gunther: ( Finally finished cleaning...)
+	@sfx cloth_shuffle
+	Gunther: ??
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: Is someon-
+	@stopbgm morning_ambient
+	@bgm old_farmer_theme
+	@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>HMM pos:50
+	Witch: Hmm?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX+SWEAT_SING,BASE/FX+SHOCK
+	Gunther: Oh! M-Madam G-good morning! I mean..I-i'm sorry..!
+	@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>AH,BASE/FX+BLUSH
+	Witch: Well,well,Innkeeper...
+	Witch: Aren't you too early to peek into the women's washroom?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?,BASE/FX+SWEAT_MULT,BASE/FX-SHOCK
+	@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>SMILE,BASE/FX+BLUSH
+	Gunther: I-It's not like that! I just finished cleaning and this is a Mixed Bathr-
+	@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>CLOSED,BASE/HEAD/MOUTH>AH,BASE/FX+BLUSH
+	Witch: Hahah..You're so easy to tease..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX+SWEAT_MULT
+	Gunther: ...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX+SWEAT_MULT
+	Gunther: A-anyway, sorry for the intrusion...I should get going now...
+	@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>AH,BASE/FX+BLUSH
+	Witch: It seems everything went well last night..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX+SWEAT_MULT
+	Gunther: Eh?
+	@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>CLOSED,BASE/HEAD/MOUTH>AH,BASE/FX-BLUSH
+	Witch: You confessed something to your wife last night, didn't you?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX+SWEAT_SING,BASE/FX+SHOCK
+	Gunther: Ehh?! How d-
+	@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>CLOSED,BASE/HEAD/MOUTH>AH
+	Witch: Just a bit of bad habit of mine...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX+SWEAT_SING
+	Gunther: ( This woman... )
+	@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>AH,BASE/FX+BLUSH
+	Witch: Well? Do you think she'll be up for me then?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX+SWEAT_SING,BASE/FX+SHOCK
+	Gunther: Eh?!
+	Gunther: I..uhm....
+
+	@choice "S-sure, I'll talk to her about it..." goto:.service_yes
+	@choice "I-I don't know..." goto:.service_no
+	@stop
+
+	#service_no
+		@set allow_sex_witch=0
+	
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX+SWEAT_SING,BASE/FX-SHOCK
+		Gunther: I'm still not...really....entirely sure about it...
+		@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>UNSURE,BASE/HEAD/MOUTH>EH,BASE/FX-
+		Witch: Ehh..So was that all a lie?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH,BASE/FX+SWEAT_SING
+		Gunther: Wha- N-
+		@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>UNSURE,BASE/HEAD/MOUTH>OH
+		Witch: Well, it seems your still confused...
+		Witch: Very well, I won't ask for it again..
+		Witch: You may leave...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX+SWEAT_SING
+		Gunther: U-understood...
+		@hide Gunther
+		@hide Witch
+		@stopbgm old_farmer_theme
+		@goto .ret
+	@stop
+
+	#service_yes
+		@set mira_service_count++
+		@set allow_sex_witch=1
+
+		@stopbgm old_farmer_theme
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-SHOCK,BASE/FX>SWEAT_SING
+		Gunther: I-i'll ask her later..
+		@sfx cloth_shuffle
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX-SHOCK,BASE/FX>SWEAT_SING
+		Gunther: ?!
+		???: Hmm? Is someone the-
+		@bgm confession volume:0.7
+		@char Witch pos:30
+		@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH pos:70
+		Mira: -re...
+		@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>CLOSED,BASE/HEAD/MOUTH>AH,BASE/FX+BLUSH
+		Witch: Speak of the devil!
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>AH,BASE/FX_BODY>KOWA pos:70
+		Mira: Gunther...What's going on here!?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX+SWEAT_SING,BASE/FX+SHOCK
+		Gunther: I-It's not like that! I just finished cleaning and she suddenly j-
+		@stopbgm confession
+		Witch: "Mira" is it?
+		@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HUH,BASE/FX>PISSED,BASE/FX_BODY>KOWA
+		Mira: Huh?
+		@bgm naughty volume:0.6
+		Witch: Would you like to have sex with me tonight?
+		@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX+SWEATY_FACE
+		Mira: Ehh?! 
+		@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX+SURPRISED 
+		Mira: [spawn ShakeCharacter params:"Mira"]E-excuse me??
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX+SWEAT_SING,BASE/FX+SHOCK
+		Gunther: ( She's so blunt... )
+		Witch: You see, I heard you two talking last night about a "Confession"..
+		Witch: And i'd like to partake as the first customer of this...<color=#FFBB53>"Service"</color>...
+		@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>EH,BASE/FX_BODY>BLUSH,BASE/FX+SWEATY_FALL
+		Mira: How did y-
+		Witch: For starters, How bout you give it a try to a lady like me?
+		@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX+SWEATY_FALL
+		Mira: J-just a second..This is so sudden...
+		@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX+SWEATY_FALL
+		Mira: A-are you serious? But y-you're a lady..
+		@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>CLOSED,BASE/HEAD/MOUTH>HMM,BASE/FX+BLUSH
+		Witch: Hmm? Is there something wrong with that?
+		@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>EH,BASE/FX_BODY>BLUSH,BASE/FX+SWEATY_FALL
+		Mira: I-it's not like that...
+		@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>ANGRY,BASE/HEAD/MOUTH>AH,BASE/FX+BLUSH
+		Witch: Then it's settled then!!
+		Mira: Ehh!? Wait! I haven't agr-
+		@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>UNSURE,BASE/HEAD/MOUTH>OH,BASE/FX+BLUSH
+		Witch: After i finish bath, I'll be out for a while to take care of some business but i'll be back in the Evening..
+		@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>SMILE,BASE/FX+BLUSH
+		Witch: Then we can have some fun!
+		Mira: Hold on a se-
+		@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>UNSURE,BASE/HEAD/MOUTH>AH,BASE/FX+BLUSH
+		Witch: Hush now~ Back to your Business~
+		@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>AH,BASE/FX+BLUSH
+		Witch: Off you go now~
+		@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX+SWEATY_FALL
+		Mira: Hey what are you d-
+		[sfx magic_fling] 
+		@char Mira pos:70,-150
+		@char Witch pos:50
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX+SWEAT_SING,BASE/FX+SHOCK
+		Gunther: W-what did you do to her!?
+		@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>OH,BASE/FX+BLUSH
+		Witch: Oh..Your still here..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX+SWEAT_MULT
+		Gunther: Hey what are you d-
+		@char Witch.{HAT_CONFIG},{WITCH_CONFIG},BASE/HEAD/EYES>CLOSED,BASE/HEAD/MOUTH>SMILE,BASE/FX+BLUSH
+		Witch: See you later~!
+		@char Gunther pos:10,-100
+		@sfx magic_fling
+		@hide Witch
+		@back BLANK
+		...
+		@stopbgm naughty
+
+		@set tmp_config="BASE/ARMS>,BASE>BODY,BASE/HAIR>DEFAULT_MESSY,BASE/FACE>NOSE,BASE/CLOTHES/MAIN>DEFAULT,BASE/EARINGS>CLASSIC"
+		@back TOWNSQUARE_DAY
+		@bgm crowd_outdoor VOLUME:0.5
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH pos:{g_POS} scale:{g_SCALE}
+		Gunther: What the- 
+		Gunther: How did i get here...
+		@stopbgm crowd_outdoor
+		@char Mira pos:50,-150
+		@hide Mira
+		@bgm old_farmer_theme
+		@char Mira.{tmp_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH look:left pos:50,0
+		Mira: Gunther!?
+		Gunther: Mira! Are you alright?
+		@char Mira.{tmp_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HAH?,BASE/FX>PISSED,BASE/FX_BODY+KOWA 
+		Mira: Unbelievable! 
+		Mira: How dare she use a teleportation spell on us!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAHH,BASE/FX>SWEAT_MULT
+		Gunther: H-honey, Calm down now...There's people around..
+		@char Mira.{tmp_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HMM,BASE/FX>PISSED,BASE/FX_BODY+KOWA 
+		Mira: Hmmph!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_MULT
+		Gunther: ....
+		@char Mira.{tmp_config},BASE/FACE/EYES>BROKEN,BASE/FACE/MOUTH>AH,BASE/FX_BODY+KOWA 
+		Mira: So she wants it to go this way...huh...
+		Mira: Heh..Heheh..I'll definitely won't forgive her for this...
+		Gunther: ...
+		@stopbgm old_farmer_theme
+		@hide Gunther
+		@hide Mira
+		@back BLANK
+
+		@goto .SEX_SCENE
+	@stop
+
+	#SEX_SCENE
+		@set g_witch_sex=1
+		@hideUI DayIndicator
+		@set allow_sex_witch=1
+		@set lingerie_config="BASE/ARMS>,BASE>BODY,BASE/HAIR>DEFAULT,BASE/FACE>NOSE,BASE/CLOTHES/LINGERIE>DEFAULT,BASE/EARINGS-"
+
+		@printer IntroPrinter
+		Later that evening...
+		@bgm evening_ambient volume:0.6
+
+		@printer Dialogue
+		@back BEDROOM_EVE
+		
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE pos:{g_POS} scale:{g_SCALE}
+		Gunther: ( Oh boy..she's still pissed...)
+		@stopbgm evening_ambient
+
+		@bgm confession volume:0.6
+		@char Mira.{lingerie_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH,BASE/FX+PISSED,BASE/FX_BODY>KOWA look:left pos:50
+		Mira: That woman is so gonna get it...
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+		Gunther: ( She's murmuring something scary again... )
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>AH
+		Gunther: H-honey, Should i make you some tea-
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HMM,BASE/FX>PISSED,BASE/FX_BODY+KOWA 
+		Mira: ...
+		Gunther: N-No?..O-okay..
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>KOWA
+		Mira: I'll be back in a bit...
+		Gunther: H-honey?
+		@char Mira.{lingerie_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>HUH
+		Mira: What?!
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>GRIN
+		Gunther: Go get her~
+		@char Mira.{lingerie_config},BASE/FACE/EYES>ANGRY,BASE/FACE/MOUTH>SMILE,BASE/FX_BODY>BLUSH
+		Mira: Hmmph~
+		@hide Mira
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>IDLE
+		Gunther: ...
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE
+		Gunther: I think I need to see this...
+		@stopbgm confession
+
+		#mm_scene
+		@hide Gunther
+		@back BLANK
+		@printer IntroPrinter
+		A while later...
+
+		@back HALLWAY_MD
+		@printer Dialogue
+		@bgm voyeur
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH pos:{g_POS} scale:{g_SCALE}
+		Gunther: ( Crap...I forgot where I put the spare key for her room... )
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>H-HMM pos:{g_POS} scale:{g_SCALE}
+		Gunther: *Gulp..
+		Gunther: ( I hope the door's not locked... )
+
+		@hide Gunther
+		@back BLANK
+		@printer ScenePrinter
+		Gunther: Let's see..
+		Mira: Ah...Don't suck too much!
+		Gunther: ( Wait...what? )
+		Gunther: !!!
+
+		@showUI LetterBox
+		@back WITCH_SUCK_1 id:static_set
+		Mira: D-don't flick your tongue to fast!
+		Witch: Hmmhm~❤
+		Mira: I said-
+
+		@back WITCH_SUCK_2 id:static_set
+		Mira: Hnnggh~❤!
+		Witch: Hmm~❤
+
+		@back WITCH_SUCK_1 id:static_set
+		Witch: Hnngmm~❤
+		Mira: D-don't bite! 
+
+		@back WITCH_SUCK_3 id:static_set
+		Mira: Aghh~❤!
+		Witch: Hnngmm~❤
+		Mira: F-fuu!
+		Witch: Mmmm *sllllluuurp* *pop*
+
+		@printer IntroPrinter
+		As I peak thru the[br]gap of the door[br][br]I witnessed My wife...[br]Trembling to pleasure[br]As the Witch sucks[br]her breasts[br]like a newborn..
+
+		@printer ScenePrinter_up
+		Witch: Fufu~❤
+		Witch: You’re shaking...
+		Mira: D-don't flick it!!
+
+		@back WITCH_SUCK_4 id:static_set
+		Witch: Mmmheehehe… *shhhhlllluuuup*
+		Mira: Hmmmgnnh~❤!
+
+		@back BLANK
+		@hide static_set
+		@printer IntroPrinter
+		The witch,[br][br]Still lying with her back on the bed[br]Asked Mira to kneel beside the bedframe..[br][br]As she was told andyet still trembling..[br][br]My wife wobbly moved[br]beside the Bed.
+
+
+		@printer ScenePrinter_up
+
+		@back WITCH_BLOW_1 id:static_set
+		Mira: Ugh~...My nipples are swollen...
+		Witch: It looks nice~ Heheh~❤
+		Mira: Tsk...
+		Mira: N-now what...
+		Witch: Easy there, we got plenty of time...
+		Witch: Are you hungry?
+		Mira: Haah? No!
+		Mira: I just want this done..
+		Witch: Heheh~ Eager aren't we?
+		Witch: Here, give this a taste...
+		Mira: Give what a tast-
+		@bgm magic_pending
+		@back WITCH_BLOW_2 id:static_set
+		Witch: Fufu~
+		Mira: H-hey...What is tha-
+		Gunther: ( S-something is glowing... )
+		Mira: Wh-
+		@back WITCH_BLOW_3 id:static_set
+		Mira: Ehh?!
+		Mira: Ehhhhh~?!
+		Gunther: ( By the gods... )
+		Gunther: ( What sorcery is this!!? )
+		Mira: W-wait! You can grow yourself this thing?!
+		Gunther: ( I did'nt know that was possible!! )
+		@stopbgm magic_pending
+		@back WITCH_BLOW_4 id:static_set
+		Witch: Heheh~❤
+		Mira: *GULP*...
+		Mira: Is that really a....
+		Witch: Come on now...
+		Witch: Why don't you give it a try?
+		Witch: It's different..
+		@back WITCH_BLOW_5 id:static_set
+		Mira: D-different? How so?
+		Witch: Taste for yourself...
+		Mira: ....
+		Mira: *GULP*
+		Mira: I-if you don't mind then...
+		@back WITCH_BLOW_6 id:static_set
+		Mira: *SLURPP*
+		Witch: Ohh~❤
+		Mira: *PLOP~! *PLOP~!
+		@back WITCH_BLOW_7 id:static_set
+		Mira: *SLURPP*
+		Witch: Hngg~❤
+		@back WITCH_BLOW_8 id:static_set
+		Witch: S-so how is it?
+		Mira: Hngggh~
+		Witch: Taste....B-better...right? Heheh~
+		Mira: ....
+		Witch: Ohh~❤
+		Mira: *PLOP~! *PLOP~!
+		Gunther: ( Mira looks really into it... )
+		Witch: Hngg~❤
+		Witch: Something's cumming!
+		Mira: *PLOP~! *PLOP~!
+		Witch: Ahhh~❤ Keep going! Keep going!
+
+		@back BLANK_W
+		@hide static_set
+		@back WITCH_BLOW_8 id:static_set
+		@back BLANK_W
+		@hide static_set
+		@back WITCH_BLOW_8 id:static_set
+		@back BLANK_W
+		@hide static_set
+
+		@back WITCH_BLOW_9 id:static_set
+		Mira: HNNNGGGH!!!
+		Gunther: ......
+		Witch: *PANT*
+		Witch: Don't let it spill now...
+		Mira: ...
+		Mira: *GULP*
+		Gunther: ( Did she just gulped it down? )
+
+		@back BLANK 
+		@hide static_set
+
+		Mira: ...
+		Mira: S-so are we done?
+		Mira: Done?
+		Witch: We haven't begun yet...
+		Mira: Eh? 
+		Mira: H-hey...
+		Witch: Fufu~
+		Mira: W-what are y-! Hey! Don't pus-
+
+		@back HALLWAY_MD
+		@printer IntroPrinter
+		I watch the Witch bring her[br]soiled hands to her own lips[br][br]As she pushes Mira down,[br]She gaved kiss to her Tummy[br][br]Leaving a trail,[br]lower and lower[br]until her lips sit on Mira's clit.
+
+		@printer ScenePrinter_up
+		@back WITCH_CUNN_1 id:static_set
+		Witch: As expected, you taste delicious.
+		Mira: Ehh!? W-wait a second!?
+		Witch: But just a taste is not enough.
+		Witch: I hope you’re ready for what I have in store.
+		Gunther: ( Is she going to… )
+
+		@printer IntroPrinter
+		As moans continously[br]leaves Mira's mouth..[br][br]The witch keeps pressing[br]her tongue towards Mira's insides..[br][br]She hums against the sensitive[br]nub rending a cry from her.
+
+		@printer ScenePrinter
+		@back WITCH_CUNN_2 id:static_set
+		Mira: Hnnghh~❤ Don't move your tongue too much!!
+		Witch: Shush now, just keep moaning.
+
+		@back WITCH_CUNN_3 id:static_set
+		Mira: Ah~❤! Ah~❤!
+		Gunther: ( Looks like she really likes it... )
+		Gunther: ( Perhaps, I should try doing it to Mira sometime... )
+		Mira: Ohhh~❤ Ohhh~❤
+
+		@printer IntroPrinter
+		Mira breathes heavily..[br]As the witch continously slides[br]her tongue in and out of her [br]cunt effortlessly..[br][br]The sound of slurping filled[br]the empty hallway of the Inn[br]As I watch my wife[br]being eaten out..
+
+		@printer ScenePrinter
+		Mira: Ohhh~❤ Ohhh~❤
+		Witch: Feels good right~?
+		Mira: Anh~❤
+		Mira: Something...Something's cumming~!!
+		Mira: Anh~❤ Anh~❤
+		Mira: I’m-
+
+		@back BLANK_W
+		@hide static_set
+		@back WITCH_CUNN_3 id:static_set
+		@back BLANK_W
+		@hide static_set
+		@back WITCH_CUNN_3 id:static_set
+		@back BLANK_W
+		@hide static_set
+		@back WITCH_CUNN_3 id:static_set
+		@back BLANK_W
+		@hide static_set
+
+		@back WITCH_CUNN_4 id:static_set
+		Mira: Ahhh~❤~❤
+
+		@printer IntroPrinter
+		I saw Mira cry out in pleasure,[br][br]Her body sunders with pleasure[br]as the witch’s tongue continues[br]to lap at her cunt[br][br]With each flick,[br]causing a tremor through her body...
+
+		@printer ScenePrinter
+		@back WITCH_CUNN_5 id:static_set
+		Witch: How was it? Does it feel good?
+		Mira: *PANT❤*
+		@wait 1
+		Witch: Heheh~❤ I'll take that as yes...
+		Witch: Well, you said you’d keep up all night.
+		Witch: Let’s continue then, shall we?
+
+		@back BLANK
+		@hide static_set
+		@printer IntroPrinter
+		While Mira is still in Trance..[br][br]The Witch gently[br]positioned herself between Mira's thighs..[br][br]Lifting both of her legs[br]preparing to Thrust inside..
+
+		@printer ScenePrinter
+		Mira: H-hold on a sec-!
+		Mira:  Ahhh~❤~❤
+
+		@back BLANK_W
+		@hide static_set
+		@back WITCH_MISSIONARY_1 id:static_set
+		Mira: Ahh~❤!
+		Mira: So...big...
+		Witch: Fufu~❤
+		Witch: Let's make this night memorable..
+		Mira: How this could feel so... good~
+		Witch: Fufu~❤
+
+		@back WITCH_MISSIONARY_2 id:static_set
+		Mira: Hnngghh~❤!
+		Mira: B-by the...gods...
+		Gunther: ....
+		Witch: I can’t control myself~! 
+		Witch: I can’t hold back!!
+		Gunther: ( Wow...they are really going at it. )
+		Gunther: ( Mira is moaning so much, and that look on her face. )
+		Gunther: ( I’ve never seen her make that face with me.  )
+		Mira: Hnngghh~❤! 
+		Mira: I can’t... go any longer...
+		Witch: Yess~! Yess~!! That's it! Don't hold back!!
+		Witch: Give in to your pleasure!!
+
+		@back BLANK_W
+		@hide static_set
+		@back WITCH_MISSIONARY_2 id:static_set
+		@back BLANK_W
+		@hide static_set
+		@back WITCH_MISSIONARY_2 id:static_set
+		@back BLANK_W
+		@hide static_set
+
+		@back WITCH_MISSIONARY_3 id:static_set
+		Witch: Ogghh~❤
+		Mira: So much....
+		Witch: Ohhh~❤
+		Witch: N-now, what was it you were saying when you first got here? 
+		Witch: You were mad about something?
+		Mira: H-Huh? I-I don’t remember
+		Witch: Hehehe~ as I thought...
+		Witch: Phew~
+		Witch: Well, I’m going to stumble to the washroom now..
+
+		Gunther: ( Crap..I better head back before they discover me. )
+
+		@stopbgm voyeur
+
+		@if galleryMode==1
+			@set galleryMode=0
+			@goto _MEMORY
+		@else
+			@goto .ret
+		@endif
+	@stop
+
+	#ret
+		@hideUI LetterBox
+
+		@if allow_sex_witch==1
+			@hide static_set
+		@endif
+
+		@printer IntroPrinter
+		@back BLANK
+		@bgm morning_ambient volume:0.6
+		Next day..
+
+		@printer Dialogue
+		@back TAVERN_DAY_ON
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+		Gunther: ...
+		@showUI DayIndicator
+
+		@stopbgm morning_ambient
+		@bgm old_farmer_theme volume:0.7
+		@char Witch.BASE- pos:50
+		@set HAT_CONFIG2="BASE/HAT>BASE,BASE/HAT/FACE/EYES>LOWERED,BASE/HAT/FACE/MOUTH>IDLE,BASE/HAT/FACE/FX-"
+		@set WITCH_CONFIG2="BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>AH"
+		@char Witch.{WITCH_CONFIG2},{HAT_CONFIG2} pos:50
+		Witch: Good morning, Innkeep.
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+		Gunther: To you as well, Ms.Lilith.
+
+		@if allow_sex_witch==1
+			Witch: Enjoyed the show last night I assume?
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_MULT
+			Gunther: ( How did she knew I was there... )
+			@char Witch.{HAT_CONFIG2},BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>CLOSED,BASE/HEAD/MOUTH>SMILE
+			Witch: I'll take that as a yes..
+			@char Witch.{HAT_CONFIG2},BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>DEFAULT,BASE/HEAD/MOUTH>AH
+			Witch: Here, Hold on to this...
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-
+			Gunther: What is-
+			You received <color=#FFBB53>Velvet Necklace x2</color>[sfx item]
+			Witch: It's a gift..
+			Witch: One for you and one for your wife...
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+			Gunther: That's so generous of you madam...
+			Witch: Keep it close..
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-
+			Gunther: Is it a charm of some sort?
+			@char Witch.{HAT_CONFIG2},BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>CLOSED,BASE/HEAD/MOUTH>SMILE
+			Witch: Something like that..
+			@char Witch.{HAT_CONFIG2},BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>DEFAULT,BASE/HEAD/MOUTH>AH
+			Witch: It shows the <color=#FFBB53>heart of the person whom dearest to you</color>
+			@char Witch.{HAT_CONFIG2},BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>ANGRY,BASE/HEAD/MOUTH>OH		
+			Witch: Carry it always with you...
+			; Witch: <color=#FFBB53>The darker the shade, The greater the corruption</color>...
+			; @char Witch.{HAT_CONFIG2},BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>DEFAULT,BASE/HEAD/MOUTH>AH
+			; Witch: Try to <color=#FFBB53>touch it when it glows</color> and you may see <color=#FFBB53>what it's really for</color>
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+			Gunther: ( Is that a metaphor or something? I don't really get it... )
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+			Gunther: R-right. I’ll make a note of that.
+
+			@set hasStone=1
+		@endif
+
+		Gunther: E-ehrm..w-would you like to have some breakfast?
+		@char Witch.{HAT_CONFIG2},BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>AH
+		Witch: No thank you, i'll be fine..
+
+		@if allow_sex_witch=1
+			Gunther: Uh...D-did you enjoy your time here?
+			@char Witch.{HAT_CONFIG2},BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>CLOSED,BASE/HEAD/MOUTH>SMILE,BASE/FX>BLUSH
+			Witch: Yes, all thanks to her...
+			@char Witch.{HAT_CONFIG2},BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>CLOSED,BASE/HEAD/MOUTH>AH,BASE/FX>BLUSH
+			Witch: She was wonderful.
+			Witch: I might be visiting again soon... 
+			Gunther: I-is that so? You’re always welcome here mam..
+			Witch: I'll keep that in mind...
+		@endif
+		
+		@set HAT_CONFIG="BASE/HAT>BASE,BASE/HAT/FACE/EYES>LOWERED,BASE/HAT/FACE/MOUTH>IDLE,BASE/HAT/FACE/FX-"
+		@set WITCH_CONFIG="BASE/HEAD>MAIN,BASE/BODY>DEFAULT,BASE/HEAD/EYES>SMUG,BASE/HEAD/MOUTH>AH"
+		@char Witch.{WITCH_CONFIG},{HAT_CONFIG}
+		With: Also here...
+		Witch: For the service...
+
+		@if allow_sex_witch==1
+			You received <color=#FFBB53>1500G</color> [sfx coin_4]
+			@set currentgold=currentgold+1500
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+			Gunther: ( Woah...this is a lot... )
+		@elseif allow_sex_witch==0
+			You received <color=#FFBB53>500G</color> [sfx coin_4]
+			@set currentgold=currentgold+500
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+			Gunther: ( Hopefully this should be enough.. )
+		@endif
+
+		Witch: I should be on my way now..Until next time~
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: T-thank you once again, Miss Lilith, Safe travels!
+		@stopBgm port
+		@hide Witch
+		@hide Gunther
+
+		@if allow_sex_witch==1
+			@stopbgm old_farmer_theme
+			@printer IntroPrinter
+			@back BLANK
+			@bgm evening_ambient volume:0.7
+			Later that night...
+
+			@printer Dialogue
+			@back HALL_BACK_EVE
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX- pos:{g_POS} scale:{g_SCALE}
+			Gunther: Honey? You there?
+			???: I'm here~
+			@stopbgm evening_ambient
+			@bgm old_farmer_theme
+			@sfx cloth_shuffle
+			@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH pos:50
+			Mira: What is it? I just finished cleaning the kitchen..
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-
+			Gunther: Come here for a second...
+			@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HMM
+			Mira: Hmm? What is it?
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+			Gunther: Here..Let me put it on you...
+			@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>MUH
+			Mira: What is-
+			@set def_config=def_config_2
+			@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+			Mira: Oh! A Necklace~
+			@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH
+			Mira: Looks expensive...
+			@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HUH
+			Mira: Did you bought it?
+
+			@choice "Uh...Yes..I did..." goto:.giftYes
+			@choice "Nu-uh, It's a gift from a Guest.." goto:.giftNo
+			@stop
+
+			#giftYes
+				Mira: You should'nt have!
+				Mira: You do know we don't have much leisure to spend so much on this kinds of things...
+				@goto .giftMain
+			@stop
+
+			#giftNo
+				Gunther: No, it's a gift from the Ms.Lilith..
+				@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM
+				Mira: Hmm~
+				@goto .giftMain
+			@stop
+
+			#giftMain
+			@char Mira.{def_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>AH
+			Mira: Anyway, how does it look?
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX>SPARKLE
+			Gunther: Fantastic! As always!
+			@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH
+			Mira: I-is that so...
+			@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+			Mira: Well, We should clean up! 
+			@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE
+			Mira: And i want to sleep early..
+			Gunther: Right, be there in a second..
+			@sfx cloth_shuffle
+			@hide Mira
+
+			; @char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH,BASE/FX-
+			; Gunther: ( Oh~ it's glowing.. )
+			; @char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX-
+			; Gunther: ( Is this really the shade of my wife's heart? )
+			; Gunther: Hmmm...
+			@set def_config=def_config_2
+		@endif
+		
+		@goto _LOOPER.end_day
+	@stop
+@stop

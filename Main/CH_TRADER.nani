@@ -1,0 +1,1550 @@
+
+#RESET
+	@choice "FLAG 1" goto:.FLAG_1
+	@choice "FLAG 2" goto:.FLAG_2
+	@choice "FLAG 3" goto:.FLAG_3
+	@choice "MAIN" goto:_LIST
+@stop
+
+#FLAG_1
+	@set weather="evening"
+
+	@back BLANK
+	@printer IntroPrinter
+	Evening at the Tavern..
+	@bgm evening_ambient volume:0.5
+
+	@printer Dialogue
+	@back TAVERN_EVE_ON
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( Ugh..Business isn't good lately.. )
+	@showUI DayIndicator
+	Gunther: There's barely anyone around..
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH
+	Gunther: ( Oh! A customer!) 
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: Welcome to the Adelaide!
+	; @bgm old_farmer_theme volume:0.3
+	@stopbgm evening_ambient volume:0.5
+
+	@bgm whimsical volume:0.7
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY,BASE/FX- pos:50,0
+	Trader: *Sigh..I guess this place will do for now..
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+	Gunther: Anything I can help you, Sir?
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>AH,BASE>BODY
+	Trader: Got any rooms?
+	Gunther: We do! Any parti-
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>OH,BASE>BODY
+	Trader: Give me the most quite one, I don't want to be disturbed.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SWEAT_SING
+	Gunther: R-right away..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+	Gunther: ( Quite a fancy attire he has... )
+	Gunther: ( It's a surprise he didn't get robbed at this time of the night.. )
+	Gunther: ( A trader perhaps? )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+	Gunther: By any chance you're a trader of some sorts, Sir?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY
+	Trader: Huh? What is it to you if I am?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: W-were you able to sell many wares in the city today?
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>HAH,BASE>BODY
+	Trader: Ack, business was never been good...
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>HAH,BASE>BODY
+	Trader: Ever since the New Queen held the throne the trade routes have never been more lax-
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>AH,BASE>BODY
+	Trader: Wait..why am I even talking about this to you?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: I..uhm..I suppose you’ll be staying for the Night then?
+	Trader: Yea, Like I have a choice.
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>OH,BASE>BODY
+	Trader: Would there be a more luxurious inn somewhere i'd choose that over this place...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: I’m sorry the accommodations aren’t to your liking
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>AH,BASE>BODY
+	Trader: Bumpkins like you who haven’t seen the city have no idea what real class and comfort is like.
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN
+	Gunther: Ahaha, I apologize for the inconvenience again...haha..
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>OH,BASE>BODY
+	Trader: You know what, Give me a drink..make it hard..
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY
+	Trader: I'd doubt I can sleep well with your wool bunkers
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>PISSED
+	Gunther: R-right away..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>PISSED
+	Gunther: ( I'll choke this arselicker to death if only he isn't paying gold... )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+	Gunther: Here you go..
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+	Trader: ...*GULP...[sfx drinking]
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>AH,BASE>BODY,BASE/FX+ 
+	Trader: Agh~.....
+	@char Trader pos:70
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH look:left pos:30
+	Mira: The rooms are ready for the guest, my love.
+	Gunther: Thank you, Dear.
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>SMILE
+	Mira: Hm! I'll be on the kitchen then..
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH
+	Mira: Have a great evening sir~!
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+	Trader: Hmm..
+	@hide Mira
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>EH,BASE>BODY pos:50
+	Trader: That you're wife?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SWEAT_SING
+	Gunther: Uh...W-why'd you ask?
+	Trader: Nuthin...At least you’ve got some decent scenery.
+	Gunther: Huh?
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY
+	Trader: Not to be rude though but...
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>EH,BASE>BODY
+	Trader: I'll definitely <color=#FFBB53>pay a lot of gold for a night</color> with that lass..Hehe
+	@sfx heartbeat
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SHOCK
+	Gunther: [spawn ShakeCharacter params:"Gunther"]Eh?!
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY
+	Trader: Well, I should be off to my room now..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX-
+	Trader: Here...for the drink
+	You received <color=#FFBB53>10G</color> [sfx coin_1]
+	@set currentgold=currentgold+17
+	Trader: I will be gone by the dawn...
+	Trader: I assume you don't provide Breakfast here?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SWEAT_SING
+	Gunther: W-we don't...
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY 
+	Trader: Bah!..why did I even ask...
+	@hide Trader
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+	Gunther: A-apologies...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+	Gunther: ...
+	Gunther: ( A <color=#FFBB53>gold for a night</color>...... )
+	???: Hun?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH,BASE/FX>SHOCK
+	Gunther: [spawn ShakeCharacter params:"Gunther"]H-hmm!?
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH pos:50
+	Mira: What's with you?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: N-nothing...
+	Mira: I think, you need to cut the coffee you know...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SWEAT_SING
+	Gunther: ....
+	@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>OH pos:50
+	Mira: Anyway, It's a bit late now. We should close up for the night..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: R-right...
+	Mira: I'll be on our bedroom now..
+	@hide Mira
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE,BASE/FX>SWEAT_SING
+	Gunther: Hmm, Be there in a second..
+	Gunther: ....
+	@hide Gunther
+	@stopbgm whimsical
+
+	@goto _LOOPER.end_day
+@stop
+
+#FLAG_2
+	@back BLANK
+	@bgm crowd_adjusted
+	Just another day in the tavern..
+
+	@back TAVERN_DAY_ON
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+	Gunther: Hmm..i think that should be all...
+	@showUI DayIndicator
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+	Gunther: Welco-
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+	Gunther: ( Oh...it's him again.. )
+	@stopbgm crowd_adjusted
+
+	@bgm old_farmer_theme
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY,BASE/FX- pos:50
+	Trader: Hurry and serve me a pint will ya?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH
+	Gunther: Sure..
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>OH,BASE>BODY
+	Trader: Goddamn border guards...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE
+	Gunther: Hmm?
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY
+	@sfx drinking
+	Trader: Just ignore my whining will ya..*GULP..Ah..
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY,BASE/FX+
+	Trader: Still taste like horse piss..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+	Gunther: ...
+	Trader: By the way, You got any room?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH
+	Gunther: Y-yes, we have plenty to spare..
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>HAH,BASE>BODY
+	Trader: Hah! Why did i even ask. I doubt you'll be able to fill all your rooms with this shoddy place..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>PISSED
+	Gunther: ( Just smile..just smile... )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>PISSED
+	Gunther: Heheh..I-is that so..
+	@stopbgm old_farmer_theme
+	@bgm trader_theme
+
+	#choice_2
+	@choice "Serve him <color=#FFBB53>another drink</color>.." goto:.denyservice
+	@if hide_extra_service==false
+		@choice "Offer the <color=#FFBB53>"Extra"</color> Service" goto:.corrupt
+	@endif
+	@if returnTraderPouch==1
+		@choice "Return his Pouch.." goto:.returnPouch
+	@endif
+	@stop
+
+	#denyservice
+		@set allow_sex_trader=0
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH,BASE/FX>PISSED
+		Gunther: Here, have some more~
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>OH,BASE>BODY
+		Trader: Huh? I won't pay for that you know..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>PISSED
+		Gunther: Don't worry it's on the house...
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+		Trader: Hmm..Really?
+		Gunther: Yea, Drink as much as you want..
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>HAH,BASE>BODY
+		Trader: Hah~! It must be my lucky day then...
+		Trader: Alright! Fill me up some more!!
+		@hide Trader
+		@hide Gunther
+		@stopbgm trader_theme
+
+		@printer IntroPrinter
+		@back BLANK
+		A while later...
+
+		@back TAVERN_EVE_ON
+		@printer Dialogue
+		@bgm naughty
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+		Gunther: H-hey...are you alright?
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>HAH,BASE>BODY pos:50
+		Trader: Ahaha..Hahaha..haha..Who...are..you?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING 
+		Gunther: Hmm..Looks like he's done..
+		@hide Trader
+
+		@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH look:left pos:50
+		Mira: H-hey..What happened to him?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX>SPARKLE
+		Gunther: Don't worry, He just drank....a bit...
+		Mira: A bit? He looks like ready to lay on a coffin!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?,BASE/FX>SPARKLE
+		Gunther: Bah~ don't worry about it...
+		Mira: Want me to take him upstairs?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX>SPARKLE
+		Gunther: I got this..You can clean up here now~
+		Mira: Okay then,If you say so..
+		Gunther: Up we go then, Mister...
+		@stopbgm naughty
+		@hide Mira
+		@hide Gunther
+
+		@printer IntroPrinter
+		@back BLANK
+		...[sfx footstep_custom]
+		@wait 2
+
+		@printer Dialogue
+		@bgm naughty
+		@back HALLWAY_EVE
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_MULT pos:{g_POS} scale:{g_SCALE}
+		Gunther: By the gods...You're heavy...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HAH?,BASE/FX>SWEAT_MULT
+		Gunther: Just a bit more...
+		@sfx MedievalDoor_Open
+		@printer Dialogue
+		@back GUESTROOM_EVE
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH,BASE/FX>SWEAT_MULT
+		Gunther: Phew...
+		Gunther: ( Damn..He's heavy as a cow.. )
+		@sfx cloth_shuffle
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX-
+		Gunther: ( Serves you right, You drunk Bastard.. )
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+		Gunther: Hmm?
+		Gunther: ( What is that on his pocket? )
+		You picked up a <color=#FFBB53>Leather Pouch x1</color>
+		Gunther: ...
+
+		@choice "Take the Pouch..." goto:.takePouch
+		@choice "Return it to his Pocket..." goto:.returnToPocket
+		@stop
+
+		#takePouch
+			Gunther: ( Well...He did empty a barrel of Ale so.. )
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+			Gunther: ( I guess this'll cover the expenses.. )
+			You received <color=#FFBB53>500G</color> [sfx coin_4]
+			@set currentgold=currentgold+500
+			@goto .cnt
+		@stop
+
+		#returnToPocket
+			Gunther: ( Well...No matter how we need it )
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+			Gunther: ( My only intention is to get you drunked after saying some awful remarks about my wife.. )
+			@sfx cloth_shuffle
+			You discarded <color=#FFBB53>Leather Pouch x1</color>
+			@goto .cnt
+		@stop
+
+		#cnt
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+		Gunther: Sleep tight, you drunk bastard..
+		Trader: *Snore...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+		Gunther: ...
+		@stopbgm naughty
+		@hide Gunther
+		@back BLANK
+		...
+
+		@printer IntroPrinter
+		Next day...
+		@bgm morning_ambient volume:0.5
+
+		@printer Dialogue
+		@back TAVERN_DAY_OFF
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE pos:{g_POS} scale:{g_SCALE}
+		Gunther: Hmm~ ♬
+		@showUI DayIndicator
+		???: Ugh..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+		Gunther: Hmm?
+		@bgm trader_theme
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY,BASE/FX+ pos:50
+		Trader: Ugh..My head...
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+		Trader: ...
+		@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>AH,BASE>BODY
+		Trader: What're you looking at!? Bring me a Coffee!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: R-right away!
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>OH,BASE>BODY
+		Trader: Ugh...What happened last night...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: Here's your coffee..
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+		Trader: ...[sfx drinking]
+		@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>IDLE,BASE>BODY,BASE/FX-
+		Trader: Better than nothing...
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY
+		Trader: Tell me boy..What happened last night?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: Uh..
+
+		@choice "You drank a bit too much of Ale..." goto:.drunk
+		@choice "We caught you sleeping in the road...." goto:.lie
+		@stop
+
+		#lie
+			Gunther: W-we...uh...we caught you drank...and uh...sleeping on the road..
+			Gunther: A-and we uh...decided to take you in and let you rest here for the night...
+			Trader: ....
+			@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+			Trader: Hmmm...
+			@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY
+			Trader: Really?
+			Gunther: Y-yea...
+			@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+			Trader: Hmm..
+			Trader: ....
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_MULT
+			Gunther: ....
+			@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>OH,BASE>BODY
+			Trader: Well..you shouldn't have boy...but...
+			@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>AH,BASE>BODY
+			Trader: T-thanks...I guess..
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SWEAT_MULT
+			Gunther: ( Thank the gods, He bought that one.. )
+			@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>HAH,BASE>BODY
+			Trader: I do kinda have a bad habit of passing out drunk wherever it gets me...
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_MULT
+			Gunther: ( I don't think that's something to be proud of.. )
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+			Gunther: Y-yeah...Don't mind about it..
+			@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>OH,BASE>BODY
+			Trader: Here..
+			You received <color=#FFBB53>150G</color> [sfx coin_4]
+			@set currentgold=currentgold+150
+
+			Trader: For the trouble...
+			@goto .cont_0
+		@stop
+
+		#drunk
+			Trader: Right..right...
+			@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>HAH,BASE>BODY
+			Trader: Well, Remember, I won't pay for those drinks..
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+			Gunther: H-hmm..
+			@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>OH,BASE>BODY
+			Trader: Here..
+			You received <color=#FFBB53>100G</color> [sfx coin_1]
+			@set currentgold=currentgold+100
+			@goto .cont_0
+		@stop
+
+		#cont_0
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+			Gunther: Thank you for your payment...
+			@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY
+			Trader: Say,could you give me more of that coffee..
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OAH
+			Gunther: Oh,yeah..sure..here...
+			@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE
+			Trader: ....[sfx drinking]
+			@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>HAH,BASE>BODY
+			Trader: Ahh..That's better...
+			@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>OH,BASE>BODY
+			Trader: Well, I still got some places to be..
+			Trader: See you around....
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+			Gunther: Take care, please come back again...
+			@hide Trader
+			@hide Gunther
+			@back BLANK
+			@stopbgm trader_theme
+			...
+
+			@goto _LOOPER.end_day
+		@stop
+	@stop
+
+	#returnPouch
+		@set allow_sex_trader=0
+		@stopbgm trader_theme
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: B-by the way...
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+		Trader: Hmm?
+		Gunther: I think you left this last time...
+		You gaved a <color=#FFBB53>Pouch</color>
+
+		@bgm old_farmer_theme
+		@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>OH,BASE>BODY
+		Trader: Oh! I was looking for this! 
+		@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>AH,BASE>BODY
+		Trader: I didn't thought i'd left it here...
+		@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+		Trader: ...
+		@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>HAH,BASE>BODY
+		Trader: Thanks boy...
+		Trader: It's pretty rare for people to return belongings nowadays..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+		Gunther: D-don't mind it..
+		@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>OH,BASE>BODY
+		Trader: Here..
+		You received <color=#FFBB53>200G</color>[sfx coin_4]
+		@set currentgold=currentgold+200
+		Gunther: Oh! W-will you be staying again?
+		@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>HAH,BASE>BODY
+		Trader: Nah, I won't be long I still have some places to be...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: B-but what is this for?
+		Trader: Use it somewhere useful...repair this place or something....
+		Trader: A bit of shine here and there and this might flourish once again...
+		Trader: Anyway, I won't stay any longer..I just came here for a small drink..
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+		Gunther: Thank you for your generosity!
+		Trader: Eh~ It's nothing..Farewell then..
+		@hide Trader
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>GRIN,BASE/FX-
+		Gunther: Please visit us again and Take care!
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>IDLE
+		Gunther: ...
+		Gunther: ( Well..He ain't so bad as I thought..)
+
+		@goto _LOOPER.end_day
+	@stop
+
+	#corrupt
+		@set mira_service_count++
+		@set allow_sex_trader=1
+	
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: B-by the way..
+		Gunther: About what you you mentioned on your first visit...
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+		Trader: Hmm?
+		Gunther: I’m not sure if it was just an off-handed remark but-
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>HAH,BASE>BODY
+		Trader: Well, well... Did you finally given some consideration to my offer?
+		Gunther: ...I-I, uh, yes.
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>EH,BASE>BODY
+		Trader: Hehehe... You must be getting very desperate to resort to this.
+		Gunther: I- yes...W-we could use the help.
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>HAH,BASE>BODY
+		Trader: I see. Well, it’s a good thing I’m feeling charitable then.
+		Gunther: ...
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>OH,BASE>BODY
+		Trader: Send her to my room tonight..
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>AH,BASE>BODY
+		Trader: I assume you two already talked about this? 
+		Trader: Cause I don't want any troubles you know...
+		Gunther: W-we already did..
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>HAH,BASE>BODY
+		Trader: Good,Good..
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>EH,BASE>BODY
+		Trader: Let’s hope your wife knows how to properly please a man... Hehehe...
+		@hide Trader
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_SING
+		Gunther: ....
+		@stopbgm trader_theme
+		@hide Gunther
+		@hideUI DayIndicator
+
+		@set lingerie_config="BASE/ARMS>,BASE>BODY,BASE/HAIR>DEFAULT,BASE/FACE>NOSE,BASE/CLOTHES/LINGERIE>DEFAULT,BASE/EARINGS>CLASSIC"
+
+		@printer IntroPrinter
+		@back BLANK
+		@bgm evening_ambient volume:0.5
+		Later that evening..
+
+		@printer Dialogue
+		@back BEDROOM_EVE
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+		Gunther: ...
+		@sfx MedievalDoor_Open
+		@char Mira.{lingerie_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH look:left pos:50
+		Mira: Great work today my love.
+
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH 
+		Gunther: Y-you too...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>H-HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: ...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM 
+		Gunther: ...
+		@stopbgm evening_ambient
+		@bgm creep_theme
+
+		@if mira_service_count>=1
+			@char Mira.{lingerie_config},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+			Mira: S-so it's happening again tonight huh?
+		@elseif
+			@char Mira.{lingerie_config},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+			Mira: S-so it's happening tonight huh?
+		@endif
+
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: Y-yeah...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: Are you sure about this?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>OH
+		Gunther: I-If you want to back out, I understand. 
+		Gunther: It’s only natural that you wouldn’t be up for it.
+		@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>OH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: N-normally...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: A wife wouldn't want to be touched by someone else besides her husband but-
+		Gunther: I know. But-
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: Gunther...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>SWEAT_SING
+		Gunther: Whu?
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>OH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: There's a tent...
+		Gunther: A tent? What tent...?
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: Y-your trousers....It grew a tent...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING,BASE/EXTRA>BLUSH
+		Gunther: ....
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: ...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: You're really into this, Huh...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+		Gunther: ...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>CONFUSED,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: Were you already imagining what was going to happen?
+		Gunther: ...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: W-wow....Ok....
+		Mira: I have to admit, you’re making me feel strange too.
+		@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>EH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: So who's the "Customer"?
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH
+		Gunther: I'm not sure how you'll feel about it but-
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: W-well, It's not like I can back out now anyway...
+		; @char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		; Gunther: H-hmm..You know the room right?
+		Gunther: It's the <color=#FFBB53>Trader</color>...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: Oh..him...I kinda knew this was coming...
+		Mira: He was always giving me that unusual stare...
+		Mira: Do you really like the idea of me letting someone like that use my body? 
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+		Gunther: ...
+		Mira: Normally, I would never even think of letting a man like that...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH
+		Gunther: I can tell him the deal is off if y-
+		@stopbgm creep_theme
+		@bgm evening_ambient volume:0.5
+		@char Mira.{lingerie_config},BASE/FACE/EYES>MEH,BASE/FACE/MOUTH>OH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: No...I-it's fine...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>MEH,BASE/FACE/MOUTH>OH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: I admit that knowing you want me to do it certainly makes the situation...
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>GRIN,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: Interesting....
+		@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FACE
+		Mira: A-anyway, I better get to doing this before I lose my nerve.
+		Mira: I’ll come back if things feel to uncomfortable for me.
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: O-okay dear...
+		@hide Mira
+		@sfx MedievalDoor_Open
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM
+		Gunther: ...
+		@wait 2
+		@hide Gunther
+
+		@back BLANK
+		@sfx clock_tick
+		....
+		...
+		..
+		@wait 3
+		@stopsfx clock_tick
+
+		@bgm evening_ambient volume:0.2
+		@back BEDROOM_MD
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+		Gunther: ...
+		@showUI DayIndicator
+
+		#voyeur_mode
+		; @if hasStone==1
+			; @choice "<color=#B88AFF>Use the Necklace</color>" goto:.voyeur_mode
+		; @endif
+		@choice "<color=#FFBB53>Sneak</color> to the Guestroom" goto:.SNEAK
+		; @choice "Lay in bed and <color=#FFBB53>wait</color>" goto:.WAIT
+		@stop
+
+		#SNEAK
+			@set g_trader_cowgirl=1
+			@stopbgm evening_ambient volume:0.2
+			@hide Gunther
+			@back BLANK
+			@sfx footstep_custom
+			...
+			@wait 1
+			@bgm evening_ambient volume:0.6
+			@back HALLWAY_MD
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+			Gunther: ( I wonder what they're d- )
+			Gunther: ( I hear something... )
+
+			@bgm moan_1 volume:0.3
+			@bgm sloppy_wet volume:0.3
+			@wait 2
+			Gunther: ( I-is that Mira? )
+			Gunther: ( I can literally hear her moans from here... )
+			Gunther: ( She sounds like....enjoying it...)
+			Gunther: ( Gotta sneak closer... )
+
+			@stopbgm evening_ambient
+			@bgm creep_theme
+			@bgm moan_1 volume:0.5
+			@bgm sloppy_wet volume:0.5
+			@hide Gunther
+			@printer ScenePrinter
+			@back BLANK
+			@showUI LetterBox
+			@showUI S_DoorShutterRight
+			@camera zoom:0 offset:-4,,
+			@camera zoom:0 offset:-1,, time:15 wait:false
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+
+			Trader: You know, at the brothels in the city you could fetch a pretty penny.
+			Trader: Why don't you come with me?
+			Mira: T-This isn’t like that...Please...
+			Trader: I don’t see what’s so different about it...
+			Trader: Ride harder will ya?
+
+			Mira: Hnngh~❤
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+
+			Trader: Yea! That's more like it!
+			Mira: Ohhh~❤!
+			Gunther: ( She's really riding him like a horse.. )
+			Gunther: ( I don't think Mira rides me that roughly until now... )
+			Trader: Whewe~! Those tits are magnificent up close...
+			Mira: I-I’m glad...
+			Trader: Keep going! Deeper!!!
+			Mira: Ah❤! Ahhhh❤! Ah❤!
+
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+
+			Gunther: ( She’s really isn't holding back at all.. )
+			Trader: Nnnngh! I’ve thought about being inside you for soo looooong...
+			Mira: Ah❤! Ahhhh❤!
+			Mira: So big....
+			Gunther: ....
+
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			Gunther: ( She seems to enjoy this much... )
+			Mira: I-I think...I'm...Aghhh~❤!
+			Mira: I-I'm cumming...
+
+			@back TRADER_COWGIRL_2 id:static_set
+			Trader: That's it! Ride me like a saddle! Let your pleasure take over!!
+			Mira: Aghh~❤! Aghh~❤!
+			Mira: OH~❤! OHhh~❤!
+			Trader: Aghhhh~! Here I cum!!
+			Mira: Ah~❤! Ah~❤! Ah~❤!
+			Trader: Take my thick load! You fucking whore!
+
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back TRADER_COWGIRL_3 id:static_set
+
+			@back BLANK_W
+			@hide static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back BLANK_W
+			@hide static_set
+			@back TRADER_COWGIRL_3 id:static_set
+			@back BLANK_W
+			@hide static_set
+			@back TRADER_COWGIRL_2 id:static_set
+			@back BLANK_W
+			@hide static_set
+
+			@stopbgm moan_1
+			@stopbgm sloppy_wet
+			@sfx squirt_single_1
+
+			@back TRADER_COWGIRL_4 id:static_set
+			Mira: Ughhh~❤! Your filling me up...
+			Trader: *PANT*
+			Mira: *PANT* *PANT*
+			Trader: Phew~..I think that should all for tonight..
+			Trader: I still gotta wake up early you know..Heheh~
+			Mira: H-hmmm..
+			Trader: He-heheh...You ride like a beast!
+			Mira: Well, The saddle itself is quiet comfortable...Heheh~❤
+			Trader: ....
+
+			@back BLANK
+			@hideUI LetterBox
+			@camera zoom:0 offset:,,
+			@hide static_set
+			@hideUI S_DoorShutterRight
+			@back HALLWAY_MD
+
+			@printer Dialogue
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>HMM,BASE/FX>SWEAT_MULT pos:{g_POS} scale:{g_SCALE}
+			Gunther: ( It seems they're already done... )
+			Gunther: ( I should go before they catch me... )
+			@hide Gunther
+
+			@stopbgm creep_theme
+			@goto .WAIT
+		@stop
+
+		#WAIT
+			; FINISH THIS
+			@set weather="evening"
+
+			@back BLANK
+			@bgm evening_ambient volume:0.7
+			...
+
+			@back BEDROOM_EVE
+			@hideUI LetterBox
+			@printer Dialogue
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+			Gunther: ...
+			@showUI DayIndicator
+
+			@sfx MedievalDoor_Open
+			@set lingerie_config_2="BASE/ARMS>,BASE>BODY,BASE/HAIR>DEFAULT_MESSY,BASE/FACE>NOSE,BASE/CLOTHES/LINGERIE>DEFAULT_MESSY,BASE/EARINGS>CLASSIC,BASE/FX_BODY+SWEAT,BASE/FX_BODY+BLUSH"
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>H-HMM look:left pos:50
+			Mira: ...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE pos:{g_POS} scale:{g_SCALE}
+			Gunther: ...
+			@stopbgm evening_ambient
+			@bgm creep_theme
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>OH look:left pos:50
+			Mira: W-what?
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+			Gunther: W-welcome back, my love.
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>H-HMM
+			Mira: ...
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>MUH
+			Mira: Here...
+			You received <color=#FFBB53>1500G</color> [sfx coin_4]
+			@set currentgold=currentgold+1500
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_MULT
+			Gunther: [spawn ShakeCharacter params:"Gunther"]This is even more than what we talked about..
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>H-HMM
+			Mira: M-mmm..
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>AH look:left pos:50
+			Mira: I-i'll go ahead and rinse myself now..
+			Gunther: M-mira..wait...
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM look:left pos:50
+			Mira: Hmm?
+			Gunther: A-are you alright?
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>MUH look:left pos:50
+			Mira: Yeah, why?
+			Gunther: I-I mean...did you enjoy it?
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>AH look:left pos:50
+			Mira: Oh...That...so you want to know that part too...
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>EH look:left pos:50
+			Mira: W-well...
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>OH look:left pos:50
+			Mira: It was a bit...awkward...at first...
+			Mira: But things went well...He's..alright...I guess..
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE,BASE/FX>SWEAT_MULT
+			Gunther: H-hmm...
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FALL look:left pos:50
+			Mira: Yea, and he's pretty big too...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_MULT
+			Gunther: Eh?
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FALL look:left pos:50
+			Mira: Y-yea...
+			Gunther: Compared to mine?
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>OH,BASE/FX>SWEATY_FALL look:left pos:50
+			Mira: I...I guess so...
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FALL look:left pos:50
+			Mira: ...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE,BASE/FX>SWEAT_MULT
+			Gunther: ....
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HAHH,BASE/FX>SWEATY_FALL look:left pos:50
+			Mira: What are you making me say, you pervert!
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>HUH,BASE/FX>SWEATY_FALL look:left pos:50
+			Mira: T-this is so embarrasing...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>GRIN,BASE/FX>SWEAT_MULT
+			Gunther: Hehehe...
+			Mira: A-anyway, I should rinse now, I feel sticky all over...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>AH,BASE/FX>SWEAT_MULT
+			Gunther: Mira...
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM look:left pos:50
+			Mira: Hmm?
+			Gunther: I love you dear...
+			@char Mira.{lingerie_config_2},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>GRIN look:left pos:50
+			Mira: Heheh~ Anything for you~❤
+			@hide Mira
+			@hide Gunther
+			@stopbgm creep_theme
+
+			@back BLANK id:SubBackground
+			@bgm morning_ambient volume:0.7
+			Next morning...
+
+			@back TAVERN_DAY_OFF id:SubBackground
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HAM,BASE/FX>-SLEEPY pos:{g_POS} scale:{g_SCALE}
+			Gunther: *YAWN*
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>ZZZ,BASE/FX>-SLEEPY
+			Gunther: ...
+			???: Well, Looks like someone stayed late last night...
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX>-SLEEPY
+			Gunther: Huh?
+			Gunther: Oh...H-how is your morning sir...
+			@bgm knight_theme
+			@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>HAH,BASE>BODY pos:50
+			Trader: Morning? You should ask how my Evening went!
+			@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>EH,BASE>BODY
+			Trader: Though i'm pretty sure you already asked your wife about that..Heheh~
+			???: Gunther, Breakfast is re-
+			@char Trader pos:70
+			@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH look:left pos:35
+			Mira: -dy...
+			@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX>SWEATY_FALL,BASE/FX_BODY>BLUSH look:left pos:35
+			Mira: O-oh..It's you...
+			Trader: Heheh~
+			@char Mira.{def_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>OH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH look:left pos:35
+			Mira: G-good morning...
+			@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>HAH,BASE>BODY
+			Trader: Well, Good morning dear...
+			Trader: I assume you had a good rest?
+			@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FALL,BASE/FX_BODY>BLUSH look:left pos:35
+			Mira: ...
+			Trader: Of course you would! Heheheh~!
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_SING
+			Gunther: ....
+			@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>OH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH look:left pos:35
+			Mira: Uh...L-leaving already?
+			Trader: Welp, my destination is still pretty far from here..
+			Trader: Gotta travel while the sun's still out...
+			@char Mira.{def_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>MUH,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH look:left pos:35
+			Mira: I see..
+			Trader: Well, I'll make sure to come back again soon! Heheh!
+			@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>EH,BASE>BODY
+			Trader: Let's do it again when I comeback,alright?
+			@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX>SWEATY_FACE,BASE/FX_BODY>BLUSH look:left pos:35
+			Mira: ....
+			@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>OH,BASE>BODY
+			Trader: Oh right..Almost forgot here..
+			Trader: For the rent..
+			You received <color=#FFBB53>300G</color>[sfx coin_4]
+			@set currentgold=currentgold+300
+			Gunther: ( Huh..He added a lot this time...)
+			@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX>SWEAT_SING
+			Gunther: T-thank you for your payment...
+			@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>HAH,BASE>BODY
+			Trader: Well I'll be on my way now..
+			Trader: You two take it easy...
+
+			@if galleryMode==1
+				@set galleryMode=0
+				@goto _MEMORY
+			@else
+				@goto _LOOPER.end_day
+			@endif
+		@stop
+	@stop
+@stop
+
+#FLAG_3
+	@printer IntroPrinter
+	@back BLANK
+	Few days later...
+
+	@printer Dialogue
+	@set weather="rainy"
+	@bgm rain volume:0.5
+	@back FRONT_EVE
+	@spawn Rain params:2000,0,1.1
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>H-HMM,BASE/FX>SHAKE pos:{g_POS} scale:{g_SCALE}
+	Gunther: Brrr~
+	@showUI DayIndicator
+	Gunther: ( It sure is cold during rainy nights.. )
+	Gunther: ( Gotta head back inside before I freeze my ass here... )
+
+	@despawn Rain params:0
+	@stopbgm rain
+
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+
+	@bgm rain volume:0.2
+	@back TAVERN_ANGLE2_EVE_ON
+
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-
+	Gunther: Phew...
+	; @char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH look:left pos:50
+	Mira: Hun? I've just finished cleaning the tables..
+	; @char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH
+	Mira: I think we should close up now, It's already kinda late...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH,BASE/FX-
+	Gunther: Okay~ 
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-
+	Gunther: ( let me just lock the doo- )
+
+	@sfx MedievalDoor_Open
+	@sfx MedievalDoor_Close
+	???: Ugh...Goddamn rain...
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>UH,BASE/FX-
+	Gunther: ( Oh...it's you again... )
+
+	@stopbgm rain
+	@bgm whimsical volume:0.7
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>IDLE,BASE>BODY,BASE/FX- pos:50
+	Trader: Hmmph..
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>HAH,BASE>BODY
+	Trader: Ah~! Good thing you're still open...
+	Trader: Got any dry cloth?
+	Gunther: H-here...[sfx cloth_shuffle]
+	Trader: Guess I'll be staying here for the night again...
+	Gunther: Usual room?
+	Trader: Ay, the usual..
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>OH,BASE>BODY
+	Trader: By the way, Is your <color=#FFBB53>Washroom</color> available?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH
+	Gunther: Ah..Y-yes, It's ready for use...
+	Trader: Good good...
+	???: Honey? What's taking you so long?
+	@char Trader pos:35
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>MUH look:left pos:70
+	Mira: Aren't you done ye-
+	@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>OH look:left pos:70
+	Mira: Oh~ It's you...W-welcome back..
+	@char Trader.BASE/FACE/EYE>DEFAULT,BASE/FACE/MOUTH>EH,BASE>BODY
+	Trader: Heheh~! How are you missy?!
+	@char Mira.{def_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH look:left pos:70
+	Mira: F-fine...and you?
+	Trader: Better now that you're in front of me!
+	@char Mira.{def_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>GRIN,BASE/FX_BODY>BLUSH
+	Mira: Oh~! you~!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+	Gunther: ...
+	Trader: Heheh...Oh right! I bought you something...
+	@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>EH,BASE/FX_BODY>BLUSH
+	Mira: Eh?! for me?!
+	Trader: Here, have this <color=#FFBB53>Silver Earring</color>..
+	@char Mira.{def_config},BASE/FACE/EYES>CLOSED,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH
+	Mira: O-oh~! How kind of you! You shouldn't have bother to buy one...
+	Mira: Thank you..
+	Trader: Heheh~ T`was nothing..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE
+	Gunther: ...
+	Trader: I could buy you more if you want!
+	@char Mira.{def_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FALL
+	Mira: Ah! N-no! That won't be necessary. Heheh~!
+	Trader: Alrighty then..
+	Trader: So...uhm...
+	@char Mira.{def_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM
+	Mira: Hmm?
+	@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>HAH,BASE>BODY
+	Trader: Are you available again Tonight? Heheh~
+	@char Mira.{def_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>EH,BASE/FX_BODY>BLUSH
+	Mira: [spawn ShakeCharacter params:"Mira"]Eh?!?
+	@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>H-HMM,BASE/FX_BODY>BLUSH
+	Mira: I...uhm..
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>FORCE,BASE/FX>SWEAT_MULT
+	Gunther: [spawn ShakeCharacter params:"Gunther"]( She's staring at me... )
+	Gunther: ( Is she asking for my consent? )
+
+	#this	
+	@choice "<color=#FFBB53>Stay</color> silent..." goto:.no
+	@choice "??? <color=#FB4141>( Locked )</color>" goto:.this
+	@stop
+
+	#no
+		@set mira_service_count++
+		@set trader_flag2_allow=0
+		Mira: ...
+		@char Mira.{def_config},BASE/FACE/EYES>LYING,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH
+		Mira: S-sorry, but that's just a one time thing...
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+		Trader: ...
+		Gunther: ( Crap...I think he's glaring at me... )
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>OH,BASE>BODY
+		Trader: Is that so?
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>IDLE,BASE>BODY
+		Trader: ....
+		@char Trader.BASE/FACE/EYE>SQUINT,BASE/FACE/MOUTH>EH,BASE>BODY
+		Trader: Well, I guess, It can't be help...
+		Trader: I'll be upstairs now...
+		Trader: Here..my rent for the Night..
+		You received <color=#FFBB53>50G</color>[sfx coin_4]
+		@set currentgold=currentgold+50
+
+		@hide Trader
+		@char Mira pos:50
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HMM,BASE/FX_BODY>BLUSH
+		Mira: ...
+		Gunther: ...
+		@char Mira.{def_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>MUH,BASE/FX_BODY>BLUSH
+		Mira: We should close up now...
+		@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH
+		Gunther: R-right...
+		@hide Mira
+		@hide Gunther
+		@stopbgm whimsical
+		@hideUI DayIndicator
+		@goto .washroom_sex
+	@stop
+
+	#washroom_sex
+		@set g_trader_doggy=1
+		@printer IntroPrinter
+		@back BLANK
+		...
+
+		@bgm evening_ambient volume:0.7
+		@back VERANDA_EVE
+		Later that midnight,[br][br]Mira and I didn't spoke much and went together to bed.[br]I assumed she's also tired as usual from the day's work[br][br]But I was suddenly awakened[br]by an unusual empty space beside me[br]where my mira is supposedly asleep...
+
+		I opened my eyes[br]and to my surprise no one was there..[br][br]Then I suddenly heard a noise...[br]Something that sounds like a splash of water..[sfx bath_splash]
+
+		@back BEDROOM_MD
+		@printer Dialogue
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>ZZZ,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+		Gunther: Ugh...
+		Gunther: ( Is someone using the washroom? )
+		@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+		Gunther: ( It's already midnight.. )
+
+		#this2
+		@choice "??? <color=#FB4141>( Locked )</color>" goto:.this2
+		@choice "<color=#FFBB53>Inspect</color> the Noise..." goto:.inspect
+		@stop
+
+		#inspect
+			Gunther: ( I should what's all the noise about.. )
+			@hide Gunther
+
+			@back BLANK
+			...[sfx footstep_custom]
+
+			@stopbgm evening_ambient
+			@bgm creep_theme
+			@back WASHROOM_ENTRANCE_MD_ON
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM pos:{g_POS} scale:{g_SCALE}
+			Gunther: Hmm?
+			Gunther: ( I think someone is really using it.. )
+			@hide Gunther
+
+			@printer IntroPrinter
+			As I get quietly approach the entrance...[br][br]I heard a chatter of a man and a woman..[br]My curiosity peaked and my hands unconsiously[br]held the curtain [br][br]Slowly swaying it a bit...[br][br]I was taken aback with what I stumbled upon...
+
+			@back BLANK
+			@printer ScenePrinter_up
+			@showUI LetterBox
+
+			Mira: Be quiet!
+			Mira: Gunther might hear us...
+			???: Alright..Alright..Just bend down~!
+			Mira: *Giggle..You like this position so much don't ya?
+			???: Wooho..You're so wet like a dog ready for mating!
+			Mira: If that's how you want to put it then breed me all you want!
+			???: As you wish~!
+			Mira: Ah~❤ Ah~❤
+
+			@bgm moan_6 volume:0.5
+			@bgm sloppy_wet
+			@sfx squirt_single_1
+			
+			@showUI S_CurtainRight
+			@camera zoom:0 offset:-3,,
+			@camera zoom:0 offset:0,, time:10 wait:false
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+
+
+			@stopbgm moan_6 volume:0.5
+			@stopbgm sloppy_wet
+
+			Mira: Ahh❤!
+			Trader: You're pussy should have taken the shape of my dick by now, Heheh~
+			Mira: Cause you do it so hard...
+			Trader: What you don't like it?
+			Mira: W-well...
+			Trader: Heheh~ I'll take that as yes...
+			Mira: Ahh~❤! Faster~❤!
+			Trader: Heheh~ As you wish!
+			Mira: Hnggh~❤!
+
+			@bgm moan_5 volume:0.4
+			@bgm sloppy_sloppy
+			@sfx squirt_single_1
+
+			@camera zoom:0 offset:-3,, time:10 wait:false
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back TRADER_DOGGY_1 id:static_set
+
+			@stopbgm moan_5 volume:0.4
+			@stopbgm sloppy_sloppy
+
+			Trader: Ughh~ By the gods..Your pussy is the best!
+			Mira: Yess❤! Ahh~❤!
+			Trader: I think I'm cumming!!
+			Mira: Yess~❤! Shoot it All inside me!Ahh~❤!
+			Trader: Here...It...cums!
+
+			@bgm moan_1 volume:0.8
+			@bgm sloppy_sloppy
+			@sfx squirt_single_1
+
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+			@back TRADER_DOGGY_3 id:static_set
+			@back TRADER_DOGGY_2 id:static_set
+
+			@back BLANK_W
+			@hide static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back BLANK_W
+			@hide static_set
+			@back TRADER_DOGGY_1 id:static_set
+			@back BLANK_W
+			@hide static_set
+			@back TRADER_DOGGY_5 id:static_set
+			@back BLANK_W
+			@hide static_set
+
+			
+			@stopbgm moan_1 volume:0.8
+			@stopbgm sloppy_sloppy
+			@sfx squirt_single_2
+
+			@back TRADER_DOGGY_5 id:static_set
+			Mira: Haahh~❤! So warm...
+			Trader: Ufff~
+			Mira: *PANT*..*PANT*...
+
+			@back TRADER_DOGGY_6 id:static_set
+			Trader: Phew...
+			Mira: You came so much...Heheh...
+			Trader: I still got plenty of load to burst you know...
+
+			Mira: I-is that so...
+			Trader: Don't you think we should move upstairs now?
+			Trader: We won't be heard much from there...
+			Mira: *PANT*..*PANT*..O-okay...
+			Gunther: ( I better hide, before they come this way... )
+			@back BLANK
+			@camera zoom:0 offset:,,
+			@hide static_set
+			@hideUI S_CurtainRight
+			@sfx cloth_shuffle
+
+			@back WASHROOM_ENTRANCE_MD_ON
+			Mira: Huh?
+			Trader: What?
+			Mira: Did you heard something?
+			Trader: Nu-uh..
+			Mira: Hm..
+			Mira: ....
+			Mira: Anyway, let's go...
+			Trader: Heheh~ After you...
+			@sfx footstep_custom
+
+			@printer IntroPrinter
+			@back BLANK
+			As I quietly hid myself from the shadows[br][br]Both of them slowly crept upstairs back to their room..
+
+			[back VERANDA_EVE]
+			I waited for a while until I started[br]hearing faint moans coming from upstairs...[br][br]With my heart,beating faster than ever before..[br]I unconsiously followed both of them[br][br][back HALLWAY_MD]And slowly nudged the door...
+
+			@back BLANK
+			@showUI S_DoorShutterRight
+			@printer ScenePrinter
+			
+			@bgm moan_1
+			@bgm sloppy_wet
+			@sfx squirt_single_1
+			@back TRADER_BACKRIDE_1 id:static_set
+			Mira: Ahh~❤! Ahh~❤! Ahh~❤!
+			Mira: Your reaching so deep!
+			Trader: Easy now..My dick won't go anywhere Heheheh~
+
+			@stopbgm moan_1
+			@stopbgm sloppy_wet
+			@sfx squirt_single_1
+			@back TRADER_BACKRIDE_2 id:static_set
+			Mira: Heheh~
+			Mira: S-sorry, I can't help it..
+
+			@back TRADER_BACKRIDE_3 id:static_set
+			Trader: I suppose I'm bigger than your husband?
+			Mira: Hehe~ Very! It can't even compare with yours..
+			Trader: Heheh~ I'm flattered..
+
+			@back TRADER_BACKRIDE_4 id:static_set
+			@sfx MedievalDoor_Close volume:0.8 
+			@camera zoom:0 offset:-2,,
+			Mira: Hngmm~!
+			Gunther: ( Ah, Crap...Goddamn knob slipped on me.. )
+			Trader: What was that!?
+			Gunther: ( Shit...I think Mira has noticed me...)
+
+			@back TRADER_BACKRIDE_5 id:static_set
+			Mira: Fufufu❤
+			Gunther: ( Crap..she does noticed me..)
+			@wait 1
+
+			@back TRADER_BACKRIDE_6 id:static_set
+			Mira: It's just a rat...
+			Mira: A very big rat...Heheh❤
+			Trader: Ugh~!..Pesky rodents...They're a problem everywhere...
+
+			@back TRADER_BACKRIDE_7 id:static_set
+			Mira: Why don't we give the rat a show? Hmmm❤?
+			Trader: Huh? What are you saying?
+			Mira: Heheh~ Nothing..
+			Mira: Come on now..Let's finish where we left...
+			Trader: Heheh~ Alright..
+			Trader: LET ME FINISH IT THEN...
+
+			@bgm moan_4 volume:0.6
+			@bgm sloppy_sloppy
+			@sfx squirt_single_1
+			@back BLANK_W
+			@hide static_set
+			@back TRADER_BACKRIDE_8 id:static_set
+			Mira: Ughh~ ❤
+			Mira: Thrusting so suddenly!
+			Trader: Heheh~
+			Mira: That's it keep ramming your Big rod into me!!
+			Trader: Agghhhh~!
+			Mira: Aghhh❤! Aghh❤!
+			Trader: Aren't you a bit too loud?
+			Mira: Don't worry about it...
+			Mira: I'm just letting the rat hear it so it won't get closer...
+			Trader: Whatever you say then! 
+			Trader: Here I cum!
+			Mira: Yess~! Fill me up some more!!
+			Mira: Aghhh❤! Aghh❤!
+
+			@back BLANK_W
+			@hide static_set
+			@back TRADER_BACKRIDE_8 id:static_set
+			@back BLANK_W
+			@hide static_set
+			@back TRADER_BACKRIDE_8 id:static_set
+			@back BLANK_W
+			@hide static_set
+			@back TRADER_BACKRIDE_8 id:static_set
+			@back BLANK_W
+			@hide static_set
+			@stopbgm slap_cum
+
+
+			@stopbgm moan_4
+			@stopbgm sloppy_sloppy
+			@sfx squirt_single_2
+			@back TRADER_BACKRIDE_9 id:static_set
+			Mira: Ughhhh~❤
+			Mira: So warm...
+			Trader: *PANT*...Hehehe..That was amazing..
+			Trader: But I think my tank's already empty...Hahah~
+			
+			@back BLANK
+			@camera zoom:0 offset:,,
+			@hide static_set
+			@printer ScenePrinter_up
+			Mira: And i'm already full~! Hehehe~❤
+			Trader: This woman..heheh
+			Mira: Well then I'll be returning to my husband now..
+			Mira: You take care on your travel tomorrow okay?
+			Trader: Absolutely...
+			Trader: Oh right~! Here..
+			Mira: Heheh~❤ Thanks for the tip.
+			Gunther: ( Seems like they're already done... )
+
+			@hideUI S_DoorShutterRight
+
+			@back VERANDA_EVE
+			@printer IntroPrinter
+			Since Mira was already aware of me..[br]I quietly waited for her to come downstairs...
+			@hideUI LetterBox
+
+			@set lingerie_config="BASE/ARMS>,BASE>BODY,BASE/HAIR>DEFAULT_MESSY,BASE/FACE>NOSE,BASE/CLOTHES/LINGERIE>DEFAULT_MESSY,BASE/EARINGS>CLASSIC,BASE/FX_BODY+BLUSH,BASE/FX_BODY+SWEAT,BASE/FX_BODY+SWEAT_DRIP,BASE/FX/STEAM_DBL+"
+
+			@back TAVERN_ANGLE2_EVE_OFF
+			@printer Dialogue
+			@set weather="evening"
+			@showUI DayIndicator
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE,BASE/EXTRA>BLUSH,BASE/FX- pos:{g_POS} scale:{g_SCALE}
+			Gunther: ...
+			@char Mira.{lingerie_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>GRIN look:left pos:50
+			Mira: Enjoyed the show?
+			Gunther: Heh..
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>GRIN,BASE/EXTRA>BLUSH pos:{g_POS} scale:{g_SCALE}
+			Gunther: You naughty woman..
+			Gunther: Should've told me earlier...
+			@char Mira.{lingerie_config},BASE/FACE/EYES>LOWERED,BASE/FACE/MOUTH>AH look:left pos:50
+			Mira: Well, I was already about to sleep after taking a bath when that guy suddenly entered the washroom...
+			@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>OH look:left pos:50
+			Mira: And...I kinda....slipped....and...you know...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE,BASE/EXTRA>BLUSH pos:{g_POS} scale:{g_SCALE}
+			Gunther: MHMMHMMM...
+			@char Mira.{lingerie_config},BASE/FACE/EYES>SAD,BASE/FACE/MOUTH>HUH look:left pos:50
+			Mira: Come on now..You liked it didn't you?
+			Mira: This was your Idea all along..
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/EXTRA>BLUSH pos:{g_POS} scale:{g_SCALE}
+			Gunther: Well...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>IDLE,BASE/EXTRA>BLUSH pos:{g_POS} scale:{g_SCALE}
+			Gunther: ( She's not wrong though.. )
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>GRIN,BASE/EXTRA>BLUSH pos:{g_POS} scale:{g_SCALE}
+			Gunther: Gotta admit, It was pretty..."steamy"...
+			@char Mira.{lingerie_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>GRIN look:left pos:50
+			Mira: Heheh~
+			@char Mira.{lingerie_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>OH look:left pos:50
+			Mira: Oh right~! here...
+			You received <color=#FFBB53>1500G</color>[sfx coin_4]
+			@set currentgold=currentgold+1500
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>OH,BASE/EXTRA>BLUSH pos:{g_POS} scale:{g_SCALE}
+			Gunther: Woah..This quiet a lot..
+			@char Mira.{lingerie_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>SMILE look:left pos:50
+			Mira: Hmmh~!
+			@char Mira.{lingerie_config},BASE/FACE/EYES>UNSURE,BASE/FACE/MOUTH>AH look:left pos:50
+			Mira: Anyway, I'll go rinse myself now...
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>IDLE
+			Gunther: Hmm..and oh~
+			@char Mira.{lingerie_config},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>HMM look:left pos:50
+			Mira: Hmm?
+			@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>GRIN pos:{g_POS} scale:{g_SCALE}
+			Gunther: Try to not "slip" this time alright?
+			@char Mira.{lingerie_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>GRIN look:left pos:50
+			Mira: Hehehe~❤
+			@hide Mira
+			Gunther: Naughty woman...
+
+			@if galleryMode==1
+				@set galleryMode=0
+				@goto _MEMORY
+			@else
+				@goto _LOOPER.end_day
+			@endif
+		@stop
+
+	@stop
+@stop

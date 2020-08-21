@@ -1,0 +1,604 @@
+#RESET
+	@choice "FLAG_1" goto:.FLAG_1
+	@choice "FLAG_2" goto:.FLAG_2
+	@choice "FLAG_3" goto:.FLAG_3
+	@choice "END" goto:.END
+@stop
+
+#FLAG_1
+	@set g_gunther_doggy=1
+	; Triggers if Gunther denies Witch
+
+	@back BLANK id:SubBackground
+	@printer IntroPrinter
+	A while later...
+
+	@printer Dialogue
+	@bgm evening_ambient volume:0.4
+	@back HALL_BACK_MD id:SubBackground
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>OAH,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+	Gunther: *YAWN*...
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>H-HMM,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( Another day gone... )
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( I wonder if Mira is already asleep.. )
+	@stopbgm evening_ambient
+
+	@sfx MedievalDoor_Open
+	@back BEDROOM_EVE id:SubBackground
+	@bgm confession volume:0.7
+	@set lingerie_config="BASE/ARMS>,BASE>BODY,BASE/HAIR>DEFAULT,BASE/FACE>NOSE,BASE/CLOTHES/LINGERIE>DEFAULT,BASE/EARINGS-"
+	@char Mira.{lingerie_config},BASE/FACE/EYES>SURPRISED,BASE/FACE/MOUTH>HAHH,BASE/FX_BODY>BLUSH,BASE/FX>SURPRISED look:left pos:50
+	Mira: Hyaagh![spawn ShakeCharacter params:"Mira"]
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH,BASE/FX>SWEAT_SING pos:{g_POS} scale:{g_SCALE}
+	Gunther: W-what are you doing?
+	@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>AH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FALL look:left pos:50
+	Mira: N-nothing...
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>HMM,BASE/FX-
+	Gunther: ....
+	Gunther: ( Smells like Honeysuckle in here... )
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>UH
+	Gunther: Did you just spray a <color=#FFBB53>perfume</color>?
+	@char Mira.{lingerie_config},BASE/FACE/EYES>WORRIED,BASE/FACE/MOUTH>HAHH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FALL look:left pos:50
+	Mira: I-I DID NOT!
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>FORCE,BASE/FX-
+	Gunther: ( She did.. )
+	Gunther: ( This smell always sets me in the mood... )
+	Gunther: ...
+	@char Mira.{lingerie_config},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>HUH,BASE/FX_BODY>BLUSH,BASE/FX>SWEATY_FALL look:left pos:50
+	Mira: What?
+	@char Gunther.BASE>HAIR,BASE/BODY>SLEEPING,BASE/FACE>GRIN,BASE/EXTRA>BLUSH
+	Gunther: Nothing...just...admiring the beauty in front of me...
+	@char Mira.{lingerie_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>SMILE,BASE/FX>STEAM,BASE/FX_BODY>BLUSH
+	Mira: Hmmph..
+	@stopbgm confession
+	@char Mira.{lingerie_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>GRIN,BASE/FX_BODY>BLUSH
+	Mira: Compliments are good but...
+	@bgm voyeur
+	@showUI LetterBox_v2
+	@char Mira.{lingerie_config},BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>AH,BASE/FX_BODY+BLUSH,BASE/FX_BODY+SWEAT
+	Mira: I have something else in mind right now...
+
+	@printer Fullscreen
+	I gulped audibly.[br]Her expression was a signal.[br][br]My mouth went dry[br]as she slowly slips off her night dress.
+
+	@printer Dialogue
+	@sfx cloth_shuffle
+	@set lingerie_config="BASE/ARMS>,BASE>BODY,BASE/HAIR>DEFAULT,BASE/FACE>NOSE,BASE/EARINGS-,BASE/NIPPLES+"
+	@char Mira.{lingerie_config},BASE+NIPPLES,BASE/FACE/EYES>SMUG,BASE/FACE/MOUTH>SMILE,BASE/FX_BODY+BLUSH,BASE/FX_BODY+SWEAT
+	Mira: Think you can do something more than admiring me?
+	Gunther: ( Cheeky woman )
+	Gunther: ( Let’s see what we have for tonight~ )
+	@hide Gunther
+	@hide Mira
+
+	@back BLANK id:SubBackground
+	@printer IntroPrinter
+	She slowly layed down the bed.[br]arched her back to me[br][br]As I bring my hands down to her hips..[br]Her body trembles..[br]
+
+	@back GUNTHER_DOGGY_0 id:static_set
+	@printer ScenePrinter
+	Gunther: Oh, look who’s wet.
+	@hideUI LetterBox_v2
+	@showUI Vignette
+	Mira: Shush. I can’t help myself.
+	Gunther: Mmm, I’m not complaining.
+	Gunther: Now then...
+	
+	@printer Fullscreen
+	A few more times[br]I run the head along,[br][br]making extra effort to[br]rub it along her cheeks..[br][br]She whines,[br] trying her best to get it in[br]but I keep her still.
+	
+	@printer ScenePrinter
+	Mira: Ahh~ Gunther~ Stop fooling around.
+	@back GUNTHER_DOGGY_0_5 id:static_set
+	Gunther: If you tell me what you want, I might know what to do.
+	Mira: Angh~ Blasted man...
+	@back GUNTHER_DOGGY_0 id:static_set
+	Mira: Fuck me already...
+
+	@printer Fullscreen
+	I grin as I rub my member once more[br]along her slit before thrusting[br]my entire length inside of her.
+
+	@printer ScenePrinter
+	@back BLANK_W id:SubBackground
+	@hide static_set
+	@back GUNTHER_DOGGY_1 id:static_set
+	@sfx slop_single
+	Mira: [sfx hng_single] Hnnggh~❤
+	Gunther: ( Oh, that feels really good.. )
+	Mira: Faster! Please~
+	Gunther: Well then, if you say so.
+
+	@bgm moan_1 volume:0.4
+	@bgm sloppy_wet
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	
+	@sfx slop_single
+	Mira: Anh~❤ So good!
+	Mira: Hnnggh~❤ 
+	@back GUNTHER_DOGGY_3 id:static_set
+	Mira: Ah~❤ Ah~❤
+	Mira: Don’t stop now! Ah~❤
+
+	@printer IntroPrinter
+	I couldn’t piece out the words,[br]the bed shaking beneath us as[br]I continue my fast pace.[br][br]I feel that familiar sensation[br]coiling inside of me.
+
+	I pounded into her,[br]robbing her of her thoughts[br]as the building pressures[br]rises within me.[br][br]With a few more thrusts and[br]I’m already at my limit.
+
+	@printer ScenePrinter
+	Mira: Ah❤! Gunther!
+	Mira: I’m coming! I’m coming!
+
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@back GUNTHER_DOGGY_2 id:static_set
+	@back GUNTHER_DOGGY_3 id:static_set
+	@hide static_set
+	@back BLANK_W id:SubBackground
+	@back GUNTHER_DOGGY_2 id:static_set
+	@hide static_set
+	@back BLANK_W id:SubBackground
+	@back GUNTHER_DOGGY_3 id:static_set
+	@hide static_set
+	@back BLANK_W id:SubBackground
+	@back GUNTHER_DOGGY_2 id:static_set
+	@hide static_set
+	@back BLANK_W id:SubBackground
+
+	@stopbgm moan_1
+	@stopbgm sloppy_wet
+	@sfx squirt_single_1
+
+	@back GUNTHER_DOGGY_4 id:static_set
+	@printer IntroPrinter
+	I came deep inside her,[br]filling her cunt to the brim.[br][br]
+
+	@back BLANK id:SubBackground
+	@hide static_set
+	@back BLANK id:SubBackground
+	@printer IntroPrinter
+	Gently,[br][br]I slide out of my wife,lying down on my side[br]gently placing her head on my arm[br][br]As we both slowly fall to our slumber...
+
+	...
+
+	@if galleryMode==1
+		@set galleryMode=0
+		@goto _MEMORY
+	@else
+		@set mira_ls_1=true
+		@goto _LOOPER.end_day
+	@endif
+@stop
+
+#FLAG_2
+	@set g_gunther_cowgirl=1
+	; Triggers if Gunther denies Bard
+	@set weather="evening"
+
+	@printer IntroPrinter
+	@bgm evening_ambient volume:0.6
+	@back BLANK id:SubBackground
+	A short while later..
+
+	@back FRONT_EVE id:SubBackground
+	It took some time[br]to clean everything up..[br][br]Afterall,[br]There were more patrons tonight[br]so it did take a lot of effort on us to tidy up.[br][br]It felt great to know[br]that the <color=#FFBB53>Tavern</color> was lively once again...
+
+	After a nice warm bath,[br]and a chug of Midnight drink..[br][br]I couldn’t help but sink blissfully in the bed ...
+	
+	@printer Dialogue
+	@back BEDROOM_MD id:SubBackground
+	@char Gunther.BASE>HAIR,BASE/BODY>NAKED,BASE/FACE>IDLE pos:{g_POS} scale:{g_SCALE}
+	Gunther: ( I sure do hope I could take a warm bath more frequently without any worries in life someday... )
+	@char Gunther.BASE>HAIR,BASE/BODY>NAKED,BASE/FACE>OAH,BASE/FX>SLEEPY
+	Gunther: *YAWN*...
+	@hide Gunther
+
+	@printer Fullscreen
+	@back BLANK id:SubBackground
+	Before I knew it,[br]I’d already closed my eyes...[br][br]I even forgot[br]I only still had my Towels on[br][br]When suddenly..
+
+	@printer ScenePrinter
+	Mira: Well look at you.
+	@stopbgm evening_ambient
+	@bgm voyeur volume:0.8
+	Gunther: Huh?
+
+	@showUI Vignette
+	@back GUNTHER_RIDE_1 id:static_set
+	Gunther: !!
+	Gunther: M-mira...
+
+	@printer IntroPrinter
+	I turned to my wife,[br]sputtering at the sight of her naked body.[br][br]I swallowed audibly as Mira crawled over me. [br][br]Her big breasts hanging down her frame[br]as her nipples grazed along my body when she hovers over me.
+
+	@printer ScenePrinter
+	Mira: Are you already sleepy?
+	Gunther: Nu-uh, I was just waiting for a Goddess to crawl unto the bed with me...
+	@back GUNTHER_RIDE_1_5 id:static_set
+	Mira: Heheh~ isn’t that thoughtful of you then.
+	Mira: Let me take care of you tonight, my love...
+	Gunther: You seem quite eager.
+	Mira: Well, You did worked hard tonight didn't you?
+	Gunther: Not really, I was just catering to the patrons as usual...
+	Mira: Thus, I, as your lovely wife, have to do something about it. Hmm?
+	Gunther: Ah, what did I ever do to deserve a woman like you.
+	Mira: Heheh~ Well then, how should we begin? Hmm.
+	
+	@printer IntroPrinter
+	Mira had a smug grin on her face[br]as she slowly brings herself up,[br][br]leaving only the head of my cock[br]before plunging back down. [br][br]She slams her pelvis sharply against my own..
+	
+	@printer ScenePrinter
+	@back BLANK_W id:SubBackground
+	@hide static_set
+	@sfx slop_single
+	@sfx hng_single
+	@back GUNTHER_RIDE_2 id:static_set
+	Gunther: Quite rough tonight aren't we?
+	Mira: Mm~❤ Can you blame me? When your cock is hard and ready for me~
+
+
+	@bgm moan_1 volume:0.7
+	@bgm sloppy_wet
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set	
+	@back GUNTHER_RIDE_2_BLUR id:static_set
+	@back GUNTHER_RIDE_3_BLUR id:static_set
+
+	@back GUNTHER_RIDE_3 id:static_set
+	Mira: Look at it, sliding in and out so easily.
+	Gunther: Agh~!
+	Mira: Ahnngh~❤! Ahnngh~❤!
+	Mira: You like the view?
+	Gunther: Ah, if you keep saying things like that I might have to let you do this more.
+	Mira: Heheh~ That doesn't sound so bad doesn't it?
+
+	@printer IntroPrinter
+	She gently groaned[br]as she proceeds to slide in and out,[br][br]her breasts bouncing[br]at the rhythm of her hips..[br][br]I grip the sheets beneath me,[br]as I watched her impale herself with my member.
+
+	@back GUNTHER_RIDE_4 id:static_set
+	@printer ScenePrinter
+	Gunther: Ah, you look so good like that, Love.
+	Mira: Agggh~❤
+	Mira: Your cock is rubbing me so nicely. Going in so deeply.
+	Gunther: Ah~ If you go faster, you might get something in return.
+	@back GUNTHER_RIDE_5 id:static_set
+	Mira: Oh? A challenge? Well then~
+
+	@printer IntroPrinter
+	Mira pauses a bit and adjusted her hips..[br][br]With a low moan,she sinks down on me[br]and quickly sets a hasty pace.[br][br]The sudden rhythm throws me off-guard[br]arching my body up as her warmth[br]pressed againsts me.[br]
+
+	@printer ScenePrinter
+	Mira: Ah~❤ Ah~❤
+	Mira: Gunther~!!
+	Gunther: Go ahead my love!
+	Mira: Angh~❤
+
+	@stopbgm moan_1
+	@stopbgm sloppy_wet
+	@sfx squirt_single_1
+
+	@bgm moan_4 volume:0.6
+	@bgm sloppy_wet
+
+	@back GUNTHER_RIDE_5 id:static_set
+	@back GUNTHER_RIDE_6_BLUR id:static_set	
+	@back GUNTHER_RIDE_5 id:static_set
+	@back GUNTHER_RIDE_6_BLUR id:static_set	
+	@back GUNTHER_RIDE_5 id:static_set
+	@back GUNTHER_RIDE_6_BLUR id:static_set	
+	@back GUNTHER_RIDE_5 id:static_set
+	@back GUNTHER_RIDE_6_BLUR id:static_set	
+	@back GUNTHER_RIDE_5 id:static_set
+	@back GUNTHER_RIDE_6_BLUR id:static_set	
+	@back GUNTHER_RIDE_5 id:static_set
+	@back GUNTHER_RIDE_6_BLUR id:static_set	
+	@back GUNTHER_RIDE_5 id:static_set
+	@back GUNTHER_RIDE_6_BLUR id:static_set	
+	@back GUNTHER_RIDE_5 id:static_set
+	@back GUNTHER_RIDE_6_BLUR id:static_set	
+	@back GUNTHER_RIDE_5 id:static_set
+	@back GUNTHER_RIDE_6_BLUR id:static_set
+
+	@hide static_set
+	@back BLANK_W id:SubBackground
+	@back GUNTHER_RIDE_5 id:static_set
+	@hide static_set
+	@back BLANK_W id:SubBackground
+	@back GUNTHER_RIDE_3 id:static_set
+	@hide static_set
+	@back BLANK_W id:SubBackground
+	@back GUNTHER_RIDE_5 id:static_set
+	@hide static_set
+	@back BLANK_W id:SubBackground
+
+	@stopbgm moan_4 
+	@stopbgm sloppy_wet
+	@sfx squirt_single_2
+	@stopbgm slap_fast
+	@printer IntroPrinter
+	@back GUNTHER_RIDE_6 id:static_set
+	She rode me like horse[br]Riding her self up and down-[br]on my member like a saddle-[br]Until I can't hold anymore,[br][br]Shooting my load deep-[br]within her as she rides[br]the last few waves of her orgasm.[br][br]
+	She moans softly,[br]her hips stuttering from oversensitivity[br][br]I guided her along my member a few more times.[br]While she subtly twitches to the pleasure..
+
+	@printer ScenePrinter
+	@back GUNTHER_RIDE_7 id:static_set
+	Mira: Ah~❤ You came so much~❤
+	Gunther: Well, You rode me like a horse!
+	Mira: Heheh~❤ I suppose the saddle was quite comfortable...
+
+	@printer IntroPrinter
+	I looked down[br]and indeed,[br][br]My fluids was sliding[br]out of her[br][br]Even if my member[br]was still nestled inside of her.
+
+	@printer ScenePrinter
+	Gunther: Isn’t that a pretty sight? Filled to the brim with some of it leaking out
+	Mira: You came quiet a lot...Heheh~
+	Mira: Let's hope your seed grows a wonderful one in me...
+	Gunther: ( She’s still squeezing me from inside. )
+	
+	@back BLANK id:SubBackground
+	@hide static_set
+	@back BLANK id:SubBackground
+	Gunther: Ready for the next round?
+	Mira: What an insatiable man you are...
+	Mira: Remember, We still have to get up early tomorrow!
+	Gunther: Awww~
+
+	@if galleryMode==1
+		@set galleryMode=0
+		@goto _MEMORY
+	@else
+		@goto CH_BARD.bard_next_day
+	@endif
+@stop
+
+#FLAG_3
+	; Triggers if Gunther denies Goblins
+	@back BLANK
+	A while later...
+
+	@back BLANK
+	I leaned against the chair, exhausted for the day...
+	Thankfully, business was doing better than I had expected with more people coming and going to our tavern. 
+
+	I leaned against the wall, crossing my arms over my chest as I watch Mira slowly undo the laces keeping her skirt intact. She lets the clothing fall to her ankles as she guides her hand to her corset, undoing the ribbons there as well. That too joins the growing pile on the wooden flooring.
+
+	I exhale a sharp breath as she unbuttons her blouse, a teasingly slowly descent as she watches me watch her. She pushes the material off her shoulders, letting it drag against her skin before falling off her arms and onto the floor. I watch her body move, clad only in her undergarments.
+
+	Mira: Well?
+	Gunther: Feel free to continue.
+	Mira: Haha, I was hoping you’d even it out.
+	Gunther: You could have said that earlier.
+
+	I pushed myself off the wall. Undoing the laces and slipping my vest off me, chucking it to the empty sink before I slip off my dress shirt. I untied the laces of my bottoms, my palm grazing over my clothed erection.
+	Mira chuckles at my reaction while her hands map around her body. Her hands mimicked my own, as I hooked my thumbs with the waistband of my bottoms before pushing them off me. My cock springs free, erect and leaking with precum.
+	Mira hums in approval she bends forward, her still clothed breasts sagging down her body as she pushes her underwear off. They slide down her legs before she kicks them off.
+	Gunther: Ah, you look so good but you still have that band over your breasts left.
+	Mira: Hush, hush. Not everyone walks around bare beneath their clothes.
+	I watch as she brings her arms behind her, undoing the laces of her brassiere before adding it to the pile. She brings her gaze back to me as I mirror her eyes.
+	Mira: Well?
+	Gunther: Well, now we take a bath.
+	Mira: Oh, you had me excited for something else.
+	Gunther: Haha, you’ll have to wait then.
+	She lets an adorable pout sit on her lips before we make our way to the small stall dedicated for the bathing. Mira starts the bath, wetting her body with the warm water and lathering herself with the soap. I’d taken my spot an arm’s length away from her, watching the way her hands glided along her naked body as she cleaned herself.
+	She turns towards me, a petulant look on her face.
+	Mira: Come now, I can’t be the only one who wants to be clean.
+	Gunther: Sorry, I couldn’t help but stare.
+	Mira: Well, you can stare at me all night or you could clean yourself up so we can do more than just staring.
+	I chuckled stepping inside the booth to join her. I cleaned myself as fast as I could, quickly lathering my body with soap as Mira watches. She doesn’t shy from running her hands along my body, helping me clean up.
+	That led to me kissing her passionately against the bathroom wall. Her hand wrapped around my thick cock as I slid my fingers along the slit of her cunt.
+	Mira: Ah, ah, Gunther~
+	Gunther: Mmm, I don’t think this is the best place for us to fuck.
+	Gunther: Why don’t we go back to the room? We’re practically dry from all this touching.
+	Mira: As if you weren’t enjoying it.
+	Gunther: All right, you got me. Now~
+	I wrap my arms around her, pressing a kiss to her lips as I heft her into my arms and guide the both of us towards our bed. Dropping her promptly on the covers as I crawled over her. Mira splayed beneath, her arms coming to rest upon my shoulders.
+
+	Mira: Fuck me, Gunther. I don’t think I can wait anymore.
+	Gunther: (If you ask like that, I don’t think I have the heart to say no.)
+	Gunther: (But I don’t think we can rush this right now.)
+	Gunther: Can you hold on longer, Mira?
+	Mira: Ah, Gunther.
+	Gunther: Whining won’t win you anything. Maybe if you beg for it though~
+	I pressed my hands to her voluptuous body, dragging my palm along her skin until I settled my hand on her cunt. It’s so wet and warm, slick with how aroused she was. She whines at the barest of my touch, grinding on my hand.
+	Mira: Gunther, please.
+	Gunther: Try again~
+	I cupped her cunt, rubbing my palm along her clit as she writhes beneath me. The moans the spill out of her grow in volume and her hips try to rub against my hand for that scant sparks of pleasure. I grin above her, sliding my hand down as I slip two fingers inside.
+	Mira: Anh! Not fair!
+	Gunther: You wanted something, I thought some of my fingers could help.
+	Mira: Ah! Not those!
+	Gunther: Then you have to be more specific, love.
+	I pumped my fingers quickly, sliding them in and out of her soaping cunt. She grasps the sheet beneath her, her body arching against my assault. She writhes beneath me, her flushed cheeks and the faraway look on her eyes as she tried to focus them on me. I shudder at the display, groaning at how Mira looked at the moment. My gaze lowers to her cunt, I feel it clenching around my fingers. It’s as if she’s trying to keep me inside.
+	She moans out my name, bringing my attention back up at her.
+	Mira: Ah~ Gunther~
+	Gunther: What is it, Mira?
+	Mira: Please fuck me already. I can’t take it anymore.
+	I groaned loudly, quickly pulling my fingers out as I plunged into her. Mira quickly clenches around me, cumming with my cock’s entry alone. She moans out loud, grabbing my shoulders with her arms as she arches her body against me.
+	Gunther: That good, huh?
+	Mira: Stop. You kept me on the edge so much.
+	Gunther: Mmm, but you felt so wonderful. Clenching around me as you cum.
+	I watched the color of her cheeks spread to the rest of her body, she was so easily embarrassed. I pulled my hips back, causing a moan to slip out of her as she snapped her attention back to me.
+	Gunther: Do you want to stop now?
+	Mira: No, no, continue. That was just a fluke.
+	Gunther: All right then, I hope you don’t mind me going all out.
+	Mira: W-what do you mean—Angh~
+	(That moan was worth it.)
+	I snapped my hips forward, pressing my cock all the way in and nestled inside. Not waiting for her to catch her breath, I quickly set a rough pace, pounding my shaft, carving the shape of it inside Mira.
+	I continue to slot myself into her, groaning in praise as she holds onto me. Her small hands were gripping me hard, as if a lifeline while her entire body arches in pleasure.
+
+	Mira: Angh~ Gunther! Yes! Yes!
+	Gunther: Look at you, so hungry for my cock.
+	Gunther: Mm, do you want it so bad?
+	Mira: Yes, I want it! I want it!
+	Gunther: Well, you asked for this.
+	I bent down forward, pressing a kiss to her lips before starting a rough, fast pace. The sound of my hips slapping against her own fills the room as our combined moans join the amorous melody. She felt so good, far too good for her own right.
+	Gunther: Ah, Mira. You feel so good. I don’t think I can last longer.
+	Mira: Yes! Oh, yes. I feel the same way!
+	Gunther: Don’t stop Gunther!
+	I groaned loudly, snapping my hips as I pounded my cock into her. Over and over, the sharp sound of my thrusts coupled with her moans fill my mind, breaking my resolved as few more stuttering thrusts and I cum so deeply within her.
+	Mira cries out at the sudden hot rush of my seed, cumming as well as her cunt milks every last drop from me.
+	I thrust lightly, riding the last few waves of my orgasm as I bend down to press a soft kiss to her lips. She looks tired, sated even.
+	Gunther: Are you all right?
+	Mira: Yes, why do you ask?
+	Gunther: You look quite tired.
+	Mira: Well, if you’ve thoroughly ravished me for tonight.
+	Gunther: Oho, who said that was the end?
+	She pales slightly but her cunt quenches around my still erect cock.
+	Gunther: You are an insatiable woman aren’t you?
+	Mira: Of course, isn’t that why you married me?
+	I chuckled, pressing another hot kiss to her lips as I pulled my hips back to start once more.
+@stop
+
+#END
+	@set end_attire_mira="BASE/ARMS>,BASE>BODY,BASE/HAIR>SHORT,BASE/FACE>NOSE,BASE/CLOTHES/MAIN>DEFAULT_NS,BASE/EARINGS>CLASSIC"
+
+	@back BLANK
+	@printer IntroPrinter
+	Several years later...
+	@bgm morning_ambient volume:0.7
+
+	@printer ScenePrinter
+	???: Wake up!
+	Gunther: Ugh....
+	???: What? No! Wake up! Don't go back to sleep!
+	Gunther: zzzzzZzz...
+	???: You promised we would have something to do today!
+	???: Wake up, Pa!
+
+	@printer IntroPrinter
+	Small hands grasp my clothing,[br]shaking me fervently that I could not help[br]but finally rouse myself from the embrace of sleep.[br][br]I pushed myself to sit,[br]Rubbing the drowsiness from my eyes[br]as a yawn slips out of me.
+
+	@printer Dialogue
+	Gunther: I'm up~ I'm up...
+	???: Finally!!
+
+	@back BEDROOM_DAY
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/EXTRA>BEARD,BASE/FACE>ZZZ,BASE/FX>SLEEPY pos:{g_POS} scale:{g_SCALE}
+	Gunther: Ugh~
+
+	@stopbgm morning_ambient
+	@bgm bright_day volume:0.8
+	@char Elisa.BASE+BD,BASE+HAIR,BASE/FC>NOSE,BASE/FC/EYES>LOWERED,BASE/FC/MOUTH>HAH pos:50 look:left
+	Elisa: You were drinking again last night!? Aren't you!?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/EXTRA>BEARD,BASE/FACE>UH,BASE/FX>SWEAT_MULT
+	Gunther: N-no I did not....I just took a sip!
+	@char Elisa.BASE+BD,BASE+HAIR,BASE/FC>NOSE,BASE/FC/EYES>LOWERED,BASE/FC/MOUTH>HMM
+	Elisa: Hmpph~!
+	@char Elisa.BASE+BD,BASE+HAIR,BASE/FC>NOSE,BASE/FC/EYES>UNSURE,BASE/FC/MOUTH>HAH
+	Elisa: Mom and I had to carry you all the way here you know!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/EXTRA>BEARD,BASE/FACE>AH
+	Gunther: Is that so?
+	Gunther: Thank you my dear...
+	@char Elisa.BASE+BD,BASE+HAIR,BASE/FC>NOSE,BASE/FC/EYES>LOWERED,BASE/FC/MOUTH>HMM
+	Elisa: Hmmph~!
+	Gunther: Heheh~
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/EXTRA>BEARD,BASE/FACE>IDLE,BASE/FX-
+	Gunther: ( She's every bit as her mother is.. )
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/EXTRA>BEARD,BASE/FACE>AH
+	Gunther: Come on now~ Where's your mom at?
+	@char Elisa.BASE+BD,BASE+HAIR,BASE/FC>NOSE,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>UH
+	Elisa: Kitchen I think...
+	Gunther: Okay, run along now. I'll follow in a bit...
+	@char Elisa.BASE+BD,BASE+HAIR,BASE/FC>NOSE,BASE/FC/EYES>LOWERED,BASE/FC/MOUTH>HMM
+	Elisa: Hmmph~!
+	Gunther: I'm not going back to sleep..okay?
+	@char Elisa.BASE+BD,BASE+HAIR,BASE/FC>NOSE,BASE/FC/EYES>LOWERED,BASE/FC/MOUTH>HAH
+	Elisa: You better not!
+	@hide Elisa
+
+	@printer IntroPrinter
+	I watched my daughter rush out of the bedroom,[br]leaving the door wide open clambering along the floorboards.[br][br]It was so tempting to fall back to sleep but knowing Elisa,[br]she’d be back to wake me up in no time.[br][br]I stood up from the bed, [br]trudging towards outside the room to start the day...
+
+	@hide Gunther
+
+	@printer Dialogue
+	@sfx cloth_shuffle
+	@back KITCHEN_DAY
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>AH pos:{g_POS} scale:{g_SCALE}
+	Gunther: What's for breakfast?
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/FACE>EH pos:{g_POS} scale:{g_SCALE}
+	???: We ate it already~
+	Gunther: Eh?!
+	@char Mira.{end_attire_mira},BASE/FACE/EYES>SUSPICIOUS,BASE/FACE/MOUTH>OH look:left pos:50
+	Mira: And what do you mean breakfast!? It's almost lunch!
+	@char Gunther.BASE>HAIR,BASE/BODY>DEFAULT,BASE/EXTRA>BEARD,BASE/FACE>AH,BASE/FX>SWEAT_SING
+	Gunther: Heheh..
+
+	@char Elisa.BASE+BD,BASE+HAIR,BASE/FC>NOSE,BASE/FC/EYES>DEFAULT,BASE/FC/MOUTH>AH pos:35 look:left
+	@char Mira.{end_attire_mira},BASE/FACE/EYES>DEFAULT,BASE/FACE/MOUTH>AH look:left pos:65
+	Elisa: Ma!
+	Elisa: Look what I got for you!
+	Mira: Elisa!
+	Gunther: Elisa, where have you been snooping around?
+	Mira: Elisa! Where on earth have you been? You’re covered in dirt!
+	Elisa: Hehe~
+	Mira: Don’t go tracking mud around!
+	Elisa: I'm gonna put this on our room!
+	Mira: W-wait, Elisa!
+	@hide Elisa
+	@hide Mira
+	; I watched Mira run after our daughter, who looked like she had a run with dirt since I woke up. Shaking my head, I returned my attention back to my food as Mira chides our daughter in the hallway.
+
+	@printer Fullscreen
+	<color=#FFBB53>Happiness</color> might be fleeting[br]and <color=#FFBB53>Life</color> could be brief.[br][br]But we'll forever cherish[br]these moments together..[br][br]At this small humble Inn...[br][br]<color=#FFBB53>The Adelaide Inn</color>..
+	@hide Gunther
+	@back BLANK
+
+	@goto CREDITS
+@stop
